@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TSTNT Docs</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #111118; --border: #1e1e2e;
+    --accent: #7fffb2; --text: #e8e8f0; --muted: #666680; --code-bg: #0d0d15;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; display:flex; min-height:100vh; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 260px; min-height: 100vh; background: var(--surface);
+    border-right: 1px solid var(--border); padding: 24px 0;
+    position: fixed; left: 0; top: 0; overflow-y: auto;
+  }
+  .sidebar-logo {
+    font-family:'Space Mono',monospace; color:var(--accent);
+    font-size:16px; font-weight:700; padding:0 24px 24px;
+    border-bottom:1px solid var(--border); display:block;
+    text-decoration:none;
+  }
+  .sidebar-section { padding:16px 24px 4px; font-size:11px; letter-spacing:0.2em; color:var(--muted); font-family:'Space Mono',monospace; }
+  .sidebar a {
+    display:block; padding:8px 24px; font-size:14px; color:var(--muted);
+    text-decoration:none; transition:color 0.2s, background 0.2s;
+    border-left:2px solid transparent;
+  }
+  .sidebar a:hover { color:var(--text); background:rgba(127,255,178,0.04); }
+  .sidebar a.active { color:var(--accent); border-left-color:var(--accent); background:rgba(127,255,178,0.06); }
+
+  /* Content */
+  .content { margin-left:260px; padding:60px 80px; max-width:900px; flex:1; }
+
+  h1 { font-size:48px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px; }
+  h2 { font-size:28px; font-weight:700; margin:48px 0 16px; padding-top:48px; border-top:1px solid var(--border); }
+  h3 { font-size:20px; font-weight:700; margin:32px 0 12px; color:var(--accent); }
+  p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:16px; }
+  code { font-family:'Space Mono',monospace; font-size:13px; background:rgba(127,255,178,0.06); color:var(--accent); padding:2px 8px; border:1px solid rgba(127,255,178,0.15); }
+  pre { background:var(--code-bg); border:1px solid var(--border); padding:24px; margin:20px 0; overflow-x:auto; font-family:'Space Mono',monospace; font-size:13px; line-height:1.8; }
+  pre .kw{color:#ff7f7f} pre .fn{color:#7fffb2} pre .type{color:#7fb2ff} pre .str{color:#ffcc7f} pre .cm{color:#44445a} pre .num{color:#ff9f7f} pre .op{color:#cc99ff}
+  table { width:100%; border-collapse:collapse; margin:20px 0; font-size:14px; }
+  th { text-align:left; padding:12px 16px; background:var(--surface); border:1px solid var(--border); font-weight:700; font-size:12px; letter-spacing:0.05em; }
+  td { padding:12px 16px; border:1px solid var(--border); color:var(--muted); }
+  td code { font-size:12px; }
+  .tag { display:inline-block; font-family:'Space Mono',monospace; font-size:11px; padding:3px 10px; background:rgba(127,255,178,0.08); color:var(--accent); margin-right:8px; }
+  .note { background:rgba(127,178,255,0.06); border-left:2px solid #7fb2ff; padding:16px 20px; margin:20px 0; font-size:14px; color:var(--text); }
+  .warn { background:rgba(255,200,127,0.06); border-left:2px solid #ffc87f; padding:16px 20px; margin:20px 0; font-size:14px; }
+
+  @media(max-width:768px) {
+    .sidebar { display:none; }
+    .content { margin-left:0; padding:32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <a href="index.html" class="sidebar-logo">← TSTNT</a>
+  <div class="sidebar-section">GETTING STARTED</div>
+  <a href="#install" class="active">Installation</a>
+  <a href="#hello">Hello World</a>
+  <a href="#cli">CLI Reference</a>
+  <div class="sidebar-section">LANGUAGE</div>
+  <a href="#variables">Variables</a>
+  <a href="#functions">Functions</a>
+  <a href="#structs">Structs & Impl</a>
+  <a href="#control">Control Flow</a>
+  <a href="#match">Match</a>
+  <a href="#loops">Loops</a>
+  <a href="#lambdas">Lambdas</a>
+  <a href="#generics">Generics</a>
+  <a href="#optionals">Optional Chaining</a>
+  <a href="#errors">Try/Catch</a>
+  <a href="#tests">Tests</a>
+  <div class="sidebar-section">MODULES</div>
+  <a href="#stdlib">Standard Library</a>
+  <a href="#tg">Telegram</a>
+  <a href="#db">Database</a>
+  <a href="#threads">Threads</a>
+  <div class="sidebar-section">PACKAGES</div>
+  <a href="#pkg">Package Manager</a>
+  <a href="#using-pkg">Using Packages</a>
+</div>
+
+<div class="content">
+  <div class="tag">v0.8.0</div><div class="tag">DOCS</div>
+  <h1>Documentation</h1>
+  <p>Complete reference for the TSTNT programming language.</p>
+
+  <!-- Install -->
+  <h2 id="install">Installation</h2>
+  <h3>Termux (Android)</h3>
+  <pre>pkg install rust git
+git clone https://github.com/tstnt-lang/tstnt
+cd tstnt
+cargo build --release
+cp target/release/tstnt ~/bin/tstnt
+echo 'export PATH=$PATH:~/bin' >> ~/.bashrc</pre>
+
+  <h3>Linux</h3>
+  <pre>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+git clone https://github.com/tstnt-lang/tstnt
+cd tstnt && cargo build --release
+sudo cp target/release/tstnt /usr/local/bin/</pre>
+
+  <h2 id="hello">Hello World</h2>
+  <pre><span class="kw">do</span> <span class="fn">main</span> {
+  <span class="fn">print</span>(<span class="str">"hello world"</span>)
+}</pre>
+  <pre>tstnt hello.tstnt</pre>
+
+  <h2 id="cli">CLI Reference</h2>
+  <table>
+    <tr><th>Command</th><th>Description</th></tr>
+    <tr><td><code>tstnt &lt;file&gt;</code></td><td>Run a .tstnt file</td></tr>
+    <tr><td><code>tstnt repl</code></td><td>Interactive shell</td></tr>
+    <tr><td><code>tstnt test &lt;file&gt;</code></td><td>Run test blocks</td></tr>
+    <tr><td><code>tstnt watch &lt;file&gt;</code></td><td>Auto-restart on file change</td></tr>
+    <tr><td><code>tstnt build &lt;file&gt;</code></td><td>Compile to .tst bytecode</td></tr>
+    <tr><td><code>tstnt transpile &lt;f&gt; py</code></td><td>Transpile to Python</td></tr>
+    <tr><td><code>tstnt transpile &lt;f&gt; js</code></td><td>Transpile to JavaScript</td></tr>
+    <tr><td><code>tstnt fmt &lt;file&gt;</code></td><td>Format code</td></tr>
+    <tr><td><code>tstnt --version</code></td><td>Show version + ASCII art</td></tr>
+    <tr><td><code>tstnt --secret</code></td><td>🐉</td></tr>
+  </table>
+
+  <!-- Variables -->
+  <h2 id="variables">Variables</h2>
+  <pre><span class="cm"># Immutable (default)</span>
+<span class="kw">let</span> x<span class="op">:</span> <span class="type">int</span> <span class="op">=</span> <span class="num">10</span>
+<span class="kw">let</span> name<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"Alice"</span>
+<span class="kw">let</span> flag<span class="op">:</span> <span class="type">bool</span> <span class="op">=</span> <span class="kw">true</span>
+
+<span class="cm"># Mutable</span>
+<span class="kw">let mut</span> count<span class="op">:</span> <span class="type">int</span> <span class="op">=</span> <span class="num">0</span>
+count <span class="op">+=</span> <span class="num">1</span>
+count <span class="op">-=</span> <span class="num">1</span>
+count <span class="op">*=</span> <span class="num">2</span>
+
+<span class="cm"># Multi-assign</span>
+<span class="kw">let</span> (a<span class="op">,</span> b) <span class="op">=</span> (<span class="num">1</span><span class="op">,</span> <span class="num">2</span>)
+
+<span class="cm"># Type inference</span>
+<span class="kw">let</span> arr <span class="op">=</span> [<span class="num">1</span><span class="op">,</span> <span class="num">2</span><span class="op">,</span> <span class="num">3</span>]</pre>
+
+  <table>
+    <tr><th>Type</th><th>Example</th></tr>
+    <tr><td><code>int</code></td><td><code>42</code></td></tr>
+    <tr><td><code>float</code></td><td><code>3.14</code></td></tr>
+    <tr><td><code>str</code></td><td><code>"hello"</code></td></tr>
+    <tr><td><code>bool</code></td><td><code>true</code> / <code>false</code></td></tr>
+    <tr><td><code>[int]</code></td><td><code>[1, 2, 3]</code></td></tr>
+    <tr><td><code>null</code></td><td><code>null</code></td></tr>
+    <tr><td><code>any</code></td><td>any value</td></tr>
+  </table>
+
+  <!-- Functions -->
+  <h2 id="functions">Functions</h2>
+  <pre><span class="kw">do</span> <span class="fn">greet</span>(name<span class="op">:</span> <span class="type">str</span>) <span class="op">-></span> <span class="type">str</span> {
+  <span class="kw">return</span> <span class="str">"Hello, "</span> <span class="op">+</span> name
+}
+
+<span class="cm"># No return type</span>
+<span class="kw">do</span> <span class="fn">log</span>(msg<span class="op">:</span> <span class="type">str</span>) {
+  <span class="fn">print</span>(msg)
+}
+
+<span class="cm"># Async</span>
+<span class="kw">async do</span> <span class="fn">fetch</span>(url<span class="op">:</span> <span class="type">str</span>) <span class="op">-></span> <span class="type">str</span> {
+  <span class="kw">return</span> <span class="kw">await</span> net.<span class="fn">get</span>(url)
+}</pre>
+
+  <!-- Structs -->
+  <h2 id="structs">Structs & Impl</h2>
+  <pre><span class="kw">struct</span> <span class="type">User</span> {
+  name<span class="op">:</span> <span class="type">str</span>
+  age<span class="op">:</span> <span class="type">int</span>
+}
+
+<span class="kw">impl</span> <span class="type">User</span> {
+  <span class="kw">do</span> <span class="fn">greet</span> <span class="op">-></span> <span class="type">str</span> {
+    <span class="kw">return</span> <span class="str">"Hi, I am "</span> <span class="op">+</span> self.name
+  }
+  <span class="kw">do</span> <span class="fn">is_adult</span> <span class="op">-></span> <span class="type">bool</span> {
+    <span class="kw">return</span> self.age <span class="op">>=</span> <span class="num">18</span>
+  }
+}
+
+<span class="kw">let</span> u <span class="op">=</span> <span class="type">User</span> { name<span class="op">:</span> <span class="str">"Alex"</span><span class="op">,</span> age<span class="op">:</span> <span class="num">25</span> }
+<span class="fn">print</span>(u.<span class="fn">greet</span>())</pre>
+
+  <!-- Control Flow -->
+  <h2 id="control">Control Flow</h2>
+  <pre><span class="kw">if</span> x <span class="op">></span> <span class="num">10</span> {
+  <span class="fn">print</span>(<span class="str">"big"</span>)
+} <span class="kw">else</span> {
+  <span class="fn">print</span>(<span class="str">"small"</span>)
+}
+
+<span class="cm"># if as expression</span>
+<span class="kw">let</span> label <span class="op">=</span> <span class="kw">if</span> x <span class="op">></span> <span class="num">0</span> { <span class="str">"positive"</span> } <span class="kw">else</span> { <span class="str">"negative"</span> }
+
+<span class="cm"># ternary</span>
+<span class="kw">let</span> status <span class="op">=</span> age <span class="op">>=</span> <span class="num">18</span> <span class="op">?</span> <span class="str">"adult"</span> <span class="op">:</span> <span class="str">"minor"</span>
+
+<span class="kw">while</span> count <span class="op"><</span> <span class="num">10</span> {
+  count <span class="op">+=</span> <span class="num">1</span>
+}
+
+<span class="kw">repeat</span> <span class="num">5</span> {
+  <span class="fn">print</span>(<span class="str">"hi"</span>)
+}</pre>
+
+  <!-- Match -->
+  <h2 id="match">Match</h2>
+  <pre><span class="kw">match</span> score {
+  <span class="num">100</span>       <span class="op">-></span> <span class="fn">print</span>(<span class="str">"perfect"</span>)
+  <span class="num">80</span>..<span class="num">99</span>    <span class="op">-></span> <span class="fn">print</span>(<span class="str">"great"</span>)
+  <span class="num">60</span>..<span class="num">79</span>    <span class="op">-></span> <span class="fn">print</span>(<span class="str">"ok"</span>)
+  _         <span class="op">-></span> <span class="fn">print</span>(<span class="str">"fail"</span>)
+}
+
+<span class="cm"># Match with guard</span>
+<span class="kw">match</span> n {
+  x <span class="kw">if</span> x <span class="op"><</span> <span class="num">0</span> <span class="op">-></span> <span class="fn">print</span>(<span class="str">"negative"</span>)
+  x <span class="kw">if</span> x <span class="op">></span> <span class="num">0</span> <span class="op">-></span> <span class="fn">print</span>(<span class="str">"positive"</span>)
+  _ <span class="op">-></span> <span class="fn">print</span>(<span class="str">"zero"</span>)
+}</pre>
+
+  <!-- Loops -->
+  <h2 id="loops">Loops</h2>
+  <pre><span class="cm"># Range loop</span>
+<span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span>..<span class="num">10</span> {
+  <span class="fn">print</span>(i)
+}
+
+<span class="cm"># Array loop</span>
+<span class="kw">loop</span> item <span class="kw">in</span> fruits {
+  <span class="fn">print</span>(item)
+}
+
+<span class="cm"># Enumerate (index + value)</span>
+<span class="kw">loop</span> i<span class="op">,</span> item <span class="kw">in</span> fruits {
+  <span class="fn">print</span>(i <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span> item)
+}
+
+<span class="cm"># break / continue</span>
+<span class="kw">loop</span> x <span class="kw">in</span> arr {
+  <span class="kw">if</span> x <span class="op">==</span> <span class="num">0</span> { <span class="kw">continue</span> }
+  <span class="kw">if</span> x <span class="op">></span> <span class="num">10</span> { <span class="kw">break</span> }
+}</pre>
+
+  <!-- Lambdas -->
+  <h2 id="lambdas">Lambdas & Functional</h2>
+  <pre><span class="kw">let</span> double <span class="op">=</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>
+<span class="fn">print</span>(<span class="fn">apply</span>(double<span class="op">,</span> <span class="num">5</span>))  <span class="cm"># 10</span>
+
+<span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span><span class="op">,</span><span class="num">2</span><span class="op">,</span><span class="num">3</span><span class="op">,</span><span class="num">4</span><span class="op">,</span><span class="num">5</span>]
+<span class="kw">let</span> doubled <span class="op">=</span> <span class="fn">map</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>)
+<span class="kw">let</span> evens   <span class="op">=</span> <span class="fn">filter</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>)
+<span class="kw">let</span> total   <span class="op">=</span> <span class="fn">reduce</span>(nums<span class="op">,</span> <span class="op">|</span>acc x<span class="op">|</span> acc <span class="op">+</span> x<span class="op">,</span> <span class="num">0</span>)
+
+<span class="cm"># Pipe operator</span>
+<span class="kw">let</span> result <span class="op">=</span> value <span class="op">|</span> double <span class="op">|</span> str</pre>
+
+  <!-- Generics -->
+  <h2 id="generics">Generics</h2>
+  <pre><span class="kw">do</span> <span class="fn">max_val</span>&lt;<span class="type">T</span>&gt;(a<span class="op">:</span> <span class="type">T</span><span class="op">,</span> b<span class="op">:</span> <span class="type">T</span>) <span class="op">-></span> <span class="type">T</span> {
+  <span class="kw">return</span> a <span class="op">></span> b <span class="op">?</span> a <span class="op">:</span> b
+}
+
+<span class="fn">print</span>(<span class="fn">max_val</span>(<span class="num">3</span><span class="op">,</span> <span class="num">7</span>))         <span class="cm"># 7</span>
+<span class="fn">print</span>(<span class="fn">max_val</span>(<span class="str">"a"</span><span class="op">,</span> <span class="str">"b"</span>))   <span class="cm"># b</span></pre>
+
+  <!-- Optional Chaining -->
+  <h2 id="optionals">Optional Chaining</h2>
+  <pre><span class="cm"># Returns null instead of crashing</span>
+<span class="kw">let</span> name <span class="op">=</span> user<span class="op">?.</span>profile<span class="op">?.</span>name
+<span class="kw">let</span> result <span class="op">=</span> obj<span class="op">?.</span><span class="fn">method</span>()</pre>
+
+  <!-- Try/Catch -->
+  <h2 id="errors">Try / Catch / Throw</h2>
+  <pre><span class="kw">try</span> {
+  <span class="kw">throw</span> <span class="str">"something went wrong"</span>
+} <span class="kw">catch</span> e {
+  <span class="fn">print</span>(<span class="str">"Caught: "</span> <span class="op">+</span> e)
+}</pre>
+
+  <!-- Tests -->
+  <h2 id="tests">Tests</h2>
+  <pre><span class="kw">do</span> <span class="fn">add</span>(a<span class="op">:</span> <span class="type">int</span><span class="op">,</span> b<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> { <span class="kw">return</span> a <span class="op">+</span> b }
+
+<span class="kw">test</span> <span class="fn">addition</span> {
+  <span class="fn">assert_eq</span>(<span class="fn">add</span>(<span class="num">1</span><span class="op">,</span> <span class="num">2</span>)<span class="op">,</span> <span class="num">3</span>)
+  <span class="fn">assert_ne</span>(<span class="fn">add</span>(<span class="num">1</span><span class="op">,</span> <span class="num">1</span>)<span class="op">,</span> <span class="num">3</span>)
+  <span class="fn">assert</span>(<span class="fn">add</span>(<span class="num">5</span><span class="op">,</span> <span class="num">5</span>) <span class="op">></span> <span class="num">9</span>)
+}</pre>
+  <pre>tstnt test myfile.tstnt</pre>
+
+  <!-- Stdlib -->
+  <h2 id="stdlib">Standard Library</h2>
+  <table>
+    <tr><th>Module</th><th>Functions</th></tr>
+    <tr><td><code>io</code></td><td>print, input, read_file, write_file</td></tr>
+    <tr><td><code>math</code></td><td>sqrt, pow, abs, floor, ceil, min, max</td></tr>
+    <tr><td><code>strings</code></td><td>len, split, join, trim, upper, lower, contains, replace</td></tr>
+    <tr><td><code>arr</code></td><td>push, pop, first, last, reverse, contains, slice</td></tr>
+    <tr><td><code>json</code></td><td>parse, stringify</td></tr>
+    <tr><td><code>time</code></td><td>now, sleep</td></tr>
+    <tr><td><code>fs</code></td><td>read, write, append, exists, delete, mkdir, ls, size</td></tr>
+    <tr><td><code>env</code></td><td>get, set, args</td></tr>
+    <tr><td><code>crypto</code></td><td>sha256, md5, base64_encode/decode, hex_encode</td></tr>
+    <tr><td><code>rand</code></td><td>int, float, bool, choice, shuffle</td></tr>
+    <tr><td><code>sys</code></td><td>os, arch, cwd, home, hostname, cpu_count</td></tr>
+    <tr><td><code>db</code></td><td>open, set, get, has, delete, keys, count, incr</td></tr>
+    <tr><td><code>term</code></td><td>red, green, yellow, blue, bold, dim, reset</td></tr>
+    <tr><td><code>tg</code></td><td>token, send, send_keyboard, send_inline, get_updates</td></tr>
+    <tr><td><code>thread</code></td><td>spawn, sleep, mutex_new, mutex_get, mutex_set</td></tr>
+    <tr><td><code>game</code></td><td>set, get, inv_add, inv_list, roll, clamp, lerp</td></tr>
+  </table>
+
+  <!-- Telegram -->
+  <h2 id="tg">Telegram Module</h2>
+  <pre><span class="kw">use</span> tg
+<span class="kw">use</span> thread
+
+<span class="kw">do</span> <span class="fn">main</span> {
+  tg.<span class="fn">token</span>(<span class="str">"YOUR_BOT_TOKEN"</span>)
+  tg.<span class="fn">delete_webhook</span>()
+
+  <span class="kw">let mut</span> offset <span class="op">=</span> <span class="num">0</span>
+  <span class="kw">while</span> <span class="kw">true</span> {
+    <span class="kw">let</span> updates <span class="op">=</span> tg.<span class="fn">get_updates</span>(offset)
+    <span class="kw">loop</span> upd <span class="kw">in</span> updates {
+      offset <span class="op">=</span> upd.update_id <span class="op">+</span> <span class="num">1</span>
+      <span class="kw">if</span> upd.text <span class="op">==</span> <span class="str">"/start"</span> {
+        tg.<span class="fn">send_keyboard</span>(upd.chat_id<span class="op">,</span> <span class="str">"Hello!"</span><span class="op">,</span>
+          [[<span class="str">"Option A"</span><span class="op">,</span> <span class="str">"Option B"</span>]])
+      }
+    }
+    thread.<span class="fn">sleep</span>(<span class="num">500</span>)
+  }
+}</pre>
+
+  <!-- DB -->
+  <h2 id="db">Database Module</h2>
+  <pre><span class="cm"># Open a database (creates file ~/.tstnt/db/myapp.tsdb)</span>
+db.<span class="fn">open</span>(<span class="str">"myapp"</span>)
+db.<span class="fn">set</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1:name"</span><span class="op">,</span> <span class="str">"Alice"</span>)
+db.<span class="fn">set</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1:age"</span><span class="op">,</span> <span class="str">"25"</span>)
+
+<span class="kw">let</span> name <span class="op">=</span> db.<span class="fn">get</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1:name"</span>)
+<span class="fn">print</span>(name)  <span class="cm"># Alice</span>
+
+db.<span class="fn">incr</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"visits"</span>)
+<span class="fn">print</span>(db.<span class="fn">count</span>(<span class="str">"myapp"</span>))</pre>
+
+  <!-- Threads -->
+  <h2 id="threads">Threads</h2>
+  <pre><span class="cm"># Spawn a background thread</span>
+thread.<span class="fn">spawn</span>(<span class="op">||</span> {
+  thread.<span class="fn">sleep</span>(<span class="num">1000</span>)
+  <span class="fn">print</span>(<span class="str">"background done"</span>)
+})
+
+<span class="cm"># Shared mutex</span>
+thread.<span class="fn">mutex_new</span>(<span class="str">"counter"</span><span class="op">,</span> <span class="num">0</span>)
+thread.<span class="fn">mutex_set</span>(<span class="str">"counter"</span><span class="op">,</span> <span class="num">42</span>)
+<span class="kw">let</span> val <span class="op">=</span> thread.<span class="fn">mutex_get</span>(<span class="str">"counter"</span>)</pre>
+
+  <!-- Package Manager -->
+  <h2 id="pkg">Package Manager</h2>
+  <pre>tstnt pkg install logger
+tstnt pkg install colors
+tstnt pkg uninstall logger
+tstnt pkg list
+tstnt pkg search stats</pre>
+
+  <h2 id="using-pkg">Using Packages</h2>
+  <pre><span class="cm"># Single file package</span>
+<span class="kw">use</span> <span class="str">"logger"</span>
+
+<span class="cm"># Multi-file package</span>
+<span class="kw">use</span> <span class="str">"ansi"</span>
+<span class="kw">use</span> <span class="str">"ansi/effects"</span>
+
+<span class="cm"># Local file import</span>
+<span class="kw">use</span> <span class="str">"./utils.tstnt"</span>
+<span class="kw">use</span> <span class="str">"./models/user.tstnt"</span>
+
+<span class="kw">do</span> <span class="fn">main</span> {
+  logger.<span class="fn">info</span>(<span class="str">"App started"</span>)
+  <span class="fn">print</span>(ansi.<span class="fn">rgb</span>(<span class="num">255</span><span class="op">,</span> <span class="num">100</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="str">"Orange text!"</span>))
+  <span class="fn">print</span>(effects.<span class="fn">rainbow</span>(<span class="str">"TSTNT"</span>))
+}</pre>
+
+  <div style="height:80px;"></div>
+</div>
+
+<script>
+// Active sidebar link on scroll
+const sections = document.querySelectorAll('h2[id], h3[id]');
+const links = document.querySelectorAll('.sidebar a[href^="#"]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  links.forEach(l => { l.classList.toggle('active', l.getAttribute('href') === '#'+current); });
+});
+</script>
+</body>
+</html>
