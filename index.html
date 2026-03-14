@@ -19,6 +19,11 @@
     --code-bg: #0d0d15;
   }
 
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
@@ -231,6 +236,8 @@
     border-radius: 50%;
     filter: blur(80px);
     pointer-events: none;
+    max-width: 100vw;
+    overflow: hidden;
   }
   .orb-1 {
     width: 500px; height: 500px;
@@ -276,6 +283,10 @@
     padding: 24px;
     line-height: 1.8;
     overflow-x: auto;
+    white-space: pre;
+    display: block;
+    width: 100%;
+    max-width: 100%;
   }
   .code-body .kw { color: #ff7f7f; }
   .code-body .fn { color: #7fffb2; }
@@ -296,6 +307,7 @@
     background: var(--surface);
     position: relative;
     z-index: 1;
+    width: 100%;
   }
   .stat {
     text-align: center;
@@ -361,10 +373,17 @@
   }
   .feature-card:hover { background: var(--code-bg); }
   .feature-icon {
-    font-size: 28px;
+    width: 40px; height: 40px;
     margin-bottom: 20px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    background: rgba(127,255,178,0.06);
+    border: 1px solid rgba(127,255,178,0.12);
+    flex-shrink: 0;
   }
+  .feature-icon svg { width: 20px; height: 20px; }
   .feature-title {
     font-size: 18px;
     font-weight: 700;
@@ -476,7 +495,6 @@
 
   /* Footer */
   footer {
-    border-top: 1px solid var(--border);
     padding: 48px;
     display: flex;
     justify-content: space-between;
@@ -485,6 +503,7 @@
     z-index: 1;
     max-width: 1100px;
     margin: 0 auto;
+    width: 100%;
   }
   .footer-logo {
     font-family: 'Space Mono', monospace;
@@ -552,22 +571,372 @@
     to { transform: translateX(-50%); }
   }
 
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-mobile-menu {
+    position: fixed;
+    top: 61px;
+    left: 0; right: 0;
+    background: rgba(10,10,15,0.98);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .nav-mobile-menu.open {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: all;
+  }
+  .nav-mobile-menu-inner {
+    padding: 12px 20px 28px;
+  }
+  .nav-mobile-menu li {
+    list-style: none;
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-mobile-menu.open li {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .nav-mobile-menu.open li:nth-child(1) { transition-delay: 0.05s; }
+  .nav-mobile-menu.open li:nth-child(2) { transition-delay: 0.10s; }
+  .nav-mobile-menu.open li:nth-child(3) { transition-delay: 0.15s; }
+  .nav-mobile-menu.open li:nth-child(4) { transition-delay: 0.20s; }
+  .nav-mobile-menu.open li:nth-child(5) { transition-delay: 0.25s; }
+  .nav-mobile-menu.open li:nth-child(6) { transition-delay: 0.30s; }
+
+  .nav-mobile-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .nav-mobile-menu a::after {
+    content: '→';
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    transition: color 0.2s, transform 0.2s;
+  }
+  .nav-mobile-menu a:hover {
+    color: var(--accent);
+    padding-left: 6px;
+  }
+  .nav-mobile-menu a:hover::after {
+    color: var(--accent);
+    transform: translateX(4px);
+  }
+  .nav-mobile-menu a.nav-cta-mobile {
+    margin-top: 20px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-align: center;
+    justify-content: center;
+    padding: 13px 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    background: rgba(127,255,178,0.04);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-mobile-menu a.nav-cta-mobile::after { display: none; }
+  .nav-mobile-menu a.nav-cta-mobile:hover {
+    background: var(--accent);
+    color: var(--bg);
+    padding-left: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+  }
+  @media (max-width: 960px) {
+    .syntax-grid { grid-template-columns: 1fr; }
+    .install-box { grid-template-columns: 1fr; gap: 32px; }
+  }
+
   /* Mobile */
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; }
+    /* Hide custom cursor on touch devices */
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+
+    nav { padding: 16px 20px; }
     .nav-links { display: none; }
-    section { padding: 60px 24px; }
-    .hero { padding: 100px 24px 60px; }
-    .stats-bar { gap: 40px; padding: 24px; flex-wrap: wrap; }
-    .install-box { grid-template-columns: 1fr; }
-    .syntax-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 24px; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .nav-cta { padding: 8px 14px; font-size: 12px; }
+
+    .hero { padding: 100px 20px 60px; }
+    .hero-title { font-size: clamp(52px, 18vw, 90px); }
+    .hero-sub { font-size: 15px; }
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+      text-align: center;
+      padding: 14px 40px;
+      width: auto;
+      min-width: 200px;
+    }
+    .hero-code { margin-top: 48px; max-width: 100%; }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+    .stat {
+      padding: 20px 16px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+    .stat-num { font-size: 24px; }
+
+    section { padding: 60px 20px; }
+
+    .install-box { padding: 24px; }
+
+    .features-grid { grid-template-columns: 1fr; }
+
+    .pkg-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .pkg-card { padding: 14px; }
+
+    footer {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+      padding: 32px 20px;
+    }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
   }
+
+  @media (max-width: 400px) {
+    .pkg-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 52px; }
+  }
+  /* Scanlines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.03) 2px,
+      rgba(0,0,0,0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  /* Particles canvas */
+  #particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glitch effect on hero title */
+  .hero-title {
+    position: relative;
+  }
+  .hero-title.glitch::before,
+  .hero-title.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+  }
+  .hero-title.glitch::before {
+    color: var(--accent2);
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-3px, 0);
+    animation: glitch-top 0.3s steps(1) forwards;
+  }
+  .hero-title.glitch::after {
+    color: var(--accent3);
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(3px, 0);
+    animation: glitch-bot 0.3s steps(1) forwards;
+  }
+  @keyframes glitch-top {
+    0%   { transform: translate(-3px, 0); opacity: 1; }
+    50%  { transform: translate(3px, -2px); opacity: 0.8; }
+    100% { transform: translate(0, 0); opacity: 0; }
+  }
+  @keyframes glitch-bot {
+    0%   { transform: translate(3px, 0); opacity: 1; }
+    50%  { transform: translate(-3px, 2px); opacity: 0.8; }
+    100% { transform: translate(0, 0); opacity: 0; }
+  }
+
+  /* Code block copy button & mac dot interactions */
+  .code-block { position: relative; }
+  .code-header { position: relative; }
+  .code-dot {
+    cursor: pointer;
+    transition: transform 0.15s, filter 0.15s;
+    position: relative;
+  }
+  .code-dot:hover { transform: scale(1.25); filter: brightness(1.3); }
+  .code-dot.red:hover::after  { content: '×'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 8px; color: #900; font-weight: 900; line-height: 1; }
+  .code-dot.yellow:hover::after { content: '–'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 8px; color: #960; font-weight: 900; line-height: 1; }
+  .code-dot.green:hover::after { content: '+'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 8px; color: #060; font-weight: 900; line-height: 1; }
+
+  .copy-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(127,255,178,0.08);
+    border: 1px solid rgba(127,255,178,0.2);
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    opacity: 0;
+  }
+  .code-block:hover .copy-btn { opacity: 1; }
+  .copy-btn:hover { background: rgba(127,255,178,0.15); color: var(--accent); border-color: var(--accent); }
+  .copy-btn.copied { color: var(--accent); border-color: var(--accent); background: rgba(127,255,178,0.12); }
+
+  /* Minimized code block */
+  .code-block.minimized .code-body { display: none; }
+  .code-block.minimized .code-header { border-bottom: none; }
+
+  /* REPL section */
+  .repl-section {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 60px;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+  .repl-header {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(30,30,46,0.5);
+  }
+  .repl-title {
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    margin-left: 8px;
+    flex: 1;
+  }
+  .repl-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    background: rgba(127,255,178,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(127,255,178,0.2);
+    letter-spacing: 0.1em;
+  }
+  .repl-output {
+    padding: 16px 24px;
+    min-height: 80px;
+    max-height: 160px;
+    overflow-y: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    border-bottom: 1px solid var(--border);
+  }
+  .repl-line { display: flex; gap: 8px; margin-bottom: 2px; }
+  .repl-line .prompt { color: var(--accent); flex-shrink: 0; }
+  .repl-line .cmd { color: var(--text); }
+  .repl-line .result { color: var(--muted); padding-left: 16px; }
+  .repl-line .err { color: var(--accent2); padding-left: 16px; }
+  .repl-input-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 10px;
+  }
+  .repl-prompt-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .repl-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    caret-color: var(--accent);
+  }
+  .repl-run {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s;
+  }
+  .repl-run:hover { opacity: 0.85; }
 </style>
-</head>
 <body>
 
+<canvas id="particles"></canvas>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="grid-bg"></div>
@@ -582,7 +951,21 @@
     <li><a href="docs.html">Docs</a></li>
   </ul>
   <a href="https://github.com/tstnt-lang/tstnt" class="nav-cta" target="_blank">GitHub →</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<ul class="nav-mobile-menu" id="mobileMenu">
+  <div class="nav-mobile-menu-inner">
+  <li><a href="#features" class="mobile-link">Features</a></li>
+  <li><a href="#install" class="mobile-link">Install</a></li>
+  <li><a href="#syntax" class="mobile-link">Syntax</a></li>
+  <li><a href="#packages" class="mobile-link">Packages</a></li>
+  <li><a href="docs.html" class="mobile-link">Docs</a></li>
+  <li><a href="https://github.com/tstnt-lang/tstnt" target="_blank" class="nav-cta-mobile">GitHub →</a></li>
+  </div>
+</ul>
 
 <div style="position:relative; z-index:1;">
 
@@ -591,9 +974,9 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <div class="hero-eyebrow">v0.8.0 — Built on Android with Rust</div>
+  <div class="hero-eyebrow">v0.9.0 — Built on Android with Rust</div>
 
-  <h1 class="hero-title">TST<span>NT</span></h1>
+  <h1 class="hero-title" id="heroTitle" data-text="TSTNT">TST<span>NT</span></h1>
 
   <p class="hero-sub">
     A modern, lightweight programming language with clean syntax,
@@ -643,6 +1026,26 @@
       </div>
     </div>
   </div>
+
+  <!-- Interactive REPL -->
+  <div class="repl-section" style="width:100%;max-width:680px;">
+    <div class="repl-header">
+      <div class="code-dot red"></div>
+      <div class="code-dot yellow"></div>
+      <div class="code-dot green"></div>
+      <span class="repl-title">tstnt repl — interactive</span>
+      <span class="repl-badge">LIVE</span>
+    </div>
+    <div class="repl-output" id="replOutput">
+      <div class="repl-line"><span class="result" style="color:var(--accent)">TSTNT v0.9.0 — type code and press Enter or Run ↵</span></div>
+      <div class="repl-line"><span class="result" style="color:var(--muted)">try: print("hello") · let x = 2 + 2 · print(x * 3)</span></div>
+    </div>
+    <div class="repl-input-row">
+      <span class="repl-prompt-label">tstnt&gt;</span>
+      <input class="repl-input" id="replInput" type="text" placeholder='print("hello world")' autocomplete="off" spellcheck="false">
+      <button class="repl-run" id="replRun">RUN ↵</button>
+    </div>
+  </div>
 </div>
 
 <!-- Stats -->
@@ -681,55 +1084,55 @@
 
   <div class="features-grid reveal">
     <div class="feature-card">
-      <span class="feature-icon">⚡</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
       <div class="feature-title">Zero Dependencies</div>
       <div class="feature-desc">The entire runtime compiles to a single binary with no external libraries. Pure Rust under the hood.</div>
       <span class="feature-tag">PORTABLE</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">📦</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
       <div class="feature-title">Package Manager</div>
       <div class="feature-desc">Install 100+ community packages with one command. Packages live on GitHub — transparent and open.</div>
       <span class="feature-tag">PKG INSTALL</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">🔄</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg></span>
       <div class="feature-title">Transpiler</div>
       <div class="feature-desc">Convert TSTNT code to Python or JavaScript automatically. Bridge to existing ecosystems.</div>
       <span class="feature-tag">PY / JS</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">🤖</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-14.5 6.378a2.243 2.243 0 0 0 .095 4.145l4.325 1.696 1.735 4.344a2.243 2.243 0 0 0 4.139.082l6.343-14.5a2.243 2.243 0 0 0-1.115-2.36z"/></svg></span>
       <div class="feature-title">Telegram Built-in</div>
       <div class="feature-desc">First-class Telegram bot API. Write bots in 10 lines. Inline keyboards, callbacks, RPG engines included.</div>
       <span class="feature-tag">TG MODULE</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">🧪</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></span>
       <div class="feature-title">Built-in Testing</div>
       <div class="feature-desc">Write tests directly in your code with <code style="font-family:monospace;color:var(--accent)">test</code> blocks. Run with <code style="font-family:monospace;color:var(--accent)">tstnt test</code>. No frameworks needed.</div>
       <span class="feature-tag">ASSERT_EQ</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">🔍</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
       <div class="feature-title">LSP Support</div>
       <div class="feature-desc">Language Server Protocol for Neovim and VSCode. Autocomplete, hover docs, syntax highlighting included.</div>
       <span class="feature-tag">TSTNT-LSP</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">👁</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></span>
       <div class="feature-title">Watch Mode</div>
       <div class="feature-desc">Auto-restart your script on file change. Perfect for development. No extra tools needed.</div>
       <span class="feature-tag">TSTNT WATCH</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">📱</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
       <div class="feature-title">Android Native</div>
       <div class="feature-desc">Designed and built on Android via Termux. First-class mobile developer experience.</div>
       <span class="feature-tag">TERMUX</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon">🗄</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
       <div class="feature-title">Built-in DB</div>
       <div class="feature-desc">Key-value persistent storage out of the box. No SQLite, no dependencies. Just <code style="font-family:monospace;color:var(--accent)">db.set</code> and <code style="font-family:monospace;color:var(--accent)">db.get</code>.</div>
       <span class="feature-tag">DB MODULE</span>
@@ -794,7 +1197,7 @@
    | |  \__ \  | |  | .` | | |
    |_|  |___/  |_|  |_|\_| |_|
 </span>
-  v0.8.0  <span class="cm">— The TSTNT Language</span>
+  v0.9.0  <span class="cm">— The TSTNT Language</span>
   <span class="cm">github.com/tstnt-lang</span>
 
 <span class="cm">$ tstnt repl</span>
@@ -965,6 +1368,7 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
 </section>
 
 <!-- Footer -->
+<div style="border-top:1px solid var(--border); position:relative; z-index:1;">
 <footer>
   <div class="footer-logo">TSTNT</div>
   <ul class="footer-links">
@@ -972,13 +1376,231 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
     <li><a href="https://github.com/tstnt-lang/packages" target="_blank">Packages</a></li>
     <li><a href="docs.html">Docs</a></li>
   </ul>
-  <div class="footer-copy">v0.8.0 · MIT License</div>
+  <div class="footer-copy">v0.9.0 · MIT License</div>
 </footer>
+</div>
 
 </div>
 
 <script>
-// Custom cursor
+// ── Particles ──────────────────────────────────────────────
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+function resizeCanvas() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    size: Math.random() * 1.5 + 0.3,
+    alpha: Math.random() * 0.4 + 0.1,
+    color: Math.random() > 0.6 ? '127,255,178' : Math.random() > 0.5 ? '127,178,255' : '255,127,127'
+  });
+}
+function drawParticles() {
+  ctx.clearRect(0, 0, W, H);
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+    if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${p.color},${p.alpha})`;
+    ctx.fill();
+  });
+  // Draw connecting lines
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 100) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(127,255,178,${0.06 * (1 - dist/100)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
+
+// ── Glitch on hero title ────────────────────────────────────
+const heroTitle = document.getElementById('heroTitle');
+function triggerGlitch() {
+  heroTitle.classList.add('glitch');
+  setTimeout(() => heroTitle.classList.remove('glitch'), 320);
+}
+// Glitch every 4-8 seconds randomly
+function scheduleGlitch() {
+  setTimeout(() => { triggerGlitch(); scheduleGlitch(); }, 4000 + Math.random() * 4000);
+}
+scheduleGlitch();
+heroTitle.addEventListener('mouseenter', triggerGlitch);
+
+function copyText(text, btn) {
+  const succeed = () => {
+    btn.textContent = 'COPIED ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+  };
+  if (navigator.clipboard && location.protocol !== 'content:') {
+    navigator.clipboard.writeText(text).then(succeed).catch(() => fallbackCopy(text, succeed));
+  } else {
+    fallbackCopy(text, succeed);
+  }
+}
+function fallbackCopy(text, cb) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); cb(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+// ── Copy buttons & Mac dot interactions ─────────────────────
+document.querySelectorAll('.code-block').forEach(block => {
+  const header = block.querySelector('.code-header');
+  const body = block.querySelector('.code-body');
+  if (!header || !body) return;
+
+  const copyBtn = document.createElement('button');
+  copyBtn.className = 'copy-btn';
+  copyBtn.textContent = 'COPY';
+  header.appendChild(copyBtn);
+  copyBtn.addEventListener('click', () => copyText(body.innerText, copyBtn));
+
+  const dots = header.querySelectorAll('.code-dot');
+  const redDot = dots[0], yellowDot = dots[1], greenDot = dots[2];
+
+  if (redDot) redDot.addEventListener('click', () => {
+    block.classList.toggle('minimized');
+    redDot.style.background = block.classList.contains('minimized') ? '#ff3b30' : '';
+  });
+  if (yellowDot) yellowDot.addEventListener('click', () => {
+    body.style.opacity = body.style.opacity === '0.3' ? '1' : '0.3';
+  });
+  if (greenDot) greenDot.addEventListener('click', () => {
+    block.style.maxWidth = block.style.maxWidth === '100vw' ? '' : '100vw';
+    block.style.zIndex = block.style.zIndex === '50' ? '' : '50';
+  });
+});
+
+// ── Interactive REPL ────────────────────────────────────────
+const replOutput = document.getElementById('replOutput');
+const replInput = document.getElementById('replInput');
+const replRun = document.getElementById('replRun');
+const replVars = {};
+const replHistory = [];
+let replHistIdx = -1;
+
+function replEval(code) {
+  code = code.trim();
+  if (!code) return null;
+
+  // print(...)
+  const printMatch = code.match(/^print\((.+)\)$/);
+  if (printMatch) {
+    const val = replResolve(printMatch[1].trim());
+    return { out: String(val) };
+  }
+  // let x = expr
+  const letMatch = code.match(/^let(?:\s+mut)?\s+(\w+)\s*=\s*(.+)$/);
+  if (letMatch) {
+    const val = replResolve(letMatch[2].trim());
+    replVars[letMatch[1]] = val;
+    return { out: `${letMatch[1]} = ${JSON.stringify(val)}` };
+  }
+  // bare expression
+  const val = replResolve(code);
+  if (val !== undefined) return { out: String(val) };
+  return { err: `unknown expression: ${code}` };
+}
+
+function replResolve(expr) {
+  expr = expr.trim();
+  // string literal
+  if (/^".*"$/.test(expr)) return expr.slice(1,-1);
+  // number
+  if (/^-?\d+(\.\d+)?$/.test(expr)) return parseFloat(expr);
+  // bool
+  if (expr === 'true') return true;
+  if (expr === 'false') return false;
+  // null
+  if (expr === 'null') return null;
+  // variable
+  if (/^\w+$/.test(expr) && expr in replVars) return replVars[expr];
+  // array
+  if (/^\[.*\]$/.test(expr)) {
+    try {
+      return JSON.parse(expr.replace(/'/g, '"'));
+    } catch { return expr; }
+  }
+  // arithmetic with safe eval
+  try {
+    const safe = expr.replace(/\b([a-zA-Z_]\w*)\b/g, (m) => m in replVars ? JSON.stringify(replVars[m]) : m);
+    // eslint-disable-next-line no-new-func
+    const result = Function('"use strict"; return (' + safe + ')')();
+    if (result !== undefined) return result;
+  } catch {}
+  // str(x)
+  const strMatch = expr.match(/^str\((.+)\)$/);
+  if (strMatch) return String(replResolve(strMatch[1]));
+  return undefined;
+}
+
+function replAddLine(prompt, cmd, result, isErr) {
+  const line1 = document.createElement('div');
+  line1.className = 'repl-line';
+  line1.innerHTML = `<span class="prompt">${prompt}</span><span class="cmd">${cmd}</span>`;
+  replOutput.appendChild(line1);
+  if (result !== null && result !== undefined) {
+    const line2 = document.createElement('div');
+    line2.className = 'repl-line';
+    line2.innerHTML = `<span class="${isErr ? 'err' : 'result'}">${result}</span>`;
+    replOutput.appendChild(line2);
+  }
+  replOutput.scrollTop = replOutput.scrollHeight;
+}
+
+function runRepl() {
+  const code = replInput.value.trim();
+  if (!code) return;
+  replHistory.unshift(code);
+  replHistIdx = -1;
+  const res = replEval(code);
+  if (res) {
+    replAddLine('tstnt>', code, res.out ?? null, !!res.err);
+    if (res.err) replAddLine('', '', res.err, true);
+  } else {
+    replAddLine('tstnt>', code, null);
+  }
+  replInput.value = '';
+}
+
+replRun.addEventListener('click', runRepl);
+replInput.addEventListener('keydown', e => {
+  if (e.key === 'Enter') { runRepl(); return; }
+  if (e.key === 'ArrowUp') {
+    replHistIdx = Math.min(replHistIdx + 1, replHistory.length - 1);
+    replInput.value = replHistory[replHistIdx] || '';
+  }
+  if (e.key === 'ArrowDown') {
+    replHistIdx = Math.max(replHistIdx - 1, -1);
+    replInput.value = replHistIdx >= 0 ? replHistory[replHistIdx] : '';
+  }
+});
+
+// ── Custom cursor ───────────────────────────────────────────
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
@@ -990,11 +1612,39 @@ document.querySelectorAll('a, button, .pkg-card, .feature-card').forEach(el => {
   el.addEventListener('mouseleave', () => { ring.style.width='32px'; ring.style.height='32px'; cursor.style.transform='translate(-50%,-50%) scale(1)'; });
 });
 
-// Nav scroll
+// ── Hamburger menu ──────────────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// ── Smooth scroll ───────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    const offset = 70;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+// ── Nav scroll ──────────────────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 50); });
 
-// Reveal on scroll
+// ── Reveal on scroll ────────────────────────────────────────
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
