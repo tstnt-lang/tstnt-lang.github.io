@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSTNT Docs</title>
+<title>TSTNT Docs — v1.0.0</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=">
+<meta name="description" content="Complete documentation for the TSTNT programming language — v1.0.0.">
+<meta property="og:title" content="TSTNT Docs — v1.0.0">
+<meta property="og:description" content="Complete reference for TSTNT — variables, functions, structs, stdlib, packages and more.">
+<meta property="og:image" content="https://tstnt-lang.github.io/og-docs.png">
+<meta property="og:url" content="https://tstnt-lang.github.io/docs.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TSTNT Docs">
+<meta name="twitter:image" content="https://tstnt-lang.github.io/og-docs.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -188,7 +198,7 @@
 <div class="progress-bar" id="progressBar"></div>
 
 <div class="mobile-nav">
-  <a href="index.html" class="mobile-nav-logo">← TSTNT</a>
+  <a href="index.html" class="mobile-nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=" style="width:22px;height:22px;vertical-align:middle;margin-right:7px;">← TSTNT</a>
   <button class="mobile-nav-btn" id="docsHamburger"><span></span><span></span><span></span></button>
 </div>
 
@@ -202,38 +212,46 @@
   <div class="search-results-list" id="drawerResults" style="display:none;"></div>
   <div id="drawerNav">
   <div class="sidebar-section">GETTING STARTED</div>
-  <a href="#v9">v0.9.0 New</a>
+  <a href="#v10">v1.0.0 New</a>
   <a href="#install" class="drawer-link">Installation</a>
   <a href="#hello" class="drawer-link">Hello World</a>
   <a href="#cli" class="drawer-link">CLI Reference</a>
   <div class="sidebar-section">LANGUAGE</div>
   <a href="#variables" class="drawer-link">Variables</a>
   <a href="#functions" class="drawer-link">Functions</a>
+  <a href="#decorators" class="drawer-link">Decorators</a>
   <a href="#structs" class="drawer-link">Structs &amp; Impl</a>
   <a href="#control" class="drawer-link">Control Flow</a>
   <a href="#match" class="drawer-link">Match</a>
   <a href="#loops" class="drawer-link">Loops</a>
   <a href="#lambdas" class="drawer-link">Lambdas</a>
+  <a href="#builtins" class="drawer-link">New Builtins</a>
   <a href="#generics" class="drawer-link">Generics</a>
   <a href="#optionals" class="drawer-link">Optional Chaining</a>
   <a href="#errors" class="drawer-link">Try/Catch</a>
   <a href="#tests" class="drawer-link">Tests</a>
   <div class="sidebar-section">MODULES</div>
   <a href="#stdlib" class="drawer-link">Standard Library</a>
+  <a href="#sql" class="drawer-link">SQL Module</a>
+  <a href="#server" class="drawer-link">HTTP Server</a>
+  <a href="#tui2" class="drawer-link">TUI2</a>
+  <a href="#result" class="drawer-link">Result Module</a>
+  <a href="#fmt2" class="drawer-link">Fmt2</a>
   <a href="#tg" class="drawer-link">Telegram</a>
   <a href="#db" class="drawer-link">Database</a>
   <a href="#threads" class="drawer-link">Threads</a>
   <div class="sidebar-section">PACKAGES</div>
   <a href="#pkg" class="drawer-link">Package Manager</a>
   <a href="#using-pkg" class="drawer-link">Using Packages</a>
+  <a href="#new-pkg" class="drawer-link">New Packages v1.0</a>
   </div>
 </div>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
 <div class="sidebar">
   <div class="sidebar-top">
-    <a href="index.html" class="sidebar-logo">← TSTNT</a>
-    <span class="sidebar-version">v0.9.0</span>
+    <a href="index.html" class="sidebar-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=" style="width:22px;height:22px;vertical-align:middle;margin-right:7px;">← TSTNT</a>
+    <span class="sidebar-version">v1.0.0</span>
   </div>
   <div class="search-wrap">
     <input class="search-input" id="sidebarSearch" placeholder="Search docs..." autocomplete="off">
@@ -241,87 +259,95 @@
   <div class="search-results-list" id="searchResults" style="display:none;"></div>
   <div id="sidebarNav">
     <div class="sidebar-section">GETTING STARTED</div>
-    <a href="#v9">v0.9.0 New</a>
-  <a href="#install" class="active">Installation</a>
+    <a href="#v10">v1.0.0 New</a>
+    <a href="#install" class="active">Installation</a>
     <a href="#hello">Hello World</a>
     <a href="#cli">CLI Reference</a>
     <div class="sidebar-section">LANGUAGE</div>
     <a href="#variables">Variables</a>
     <a href="#functions">Functions</a>
+    <a href="#decorators">Decorators</a>
     <a href="#structs">Structs &amp; Impl</a>
     <a href="#control">Control Flow</a>
     <a href="#match">Match</a>
     <a href="#loops">Loops</a>
     <a href="#lambdas">Lambdas</a>
+    <a href="#builtins">New Builtins</a>
     <a href="#generics">Generics</a>
     <a href="#optionals">Optional Chaining</a>
     <a href="#errors">Try/Catch</a>
     <a href="#tests">Tests</a>
     <div class="sidebar-section">MODULES</div>
     <a href="#stdlib">Standard Library</a>
+    <a href="#sql">SQL Module</a>
+    <a href="#server">HTTP Server</a>
+    <a href="#tui2">TUI2</a>
+    <a href="#result">Result Module</a>
+    <a href="#fmt2">Fmt2</a>
     <a href="#tg">Telegram</a>
     <a href="#db">Database</a>
     <a href="#threads">Threads</a>
     <div class="sidebar-section">PACKAGES</div>
     <a href="#pkg">Package Manager</a>
     <a href="#using-pkg">Using Packages</a>
+    <a href="#new-pkg">New Packages v1.0</a>
   </div>
 </div>
 
 <div class="content">
-  <div class="tag">v0.9.0</div><div class="tag">DOCS</div>
+  <div class="tag">v1.0.0</div><div class="tag">DOCS</div>
   <h1>Documentation</h1>
-  <p>Complete reference for the TSTNT programming language.</p>
+  <p>Complete reference for the TSTNT programming language — v1.0.0.</p>
 
-    <h2 id="v9">v0.9.0 — What's New</h2>
+  <h2 id="v10">v1.0.0 — What's New</h2>
+  <p>Version 1.0 brings real decorator logic, new stdlib modules, 20+ new packages, and many new builtin functions.</p>
 
-  <h3>tstnt new &lt;project&gt;</h3>
-  <pre>tstnt new myproject
-# Creates:
-# myproject/
-# ├── src/main.tstnt
-# ├── tests/test.tstnt
-# ├── pkg.json
-# └── README.md</pre>
-
-  <h3>Decorators</h3>
+  <h3>@cache — real memoization</h3>
   <pre><span class="kw">@cache</span>
-<span class="kw">do</span> <span class="fn">expensive</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> { <span class="kw">return</span> n <span class="op">*</span> n <span class="op">*</span> n }
+<span class="kw">do</span> <span class="fn">fib</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> {
+  <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="num">1</span> { <span class="kw">return</span> n }
+  <span class="kw">return</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">1</span>) <span class="op">+</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">2</span>)
+}
+<span class="cm"># fib(40) called once — subsequent calls use cache</span></pre>
 
-<span class="kw">@timer</span>
-<span class="kw">do</span> <span class="fn">slow_func</span>() { }
+  <h3>@timer — real timing</h3>
+  <pre><span class="kw">@timer</span>
+<span class="kw">do</span> <span class="fn">slow_work</span>() {
+  thread.<span class="fn">sleep</span>(<span class="num">200</span>)
+}
+<span class="fn">slow_work</span>()
+<span class="cm"># @timer: slow_work() took 201ms</span></pre>
 
-<span class="kw">@deprecated</span>
-<span class="kw">do</span> <span class="fn">old_api</span>() { }</pre>
+  <h3>@deprecated — warning on call</h3>
+  <pre><span class="kw">@deprecated</span>
+<span class="kw">do</span> <span class="fn">old_api</span>() { }
+<span class="fn">old_api</span>()
+<span class="cm"># warning: 'old_api' is deprecated</span></pre>
 
-  <h3>Pickle — persist any value</h3>
-  <pre><span class="kw">use</span> pickle
+  <h3>New stdlib modules</h3>
+  <div class="note">
+    <strong>sql</strong> — flat-file relational tables &nbsp;·&nbsp;
+    <strong>server</strong> — HTTP server &nbsp;·&nbsp;
+    <strong>tui2</strong> — full TUI framework &nbsp;·&nbsp;
+    <strong>result</strong> — Result/Option types &nbsp;·&nbsp;
+    <strong>fmt2</strong> — formatting utilities
+  </div>
 
-pickle.<span class="fn">save</span>(<span class="str">"state"</span><span class="op">,</span> player)
-<span class="kw">let</span> loaded <span class="op">=</span> pickle.<span class="fn">load</span>(<span class="str">"state"</span>)
-<span class="fn">print</span>(pickle.<span class="fn">list</span>())</pre>
+  <h3>New builtin functions</h3>
+  <pre><span class="fn">find</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">3</span>)          <span class="cm"># first match or null</span>
+<span class="fn">every</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">0</span>)         <span class="cm"># true if all match</span>
+<span class="fn">any</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">==</span> <span class="num">0</span>)          <span class="cm"># true if any match</span>
+<span class="fn">flat_map</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> [x<span class="op">,</span> x<span class="op">*</span><span class="num">2</span>])   <span class="cm"># map + flatten</span>
+<span class="fn">count_where</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">2</span>)   <span class="cm"># count matching</span>
+<span class="fn">take</span>(arr<span class="op">,</span> <span class="num">3</span>)                    <span class="cm"># first 3 elements</span>
+<span class="fn">drop</span>(arr<span class="op">,</span> <span class="num">2</span>)                    <span class="cm"># skip first 2</span>
+<span class="fn">chunks</span>(arr<span class="op">,</span> <span class="num">3</span>)                  <span class="cm"># split into chunks of 3</span>
+<span class="fn">concat</span>(a<span class="op">,</span> b<span class="op">,</span> c)                 <span class="cm"># merge arrays</span>
+<span class="fn">index_of</span>(arr<span class="op">,</span> val)              <span class="cm"># -1 if not found</span>
+<span class="fn">slice</span>(arr<span class="op">,</span> <span class="num">1</span><span class="op">,</span> <span class="num">4</span>)                 <span class="cm"># arr[1..4]</span>
+<span class="fn">sprintf</span>(<span class="str">"Hello {}"</span><span class="op">,</span> name)        <span class="cm"># template fill</span></pre>
 
-  <h3>HashMap &amp; Set</h3>
-  <pre><span class="kw">use</span> hashmap
-<span class="kw">use</span> set
-
-<span class="kw">let mut</span> m <span class="op">=</span> hashmap.<span class="fn">new</span>()
-m <span class="op">=</span> hashmap.<span class="fn">set</span>(m<span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Alice"</span>)
-<span class="fn">print</span>(hashmap.<span class="fn">get</span>(m<span class="op">,</span> <span class="str">"name"</span>))
-
-<span class="kw">let mut</span> s <span class="op">=</span> set.<span class="fn">from</span>([<span class="num">1</span><span class="op">,</span><span class="num">2</span><span class="op">,</span><span class="num">3</span><span class="op">,</span><span class="num">2</span><span class="op">,</span><span class="num">1</span>])
-<span class="cm"># s = [1, 2, 3] — deduped</span>
-<span class="fn">print</span>(set.<span class="fn">union</span>(s<span class="op">,</span> [<span class="num">4</span><span class="op">,</span><span class="num">5</span>]))</pre>
-
-  <h3>New built-in functions</h3>
-  <pre><span class="fn">default</span>(null<span class="op">,</span> <span class="str">"fallback"</span>)    <span class="cm"># "fallback"</span>
-<span class="fn">not_null</span>(<span class="num">42</span>)                  <span class="cm"># true</span>
-<span class="fn">coalesce</span>(null<span class="op">,</span> null<span class="op">,</span> <span class="str">"ok"</span>)  <span class="cm"># "ok"</span>
-<span class="fn">clamp</span>(<span class="num">150</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="num">100</span>)            <span class="cm"># 100</span>
-<span class="fn">repeat_str</span>(<span class="str">"ab"</span><span class="op">,</span> <span class="num">3</span>)          <span class="cm"># "ababab"</span>
-<span class="fn">tap</span>(value)                     <span class="cm"># prints &amp; returns</span></pre>
-
-<h2 id="install">Installation</h2>
+  <h2 id="install">Installation</h2>
   <h3>Termux (Android)</h3>
   <pre>pkg install rust git
 git clone https://github.com/tstnt-lang/tstnt
@@ -330,7 +356,7 @@ cargo build --release
 cp target/release/tstnt ~/bin/tstnt
 echo 'export PATH=$PATH:~/bin' >> ~/.bashrc</pre>
 
-  <h3>Linux</h3>
+  <h3>Linux / macOS</h3>
   <pre>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone https://github.com/tstnt-lang/tstnt
 cd tstnt &amp;&amp; cargo build --release
@@ -347,12 +373,16 @@ sudo cp target/release/tstnt /usr/local/bin/</pre>
     <tr><th>Command</th><th>Description</th></tr>
     <tr><td><code>tstnt &lt;file&gt;</code></td><td>Run a .tstnt file</td></tr>
     <tr><td><code>tstnt repl</code></td><td>Interactive shell</td></tr>
+    <tr><td><code>tstnt new &lt;name&gt;</code></td><td>Scaffold new project</td></tr>
     <tr><td><code>tstnt test &lt;file&gt;</code></td><td>Run test blocks</td></tr>
     <tr><td><code>tstnt watch &lt;file&gt;</code></td><td>Auto-restart on file change</td></tr>
     <tr><td><code>tstnt build &lt;file&gt;</code></td><td>Compile to .tst bytecode</td></tr>
+    <tr><td><code>tstnt run &lt;file.tst&gt;</code></td><td>Run bytecode</td></tr>
     <tr><td><code>tstnt transpile &lt;f&gt; py</code></td><td>Transpile to Python</td></tr>
     <tr><td><code>tstnt transpile &lt;f&gt; js</code></td><td>Transpile to JavaScript</td></tr>
     <tr><td><code>tstnt fmt &lt;file&gt;</code></td><td>Format code</td></tr>
+    <tr><td><code>tstnt pkg install &lt;n&gt;</code></td><td>Install package</td></tr>
+    <tr><td><code>tstnt pkg search [q]</code></td><td>Browse 140+ packages</td></tr>
     <tr><td><code>tstnt --version</code></td><td>Show version + ASCII art</td></tr>
     <tr><td><code>tstnt --secret</code></td><td>🐉</td></tr>
   </table>
@@ -372,8 +402,8 @@ count <span class="op">*=</span> <span class="num">2</span>
 <span class="cm"># Multi-assign</span>
 <span class="kw">let</span> (a<span class="op">,</span> b) <span class="op">=</span> (<span class="num">1</span><span class="op">,</span> <span class="num">2</span>)
 
-<span class="cm"># Type inference</span>
-<span class="kw">let</span> arr <span class="op">=</span> [<span class="num">1</span><span class="op">,</span> <span class="num">2</span><span class="op">,</span> <span class="num">3</span>]</pre>
+<span class="cm"># Spread</span>
+<span class="kw">let</span> merged <span class="op">=</span> [<span class="num">0</span><span class="op">,</span> <span class="op">...</span>arr<span class="op">,</span> <span class="num">99</span>]</pre>
 
   <table>
     <tr><th>Type</th><th>Example</th></tr>
@@ -401,6 +431,29 @@ count <span class="op">*=</span> <span class="num">2</span>
   <span class="kw">return</span> <span class="kw">await</span> net.<span class="fn">get</span>(url)
 }</pre>
 
+  <h2 id="decorators">Decorators</h2>
+  <p>Decorators modify function behaviour. TSTNT v1.0 has three built-in decorators with real logic.</p>
+  <pre><span class="cm"># @cache — memoize by argument values</span>
+<span class="kw">@cache</span>
+<span class="kw">do</span> <span class="fn">expensive</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> {
+  thread.<span class="fn">sleep</span>(<span class="num">100</span>)
+  <span class="kw">return</span> n <span class="op">*</span> n
+}
+<span class="fn">expensive</span>(<span class="num">5</span>)  <span class="cm"># computes, stores in cache</span>
+<span class="fn">expensive</span>(<span class="num">5</span>)  <span class="cm"># returns from cache instantly</span>
+
+<span class="cm"># @timer — prints elapsed time after call</span>
+<span class="kw">@timer</span>
+<span class="kw">do</span> <span class="fn">render</span>() {
+  <span class="cm"># ...</span>
+}
+<span class="fn">render</span>()  <span class="cm"># @timer: render() took 12ms</span>
+
+<span class="cm"># @deprecated — prints warning on call</span>
+<span class="kw">@deprecated</span>
+<span class="kw">do</span> <span class="fn">legacy_parse</span>(s<span class="op">:</span> <span class="type">str</span>) { }
+<span class="fn">legacy_parse</span>(<span class="str">"x"</span>)  <span class="cm"># warning: 'legacy_parse' is deprecated</span></pre>
+
   <h2 id="structs">Structs &amp; Impl</h2>
   <pre><span class="kw">struct</span> <span class="type">User</span> {
   name<span class="op">:</span> <span class="type">str</span>
@@ -426,19 +479,12 @@ count <span class="op">*=</span> <span class="num">2</span>
   <span class="fn">print</span>(<span class="str">"small"</span>)
 }
 
-<span class="cm"># if as expression</span>
-<span class="kw">let</span> label <span class="op">=</span> <span class="kw">if</span> x <span class="op">></span> <span class="num">0</span> { <span class="str">"positive"</span> } <span class="kw">else</span> { <span class="str">"negative"</span> }
-
 <span class="cm"># ternary</span>
 <span class="kw">let</span> status <span class="op">=</span> age <span class="op">>=</span> <span class="num">18</span> <span class="op">?</span> <span class="str">"adult"</span> <span class="op">:</span> <span class="str">"minor"</span>
 
-<span class="kw">while</span> count <span class="op">&lt;</span> <span class="num">10</span> {
-  count <span class="op">+=</span> <span class="num">1</span>
-}
+<span class="kw">while</span> count <span class="op">&lt;</span> <span class="num">10</span> { count <span class="op">+=</span> <span class="num">1</span> }
 
-<span class="kw">repeat</span> <span class="num">5</span> {
-  <span class="fn">print</span>(<span class="str">"hi"</span>)
-}</pre>
+<span class="kw">repeat</span> <span class="num">5</span> { <span class="fn">print</span>(<span class="str">"hi"</span>) }</pre>
 
   <h2 id="match">Match</h2>
   <pre><span class="kw">match</span> score {
@@ -456,19 +502,15 @@ count <span class="op">*=</span> <span class="num">2</span>
 }</pre>
 
   <h2 id="loops">Loops</h2>
-  <pre><span class="cm"># Range loop</span>
-<span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span>..<span class="num">10</span> {
-  <span class="fn">print</span>(i)
-}
+  <pre><span class="cm"># Range</span>
+<span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span>..<span class="num">10</span> { <span class="fn">print</span>(i) }
 
-<span class="cm"># Array loop</span>
-<span class="kw">loop</span> item <span class="kw">in</span> fruits {
-  <span class="fn">print</span>(item)
-}
+<span class="cm"># Array</span>
+<span class="kw">loop</span> item <span class="kw">in</span> fruits { <span class="fn">print</span>(item) }
 
 <span class="cm"># Enumerate</span>
 <span class="kw">loop</span> i<span class="op">,</span> item <span class="kw">in</span> fruits {
-  <span class="fn">print</span>(i <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span> item)
+  <span class="fn">print</span>(<span class="fn">str</span>(i) <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span> item)
 }
 
 <span class="cm"># break / continue</span>
@@ -479,21 +521,41 @@ count <span class="op">*=</span> <span class="num">2</span>
 
   <h2 id="lambdas">Lambdas &amp; Functional</h2>
   <pre><span class="kw">let</span> double <span class="op">=</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>
-<span class="fn">print</span>(<span class="fn">apply</span>(double<span class="op">,</span> <span class="num">5</span>))  <span class="cm"># 10</span>
 
 <span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span><span class="op">,</span><span class="num">2</span><span class="op">,</span><span class="num">3</span><span class="op">,</span><span class="num">4</span><span class="op">,</span><span class="num">5</span>]
-<span class="kw">let</span> doubled <span class="op">=</span> <span class="fn">map</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>)
-<span class="kw">let</span> evens   <span class="op">=</span> <span class="fn">filter</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>)
-<span class="kw">let</span> total   <span class="op">=</span> <span class="fn">reduce</span>(nums<span class="op">,</span> <span class="op">|</span>acc x<span class="op">|</span> acc <span class="op">+</span> x<span class="op">,</span> <span class="num">0</span>)
+<span class="kw">let</span> doubled  <span class="op">=</span> <span class="fn">map</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>)
+<span class="kw">let</span> evens    <span class="op">=</span> <span class="fn">filter</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>)
+<span class="kw">let</span> total    <span class="op">=</span> <span class="fn">reduce</span>(nums<span class="op">,</span> <span class="op">|</span>acc x<span class="op">|</span> acc <span class="op">+</span> x<span class="op">,</span> <span class="num">0</span>)
+<span class="kw">let</span> first    <span class="op">=</span> <span class="fn">find</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">3</span>)
+<span class="kw">let</span> ok       <span class="op">=</span> <span class="fn">every</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">0</span>)
+<span class="kw">let</span> has_zero <span class="op">=</span> <span class="fn">any</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">==</span> <span class="num">0</span>)
+<span class="kw">let</span> pairs    <span class="op">=</span> <span class="fn">flat_map</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> [x<span class="op">,</span> x<span class="op">*</span><span class="num">2</span>])
 
 <span class="cm"># Pipe operator</span>
 <span class="kw">let</span> result <span class="op">=</span> value <span class="op">|</span> double <span class="op">|</span> str</pre>
+
+  <h2 id="builtins">New Builtin Functions (v1.0)</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td><code>find(arr, lambda)</code></td><td>First element matching predicate, or null</td></tr>
+    <tr><td><code>every(arr, lambda)</code></td><td>True if all elements match</td></tr>
+    <tr><td><code>any(arr, lambda)</code></td><td>True if at least one matches</td></tr>
+    <tr><td><code>flat_map(arr, lambda)</code></td><td>Map then flatten one level</td></tr>
+    <tr><td><code>count_where(arr, lambda)</code></td><td>Count elements matching predicate</td></tr>
+    <tr><td><code>take(arr, n)</code></td><td>First n elements</td></tr>
+    <tr><td><code>drop(arr, n)</code></td><td>Skip first n elements</td></tr>
+    <tr><td><code>chunks(arr, size)</code></td><td>Split array into chunks</td></tr>
+    <tr><td><code>concat(a, b, ...)</code></td><td>Merge multiple arrays</td></tr>
+    <tr><td><code>reverse(arr)</code></td><td>Reverse array or string</td></tr>
+    <tr><td><code>index_of(arr, val)</code></td><td>Index of value, -1 if not found</td></tr>
+    <tr><td><code>slice(arr, from, to)</code></td><td>Sub-array or sub-string</td></tr>
+    <tr><td><code>sprintf(tmpl, ...)</code></td><td>Fill template with values</td></tr>
+  </table>
 
   <h2 id="generics">Generics</h2>
   <pre><span class="kw">do</span> <span class="fn">max_val</span>&lt;<span class="type">T</span>&gt;(a<span class="op">:</span> <span class="type">T</span><span class="op">,</span> b<span class="op">:</span> <span class="type">T</span>) <span class="op">-></span> <span class="type">T</span> {
   <span class="kw">return</span> a <span class="op">></span> b <span class="op">?</span> a <span class="op">:</span> b
 }
-
 <span class="fn">print</span>(<span class="fn">max_val</span>(<span class="num">3</span><span class="op">,</span> <span class="num">7</span>))        <span class="cm"># 7</span>
 <span class="fn">print</span>(<span class="fn">max_val</span>(<span class="str">"a"</span><span class="op">,</span> <span class="str">"b"</span>))  <span class="cm"># b</span></pre>
 
@@ -517,28 +579,145 @@ count <span class="op">*=</span> <span class="num">2</span>
   <span class="fn">assert_ne</span>(<span class="fn">add</span>(<span class="num">1</span><span class="op">,</span> <span class="num">1</span>)<span class="op">,</span> <span class="num">3</span>)
   <span class="fn">assert</span>(<span class="fn">add</span>(<span class="num">5</span><span class="op">,</span> <span class="num">5</span>) <span class="op">></span> <span class="num">9</span>)
 }</pre>
-  <pre>tstnt test myfile.tstnt</pre>
+  <pre>tstnt test myfile.tstnt
+<span class="cm"># ✓ addition
+# 1/1 passed</span></pre>
 
   <h2 id="stdlib">Standard Library</h2>
   <table>
     <tr><th>Module</th><th>Functions</th></tr>
     <tr><td><code>io</code></td><td>print, input, read_file, write_file</td></tr>
-    <tr><td><code>math</code></td><td>sqrt, pow, abs, floor, ceil, min, max</td></tr>
-    <tr><td><code>strings</code></td><td>len, split, join, trim, upper, lower, contains, replace</td></tr>
-    <tr><td><code>arr</code></td><td>push, pop, first, last, reverse, contains, slice</td></tr>
+    <tr><td><code>math</code></td><td>sqrt, pow, abs, floor, ceil, min, max, round, sign, trunc, sum, avg</td></tr>
+    <tr><td><code>math2</code></td><td>sin, cos, tan, atan2, log, log2, log10, exp, pi, tau, hypot, round</td></tr>
+    <tr><td><code>math3</code></td><td>factorial, fib, gcd, lcm, is_prime, clamp, lerp, map_range</td></tr>
+    <tr><td><code>strings</code></td><td>len, split, join, trim, upper, lower, contains, replace, repeat, reverse, pad_left, pad_right, title, snake, camel, count, index_of, slice</td></tr>
+    <tr><td><code>arr</code></td><td>push, pop, first, last, reverse, contains, sort, join, slice, flatten, index_of, unique, count</td></tr>
+    <tr><td><code>arr2</code></td><td>zip, flatten, chunk, take, drop, count, index_of, rotate, dedupe</td></tr>
+    <tr><td><code>str2</code></td><td>chars, bytes, is_alpha, is_digit, reverse, count, index_of, slice</td></tr>
     <tr><td><code>json</code></td><td>parse, stringify</td></tr>
+    <tr><td><code>json2</code></td><td>pretty, merge, get_path</td></tr>
+    <tr><td><code>fs</code></td><td>read, write, append, exists, delete, mkdir, ls, size, is_dir, is_file</td></tr>
     <tr><td><code>time</code></td><td>now, sleep</td></tr>
-    <tr><td><code>fs</code></td><td>read, write, append, exists, delete, mkdir, ls, size</td></tr>
     <tr><td><code>env</code></td><td>get, set, args</td></tr>
-    <tr><td><code>crypto</code></td><td>sha256, md5, base64_encode/decode, hex_encode</td></tr>
-    <tr><td><code>rand</code></td><td>int, float, bool, choice, shuffle</td></tr>
-    <tr><td><code>sys</code></td><td>os, arch, cwd, home, hostname, cpu_count</td></tr>
-    <tr><td><code>db</code></td><td>open, set, get, has, delete, keys, count, incr</td></tr>
-    <tr><td><code>term</code></td><td>red, green, yellow, blue, bold, dim, reset</td></tr>
-    <tr><td><code>tg</code></td><td>token, send, send_keyboard, send_inline, get_updates</td></tr>
-    <tr><td><code>thread</code></td><td>spawn, sleep, mutex_new, mutex_get, mutex_set</td></tr>
-    <tr><td><code>game</code></td><td>set, get, inv_add, inv_list, roll, clamp, lerp</td></tr>
+    <tr><td><code>crypto</code></td><td>sha256, md5, base64_encode, base64_decode, hex_encode, xor</td></tr>
+    <tr><td><code>rand</code></td><td>int, float, bool, choice, shuffle, seed</td></tr>
+    <tr><td><code>sys</code></td><td>os, arch, cwd, home, hostname</td></tr>
+    <tr><td><code>db</code></td><td>open, set, get, has, delete, keys, count, incr, all, clear</td></tr>
+    <tr><td><code>term</code></td><td>red, green, yellow, blue, magenta, cyan, bold, dim, italic, underline, strikethrough, bg_*, strip, width, height</td></tr>
+    <tr><td><code>color</code></td><td>red, green, yellow, blue, bold, bg_red, bg_green, strip</td></tr>
+    <tr><td><code>color2</code></td><td>rgb, bg, hex_to_rgb, mix, gradient_text, ocean, fire</td></tr>
+    <tr><td><code>tg</code></td><td>token, send, send_keyboard, send_inline, get_updates, delete_webhook</td></tr>
+    <tr><td><code>thread</code></td><td>sleep, cpu_count, mutex_new, mutex_get, mutex_set</td></tr>
+    <tr><td><code>game</code></td><td>set, get, has, del, roll, roll_adv, chance, clamp, lerp, inv_add, inv_list, map_new, map_get, map_set</td></tr>
+    <tr><td><code>pickle</code></td><td>save, load, exists, list, delete</td></tr>
+    <tr><td><code>hashmap</code></td><td>new, set, get, has, delete, keys, merge</td></tr>
+    <tr><td><code>set</code></td><td>from, add, remove, has, union, intersect, difference</td></tr>
+    <tr><td><code>sql</code></td><td>open, create_table, insert, select, where, update, delete_where, count, drop, tables</td></tr>
+    <tr><td><code>server</code></td><td>route, route_post, listen, json_response</td></tr>
+    <tr><td><code>tui2</code></td><td>clear, box, progress_bar, table, menu, confirm, alert, input, rule, spinner_frame</td></tr>
+    <tr><td><code>result</code></td><td>ok, err, some, none, unwrap, unwrap_or, is_ok, is_err, is_some, is_none, get_err</td></tr>
+    <tr><td><code>fmt2</code></td><td>format, pad_left, pad_right, pad_center, truncate, number, thousands, bytes, duration, plural, table</td></tr>
+    <tr><td><code>io2</code></td><td>print_table, print_json, progress, clear, bell</td></tr>
+    <tr><td><code>net</code></td><td>http.get, http.post, tcp.connect</td></tr>
+    <tr><td><code>net2</code></td><td>get, post, download, ping</td></tr>
+    <tr><td><code>regex</code></td><td>match, replace, find_all</td></tr>
+    <tr><td><code>uuid</code></td><td>v4, nil</td></tr>
+    <tr><td><code>hash</code></td><td>fnv32, fnv64, crc32</td></tr>
+    <tr><td><code>bench</code></td><td>now_ms, elapsed</td></tr>
+    <tr><td><code>csv</code></td><td>parse, stringify</td></tr>
+    <tr><td><code>xml</code></td><td>tag, attr_tag, escape, wrap</td></tr>
+    <tr><td><code>html</code></td><td>tag, p, h1-h3, a, img, ul, table, page</td></tr>
+    <tr><td><code>ini</code></td><td>parse, get, stringify</td></tr>
+    <tr><td><code>toml</code></td><td>parse, get, get_bool, get_int</td></tr>
+    <tr><td><code>bit</code></td><td>and, or, xor, shl, shr, count_ones</td></tr>
+    <tr><td><code>qr</code></td><td>ascii, url</td></tr>
+    <tr><td><code>base</code></td><td>to_bin, to_hex, to_oct, from_base</td></tr>
+    <tr><td><code>dns</code></td><td>resolve, mx, txt</td></tr>
+    <tr><td><code>smtp</code></td><td>send</td></tr>
+    <tr><td><code>pack</code></td><td>encode, decode</td></tr>
+    <tr><td><code>zip2</code></td><td>compress, decompress</td></tr>
   </table>
+
+  <h2 id="sql">SQL Module</h2>
+  <p>Flat-file relational tables. No SQLite required. Works on Termux.</p>
+  <pre><span class="kw">use</span> sql
+
+<span class="kw">let</span> conn <span class="op">=</span> sql.<span class="fn">open</span>(<span class="str">"myapp"</span>)
+sql.<span class="fn">create_table</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> [<span class="str">"id"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"age"</span>])
+
+sql.<span class="fn">insert</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> [<span class="str">"1"</span><span class="op">,</span> <span class="str">"Alice"</span><span class="op">,</span> <span class="str">"25"</span>])
+sql.<span class="fn">insert</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> [<span class="str">"2"</span><span class="op">,</span> <span class="str">"Bob"</span><span class="op">,</span> <span class="str">"30"</span>])
+
+<span class="kw">let</span> all <span class="op">=</span> sql.<span class="fn">select</span>(conn<span class="op">,</span> <span class="str">"users"</span>)
+<span class="kw">let</span> alice <span class="op">=</span> sql.<span class="fn">where</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Alice"</span>)
+
+sql.<span class="fn">update</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Alice"</span><span class="op">,</span> <span class="str">"age"</span><span class="op">,</span> <span class="str">"26"</span>)
+sql.<span class="fn">delete_where</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Bob"</span>)
+<span class="fn">print</span>(sql.<span class="fn">count</span>(conn<span class="op">,</span> <span class="str">"users"</span>))</pre>
+
+  <h2 id="server">HTTP Server</h2>
+  <pre><span class="kw">use</span> server
+
+server.<span class="fn">route</span>(<span class="str">"/"</span><span class="op">,</span> <span class="str">"&lt;h1&gt;Hello from TSTNT!&lt;/h1&gt;"</span>)
+server.<span class="fn">route</span>(<span class="str">"/api/hello"</span><span class="op">,</span> <span class="str">"{\"msg\": \"hello\"}"</span>)
+server.<span class="fn">route_post</span>(<span class="str">"/api/data"</span><span class="op">,</span> <span class="str">"{\"ok\": true}"</span>)
+
+server.<span class="fn">listen</span>(<span class="num">8080</span>)
+<span class="cm"># server listening on http://localhost:8080</span></pre>
+
+  <h2 id="tui2">TUI2 — Terminal UI</h2>
+  <pre><span class="kw">use</span> tui2
+
+tui2.<span class="fn">clear</span>()
+tui2.<span class="fn">box</span>(<span class="num">1</span><span class="op">,</span> <span class="num">1</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="num">5</span><span class="op">,</span> <span class="str">"My App"</span>)
+tui2.<span class="fn">print_at</span>(<span class="num">3</span><span class="op">,</span> <span class="num">4</span><span class="op">,</span> <span class="str">"Hello world!"</span>)
+
+tui2.<span class="fn">progress_bar</span>(<span class="num">60</span><span class="op">,</span> <span class="num">100</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="str">"Loading"</span>)
+
+tui2.<span class="fn">table</span>(
+  [<span class="str">"Name"</span><span class="op">,</span> <span class="str">"Age"</span><span class="op">,</span> <span class="str">"City"</span>]<span class="op">,</span>
+  [[<span class="str">"Alice"</span><span class="op">,</span> <span class="str">"25"</span><span class="op">,</span> <span class="str">"Moscow"</span>]<span class="op">,</span> [<span class="str">"Bob"</span><span class="op">,</span> <span class="str">"30"</span><span class="op">,</span> <span class="str">"Berlin"</span>]]
+)
+
+<span class="kw">let</span> choice <span class="op">=</span> tui2.<span class="fn">menu</span>([<span class="str">"Start"</span><span class="op">,</span> <span class="str">"Settings"</span><span class="op">,</span> <span class="str">"Quit"</span>]<span class="op">,</span> <span class="str">"Main Menu"</span>)
+<span class="kw">let</span> ok <span class="op">=</span> tui2.<span class="fn">confirm</span>(<span class="str">"Are you sure?"</span>)
+
+tui2.<span class="fn">alert</span>(<span class="str">"Done!"</span><span class="op">,</span> <span class="str">"success"</span>)
+tui2.<span class="fn">alert</span>(<span class="str">"Oops"</span><span class="op">,</span> <span class="str">"error"</span>)
+tui2.<span class="fn">alert</span>(<span class="str">"Note"</span><span class="op">,</span> <span class="str">"info"</span>)</pre>
+
+  <h2 id="result">Result Module</h2>
+  <pre><span class="kw">use</span> result
+
+<span class="kw">do</span> <span class="fn">divide</span>(a<span class="op">:</span> <span class="type">int</span><span class="op">,</span> b<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">any</span> {
+  <span class="kw">if</span> b <span class="op">==</span> <span class="num">0</span> { <span class="kw">return</span> result.<span class="fn">err</span>(<span class="str">"division by zero"</span>) }
+  <span class="kw">return</span> result.<span class="fn">ok</span>(a <span class="op">/</span> b)
+}
+
+<span class="kw">let</span> r <span class="op">=</span> <span class="fn">divide</span>(<span class="num">10</span><span class="op">,</span> <span class="num">2</span>)
+<span class="kw">if</span> result.<span class="fn">is_ok</span>(r) {
+  <span class="fn">print</span>(result.<span class="fn">unwrap</span>(r))
+} <span class="kw">else</span> {
+  <span class="fn">print</span>(<span class="str">"Error: "</span> <span class="op">+</span> result.<span class="fn">get_err</span>(r))
+}
+
+<span class="kw">let</span> val <span class="op">=</span> result.<span class="fn">unwrap_or</span>(<span class="fn">divide</span>(<span class="num">1</span><span class="op">,</span> <span class="num">0</span>)<span class="op">,</span> <span class="num">0</span>)  <span class="cm"># 0</span>
+
+<span class="cm"># Option</span>
+<span class="kw">let</span> opt <span class="op">=</span> result.<span class="fn">some</span>(<span class="num">42</span>)
+<span class="kw">let</span> empty <span class="op">=</span> result.<span class="fn">none</span>()</pre>
+
+  <h2 id="fmt2">Fmt2 — Formatting</h2>
+  <pre><span class="kw">use</span> fmt2
+
+fmt2.<span class="fn">thousands</span>(<span class="num">1234567</span>)       <span class="cm"># "1,234,567"</span>
+fmt2.<span class="fn">bytes</span>(<span class="num">1536000</span>)           <span class="cm"># "1.5 MB"</span>
+fmt2.<span class="fn">duration</span>(<span class="num">90000</span>)          <span class="cm"># "1m 30s"</span>
+fmt2.<span class="fn">number</span>(<span class="num">3.14159</span><span class="op">,</span> <span class="num">2</span>)        <span class="cm"># "3.14"</span>
+fmt2.<span class="fn">plural</span>(<span class="num">3</span><span class="op">,</span> <span class="str">"item"</span><span class="op">,</span> <span class="str">"items"</span>) <span class="cm"># "3 items"</span>
+fmt2.<span class="fn">truncate</span>(<span class="str">"long text"</span><span class="op">,</span> <span class="num">6</span>)  <span class="cm"># "lon..."</span>
+fmt2.<span class="fn">pad_left</span>(<span class="str">"42"</span><span class="op">,</span> <span class="num">6</span>)          <span class="cm"># "    42"</span>
+fmt2.<span class="fn">pad_center</span>(<span class="str">"hi"</span><span class="op">,</span> <span class="num">8</span>)        <span class="cm"># "   hi   "</span></pre>
 
   <h2 id="tg">Telegram Module</h2>
   <pre><span class="kw">use</span> tg
@@ -563,52 +742,61 @@ count <span class="op">*=</span> <span class="num">2</span>
 }</pre>
 
   <h2 id="db">Database Module</h2>
-  <pre><span class="cm"># Open a database</span>
-db.<span class="fn">open</span>(<span class="str">"myapp"</span>)
-db.<span class="fn">set</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1:name"</span><span class="op">,</span> <span class="str">"Alice"</span>)
-
-<span class="kw">let</span> name <span class="op">=</span> db.<span class="fn">get</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1:name"</span>)
-<span class="fn">print</span>(name)  <span class="cm"># Alice</span>
-
+  <pre>db.<span class="fn">open</span>(<span class="str">"myapp"</span>)
+db.<span class="fn">set</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1"</span><span class="op">,</span> <span class="str">"Alice"</span>)
+<span class="kw">let</span> name <span class="op">=</span> db.<span class="fn">get</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1"</span>)
 db.<span class="fn">incr</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"visits"</span>)
 <span class="fn">print</span>(db.<span class="fn">count</span>(<span class="str">"myapp"</span>))</pre>
 
   <h2 id="threads">Threads</h2>
-  <pre><span class="cm"># Spawn a background thread</span>
-thread.<span class="fn">spawn</span>(<span class="op">||</span> {
+  <pre>thread.<span class="fn">spawn</span>(<span class="op">||</span> {
   thread.<span class="fn">sleep</span>(<span class="num">1000</span>)
   <span class="fn">print</span>(<span class="str">"background done"</span>)
 })
 
-<span class="cm"># Shared mutex</span>
 thread.<span class="fn">mutex_new</span>(<span class="str">"counter"</span><span class="op">,</span> <span class="num">0</span>)
 thread.<span class="fn">mutex_set</span>(<span class="str">"counter"</span><span class="op">,</span> <span class="num">42</span>)
 <span class="kw">let</span> val <span class="op">=</span> thread.<span class="fn">mutex_get</span>(<span class="str">"counter"</span>)</pre>
 
   <h2 id="pkg">Package Manager</h2>
   <pre>tstnt pkg install logger
-tstnt pkg install colors
+tstnt pkg install tui-pro
+tstnt pkg install sql-orm
 tstnt pkg uninstall logger
 tstnt pkg list
-tstnt pkg search stats</pre>
+tstnt pkg search geo</pre>
 
   <h2 id="using-pkg">Using Packages</h2>
-  <pre><span class="cm"># Single file package</span>
-<span class="kw">use</span> <span class="str">"logger"</span>
-
-<span class="cm"># Multi-file package</span>
-<span class="kw">use</span> <span class="str">"ansi"</span>
-<span class="kw">use</span> <span class="str">"ansi/effects"</span>
-
-<span class="cm"># Local file import</span>
+  <pre><span class="kw">use</span> <span class="str">"logger"</span>
+<span class="kw">use</span> <span class="str">"tui-pro"</span>
 <span class="kw">use</span> <span class="str">"./utils.tstnt"</span>
-<span class="kw">use</span> <span class="str">"./models/user.tstnt"</span>
 
 <span class="kw">do</span> <span class="fn">main</span> {
   logger.<span class="fn">info</span>(<span class="str">"App started"</span>)
-  <span class="fn">print</span>(ansi.<span class="fn">rgb</span>(<span class="num">255</span><span class="op">,</span> <span class="num">100</span><span class="op">,</span> <span class="num">0</span><span class="op">,</span> <span class="str">"Orange text!"</span>))
-  <span class="fn">print</span>(effects.<span class="fn">rainbow</span>(<span class="str">"TSTNT"</span>))
+  tui_pro.<span class="fn">header</span>(<span class="str">"My App v1.0"</span>)
 }</pre>
+
+  <h2 id="new-pkg">New Packages in v1.0</h2>
+  <table>
+    <tr><th>Package</th><th>Description</th></tr>
+    <tr><td><code>sql-orm</code></td><td>ORM on top of sql: connect, save, find_all, find_by, find_one, update, remove, count</td></tr>
+    <tr><td><code>http-server</code></td><td>route, route_post, json_route, static_page, listen</td></tr>
+    <tr><td><code>result-pkg</code></td><td>ok, err, some, none, unwrap, unwrap_or, try_parse_int, try_parse_float</td></tr>
+    <tr><td><code>tui-pro</code></td><td>header, success, error, warn, info, table, menu, confirm, rule, print_kv, print_list</td></tr>
+    <tr><td><code>fmt-utils</code></td><td>format, pad_left, center, truncate, thousands, bytes, duration, percent, currency</td></tr>
+    <tr><td><code>semver</code></td><td>parse, compare, is_greater, bump_major, bump_minor, bump_patch, satisfies</td></tr>
+    <tr><td><code>algorithms</code></td><td>binary_search, bubble_sort, fibonacci, primes_up_to, two_sum, max_subarray</td></tr>
+    <tr><td><code>geo</code></td><td>haversine, distance_km, distance_miles, bearing, midpoint, km_to_miles</td></tr>
+    <tr><td><code>pathfinding</code></td><td>bfs, flood_fill, manhattan, neighbors, print_grid</td></tr>
+    <tr><td><code>cron</code></td><td>every_seconds, every_minutes, every_hours, daily, is_due, mark_done, status</td></tr>
+    <tr><td><code>slugify</code></td><td>slugify, to_filename, to_id, truncate_slug</td></tr>
+    <tr><td><code>dotenv-pkg</code></td><td>load, load_default, get, require, get_int, get_bool</td></tr>
+    <tr><td><code>cli-parser</code></td><td>parse, has_flag, get_opt, positional, help, require</td></tr>
+    <tr><td><code>event-emitter</code></td><td>on, off, emit, has, events, once, clear_all</td></tr>
+    <tr><td><code>task-runner</code></td><td>task, run, list, run_all, run_seq</td></tr>
+    <tr><td><code>colors-256</code></td><td>fg, bg, gradient, rainbow, print_palette, pastel_*, orange, teal, gold</td></tr>
+    <tr><td><code>i18n-extra</code></td><td>set_lang, add, add_many, t, t_with, has, langs, plural_rule</td></tr>
+  </table>
 
   <div style="height:80px;"></div>
 </div>

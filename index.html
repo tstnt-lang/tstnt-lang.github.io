@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TSTNT — Programming Language</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=">
+<meta name="description" content="TSTNT — a modern statically-typed scripting language built with Rust. Zero dependencies, 140+ packages, Telegram API, SQL, TUI and more.">
+<meta property="og:title" content="TSTNT — Programming Language">
+<meta property="og:description" content="A modern scripting language built with Rust. Zero dependencies, 140+ packages, built-in Telegram API.">
+<meta property="og:image" content="https://tstnt-lang.github.io/og-index.png">
+<meta property="og:url" content="https://tstnt-lang.github.io">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TSTNT — Programming Language">
+<meta name="twitter:description" content="A modern scripting language built with Rust. Zero dependencies, 140+ packages.">
+<meta name="twitter:image" content="https://tstnt-lang.github.io/og-index.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
@@ -942,7 +953,7 @@
 <div class="grid-bg"></div>
 
 <nav id="nav">
-  <a href="#" class="nav-logo">TSTNT</a>
+  <a href="#" class="nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=" style="width:28px;height:28px;vertical-align:middle;margin-right:8px;">TSTNT</a>
   <ul class="nav-links">
     <li><a href="#features">Features</a></li>
     <li><a href="#install">Install</a></li>
@@ -974,7 +985,7 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <div class="hero-eyebrow">v0.9.0 — Built on Android with Rust</div>
+  <div class="hero-eyebrow">v1.0.0 — Built on Android with Rust</div>
 
   <h1 class="hero-title" id="heroTitle" data-text="TSTNT">TST<span>NT</span></h1>
 
@@ -1037,7 +1048,7 @@
       <span class="repl-badge">LIVE</span>
     </div>
     <div class="repl-output" id="replOutput">
-      <div class="repl-line"><span class="result" style="color:var(--accent)">TSTNT v0.9.0 — type code and press Enter or Run ↵</span></div>
+      <div class="repl-line"><span class="result" style="color:var(--accent)">TSTNT v1.0.0 — type code and press Enter or Run ↵</span></div>
       <div class="repl-line"><span class="result" style="color:var(--muted)">try: print("hello") · let x = 2 + 2 · print(x * 3)</span></div>
     </div>
     <div class="repl-input-row">
@@ -1048,14 +1059,13 @@
   </div>
 </div>
 
-<!-- Stats -->
-<div class="stats-bar">
+  <div class="stats-bar">
   <div class="stat">
-    <span class="stat-num">100<span style="color:var(--muted);font-size:20px">+</span></span>
+    <span class="stat-num">140<span style="color:var(--muted);font-size:20px">+</span></span>
     <div class="stat-label">PACKAGES</div>
   </div>
   <div class="stat">
-    <span class="stat-num">30<span style="color:var(--muted);font-size:20px">+</span></span>
+    <span class="stat-num">55<span style="color:var(--muted);font-size:20px">+</span></span>
     <div class="stat-label">MODULES</div>
   </div>
   <div class="stat">
@@ -1063,16 +1073,15 @@
     <div class="stat-label">DEPENDENCIES</div>
   </div>
   <div class="stat">
-    <span class="stat-num">v0.9</span>
+    <span class="stat-num">v1.0</span>
     <div class="stat-label">CURRENT VERSION</div>
   </div>
 </div>
 
-<!-- Marquee -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode ·
-    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode ·
+    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode · <span>@cache</span> · @timer · <span>sql module</span> · http server · <span>tui2</span> · result type · <span>fmt2</span> · 140+ packages · <span>find/every/any</span> · flat_map · <span>semver</span> · pathfinding · <span>geo</span> · cron ·
+    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode · <span>@cache</span> · @timer · <span>sql module</span> · http server · <span>tui2</span> · result type · <span>fmt2</span> · 140+ packages · <span>find/every/any</span> · flat_map · <span>semver</span> · pathfinding · <span>geo</span> · cron ·
   </div>
 </div>
 
@@ -1091,8 +1100,8 @@
     </div>
     <div class="feature-card">
       <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
-      <div class="feature-title">Package Manager</div>
-      <div class="feature-desc">Install 100+ community packages with one command. Packages live on GitHub — transparent and open.</div>
+      <div class="feature-title">140+ Packages</div>
+      <div class="feature-desc">Install community packages with one command. sql-orm, http-server, semver, geo, pathfinding and more.</div>
       <span class="feature-tag">PKG INSTALL</span>
     </div>
     <div class="feature-card">
@@ -1108,10 +1117,22 @@
       <span class="feature-tag">TG MODULE</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></span>
-      <div class="feature-title">Built-in Testing</div>
-      <div class="feature-desc">Write tests directly in your code with <code style="font-family:monospace;color:var(--accent)">test</code> blocks. Run with <code style="font-family:monospace;color:var(--accent)">tstnt test</code>. No frameworks needed.</div>
-      <span class="feature-tag">ASSERT_EQ</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg></span>
+      <div class="feature-title">Real @cache &amp; @timer</div>
+      <div class="feature-desc">Decorators with actual logic. <code style="font-family:monospace;color:var(--accent)">@cache</code> memoizes by args. <code style="font-family:monospace;color:var(--accent)">@timer</code> measures execution time.</div>
+      <span class="feature-tag">DECORATORS</span>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+      <div class="feature-title">SQL Module</div>
+      <div class="feature-desc">Flat-file SQL tables — create, insert, select, where, update, delete. No SQLite needed. Works on Termux.</div>
+      <span class="feature-tag">SQL MODULE</span>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+      <div class="feature-title">TUI2 Framework</div>
+      <div class="feature-desc">Full terminal UI — boxes, tables, menus, progress bars, spinners, alerts. Build rich CLI apps.</div>
+      <span class="feature-tag">TUI2 MODULE</span>
     </div>
     <div class="feature-card">
       <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
@@ -1120,10 +1141,16 @@
       <span class="feature-tag">TSTNT-LSP</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></span>
-      <div class="feature-title">Watch Mode</div>
-      <div class="feature-desc">Auto-restart your script on file change. Perfect for development. No extra tools needed.</div>
-      <span class="feature-tag">TSTNT WATCH</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/></svg></span>
+      <div class="feature-title">Built-in Testing</div>
+      <div class="feature-desc">Write tests directly in your code with <code style="font-family:monospace;color:var(--accent)">test</code> blocks. Run with <code style="font-family:monospace;color:var(--accent)">tstnt test</code>. No frameworks needed.</div>
+      <span class="feature-tag">ASSERT_EQ</span>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+      <div class="feature-title">HTTP Server</div>
+      <div class="feature-desc">Built-in HTTP server module. Register routes, serve JSON, HTML. Build backends directly in TSTNT.</div>
+      <span class="feature-tag">SERVER MODULE</span>
     </div>
     <div class="feature-card">
       <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span>
@@ -1132,10 +1159,10 @@
       <span class="feature-tag">TERMUX</span>
     </div>
     <div class="feature-card">
-      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
-      <div class="feature-title">Built-in DB</div>
-      <div class="feature-desc">Key-value persistent storage out of the box. No SQLite, no dependencies. Just <code style="font-family:monospace;color:var(--accent)">db.set</code> and <code style="font-family:monospace;color:var(--accent)">db.get</code>.</div>
-      <span class="feature-tag">DB MODULE</span>
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4v6h6"/><path d="M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4-4.64 4.36A9 9 0 0 1 3.51 15"/></svg></span>
+      <div class="feature-title">Rich Builtins</div>
+      <div class="feature-desc">New: <code style="font-family:monospace;color:var(--accent)">find</code> <code style="font-family:monospace;color:var(--accent)">every</code> <code style="font-family:monospace;color:var(--accent)">any</code> <code style="font-family:monospace;color:var(--accent)">flat_map</code> <code style="font-family:monospace;color:var(--accent)">take</code> <code style="font-family:monospace;color:var(--accent)">drop</code> <code style="font-family:monospace;color:var(--accent)">chunks</code> <code style="font-family:monospace;color:var(--accent)">sprintf</code> and more.</div>
+      <span class="feature-tag">BUILTINS</span>
     </div>
   </div>
 </section>
@@ -1197,7 +1224,7 @@
    | |  \__ \  | |  | .` | | |
    |_|  |___/  |_|  |_|\_| |_|
 </span>
-  v0.9.0  <span class="cm">— The TSTNT Language</span>
+  v1.0.0  <span class="cm">— The TSTNT Language</span>
   <span class="cm">github.com/tstnt-lang</span>
 
 <span class="cm">$ tstnt repl</span>
@@ -1343,24 +1370,30 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
 
   <div class="pkg-grid reveal">
     <div class="pkg-card"><div class="pkg-name">logger</div><div class="pkg-desc">info, warn, error, fatal with timestamps</div></div>
-    <div class="pkg-card"><div class="pkg-name">colors</div><div class="pkg-desc">Terminal colors via term module</div></div>
     <div class="pkg-card"><div class="pkg-name">tg-rpg</div><div class="pkg-desc">Full Telegram RPG engine with DB</div></div>
     <div class="pkg-card"><div class="pkg-name">stats</div><div class="pkg-desc">mean, median, variance, std_dev</div></div>
+    <div class="pkg-card"><div class="pkg-name">sql-orm</div><div class="pkg-desc">ORM on top of sql: find, save, update</div></div>
+    <div class="pkg-card"><div class="pkg-name">http-server</div><div class="pkg-desc">Route registration, JSON/HTML responses</div></div>
+    <div class="pkg-card"><div class="pkg-name">result-pkg</div><div class="pkg-desc">ok, err, some, none, unwrap, unwrap_or</div></div>
+    <div class="pkg-card"><div class="pkg-name">tui-pro</div><div class="pkg-desc">Full TUI toolkit: box, menu, alerts, table</div></div>
+    <div class="pkg-card"><div class="pkg-name">semver</div><div class="pkg-desc">parse, compare, bump, satisfies ranges</div></div>
+    <div class="pkg-card"><div class="pkg-name">algorithms</div><div class="pkg-desc">binary_search, fibonacci, two_sum, BFS</div></div>
+    <div class="pkg-card"><div class="pkg-name">geo</div><div class="pkg-desc">haversine distance, bearing, midpoint</div></div>
+    <div class="pkg-card"><div class="pkg-name">pathfinding</div><div class="pkg-desc">BFS on grids, flood fill, neighbors</div></div>
+    <div class="pkg-card"><div class="pkg-name">cron</div><div class="pkg-desc">Task scheduler: every_seconds, daily</div></div>
+    <div class="pkg-card"><div class="pkg-name">slugify</div><div class="pkg-desc">URL slugs, filenames, snake_id</div></div>
+    <div class="pkg-card"><div class="pkg-name">dotenv-pkg</div><div class="pkg-desc">Load .env files, typed getters</div></div>
+    <div class="pkg-card"><div class="pkg-name">fmt-utils</div><div class="pkg-desc">thousands, bytes, duration, percent</div></div>
+    <div class="pkg-card"><div class="pkg-name">colors-256</div><div class="pkg-desc">256-color terminal, gradients, rainbow</div></div>
+    <div class="pkg-card"><div class="pkg-name">cli-parser</div><div class="pkg-desc">--flags, --opt=val, positional args</div></div>
+    <div class="pkg-card"><div class="pkg-name">i18n-extra</div><div class="pkg-desc">Multi-language, t(), plural rules</div></div>
+    <div class="pkg-card"><div class="pkg-name">task-runner</div><div class="pkg-desc">Makefile-style tasks in TSTNT</div></div>
     <div class="pkg-card"><div class="pkg-name">fake-data</div><div class="pkg-desc">Generate names, emails, lorem ipsum</div></div>
-    <div class="pkg-card"><div class="pkg-name">auth</div><div class="pkg-desc">register, login, sessions, JWT</div></div>
-    <div class="pkg-card"><div class="pkg-name">ansi</div><div class="pkg-desc">Full ANSI control + true color RGB</div></div>
-    <div class="pkg-card"><div class="pkg-name">game-2d</div><div class="pkg-desc">Vec2, Rect, ASCII canvas, draw_line</div></div>
-    <div class="pkg-card"><div class="pkg-name">benchmark-suite</div><div class="pkg-desc">Run, compare, suite benchmarks</div></div>
-    <div class="pkg-card"><div class="pkg-name">markdown</div><div class="pkg-desc">Generate markdown: headers, tables</div></div>
-    <div class="pkg-card"><div class="pkg-name">migrate</div><div class="pkg-desc">DB migrations: run, rollback, status</div></div>
+    <div class="pkg-card"><div class="pkg-name">auth</div><div class="pkg-desc">register, login, sessions with sha256</div></div>
     <div class="pkg-card"><div class="pkg-name">functional</div><div class="pkg-desc">compose, pipe, curry, memoize</div></div>
-    <div class="pkg-card"><div class="pkg-name">terminal-ui</div><div class="pkg-desc">Headers, sections, formatted tables</div></div>
-    <div class="pkg-card"><div class="pkg-name">number-format</div><div class="pkg-desc">thousands, ordinal, bytes, roman</div></div>
-    <div class="pkg-card"><div class="pkg-name">tg-bot</div><div class="pkg-desc">bot_start, bot_run, reply helpers</div></div>
-    <div class="pkg-card"><div class="pkg-name">validator</div><div class="pkg-desc">email, phone, IPv4, semver, JSON</div></div>
     <div class="pkg-card" style="border-color:var(--accent); display:flex; align-items:center; justify-content:center;">
       <div style="text-align:center;">
-        <div class="pkg-name">+ 87 more</div>
+        <div class="pkg-name">+ 118 more</div>
         <div class="pkg-desc"><a href="https://github.com/tstnt-lang/packages" target="_blank" style="color:var(--accent);text-decoration:none;">Browse all →</a></div>
       </div>
     </div>
@@ -1376,7 +1409,7 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
     <li><a href="https://github.com/tstnt-lang/packages" target="_blank">Packages</a></li>
     <li><a href="docs.html">Docs</a></li>
   </ul>
-  <div class="footer-copy">v0.9.0 · MIT License</div>
+  <div class="footer-copy">v1.0.0 · MIT License</div>
 </footer>
 </div>
 
