@@ -985,7 +985,7 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <div class="hero-eyebrow">v1.0.0 — Built on Android with Rust</div>
+  <div class="hero-eyebrow">v1.1.0 — Built on Android with Rust</div>
 
   <h1 class="hero-title" id="heroTitle" data-text="TSTNT">TST<span>NT</span></h1>
 
@@ -1048,7 +1048,7 @@
       <span class="repl-badge">LIVE</span>
     </div>
     <div class="repl-output" id="replOutput">
-      <div class="repl-line"><span class="result" style="color:var(--accent)">TSTNT v1.0.0 — type code and press Enter or Run ↵</span></div>
+      <div class="repl-line"><span class="result" style="color:var(--accent)">TSTNT v1.1.0 — type code and press Enter or Run ↵</span></div>
       <div class="repl-line"><span class="result" style="color:var(--muted)">try: print("hello") · let x = 2 + 2 · print(x * 3)</span></div>
     </div>
     <div class="repl-input-row">
@@ -1073,15 +1073,15 @@
     <div class="stat-label">DEPENDENCIES</div>
   </div>
   <div class="stat">
-    <span class="stat-num">v1.0</span>
+    <span class="stat-num">v1.1</span>
     <div class="stat-label">CURRENT VERSION</div>
   </div>
 </div>
 
 <div class="marquee-wrap">
   <div class="marquee">
-    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode · <span>@cache</span> · @timer · <span>sql module</span> · http server · <span>tui2</span> · result type · <span>fmt2</span> · 140+ packages · <span>find/every/any</span> · flat_map · <span>semver</span> · pathfinding · <span>geo</span> · cron ·
-    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode · <span>@cache</span> · @timer · <span>sql module</span> · http server · <span>tui2</span> · result type · <span>fmt2</span> · 140+ packages · <span>find/every/any</span> · flat_map · <span>semver</span> · pathfinding · <span>geo</span> · cron ·
+    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode · <span>@cache</span> · @timer · <span>sql module</span> · http server · <span>tui2</span> · result type · <span>fmt2</span> · 140+ packages · <span>find/every/any</span> · flat_map · <span>string interpolation</span> · multiline strings · <span>enum with data</span> · named args · <span>if let</span> · ws module · <span>template</span> · tstnt check · <span>tstnt bench</span> · cron ·
+    <span>structs</span> · impl blocks · <span>pattern matching</span> · generics · <span>optional chaining</span> · lambdas · <span>async/await</span> · threads · <span>pipe operator</span> · string interpolation · <span>tests</span> · package manager · <span>LSP</span> · transpiler · <span>REPL</span> · watch mode · <span>@cache</span> · @timer · <span>sql module</span> · http server · <span>tui2</span> · result type · <span>fmt2</span> · 140+ packages · <span>find/every/any</span> · flat_map · <span>string interpolation</span> · multiline strings · <span>enum with data</span> · named args · <span>if let</span> · ws module · <span>template</span> · tstnt check · <span>tstnt bench</span> · cron ·
   </div>
 </div>
 
@@ -1164,6 +1164,30 @@
       <div class="feature-desc">New: <code style="font-family:monospace;color:var(--accent)">find</code> <code style="font-family:monospace;color:var(--accent)">every</code> <code style="font-family:monospace;color:var(--accent)">any</code> <code style="font-family:monospace;color:var(--accent)">flat_map</code> <code style="font-family:monospace;color:var(--accent)">take</code> <code style="font-family:monospace;color:var(--accent)">drop</code> <code style="font-family:monospace;color:var(--accent)">chunks</code> <code style="font-family:monospace;color:var(--accent)">sprintf</code> and more.</div>
       <span class="feature-tag">BUILTINS</span>
     </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></span>
+      <div class="feature-title">String Interpolation</div>
+      <div class="feature-desc">Write <code style="font-family:monospace;color:var(--accent)">"Hello, {name}!"</code> instead of concatenation. Multiline strings with <code style="font-family:monospace;color:var(--accent)">"""..."""</code>.</div>
+      <span class="feature-tag">v1.1.0</span>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+      <div class="feature-title">Enums with Data</div>
+      <div class="feature-desc"><code style="font-family:monospace;color:var(--accent)">Shape::Circle(5.0)</code> — enums carry data. Named args: <code style="font-family:monospace;color:var(--accent)">greet(name: "Alice")</code>.</div>
+      <span class="feature-tag">v1.1.0</span>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+      <div class="feature-title">WebSocket + Template</div>
+      <div class="feature-desc">Built-in <code style="font-family:monospace;color:var(--accent)">ws</code> module for WebSocket servers. <code style="font-family:monospace;color:var(--accent)">template</code> module for <code style="font-family:monospace;color:var(--accent)">{{var}}</code> rendering.</div>
+      <span class="feature-tag">v1.1.0</span>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+      <div class="feature-title">tstnt check &amp; bench</div>
+      <div class="feature-desc">Check syntax without running. Benchmark your code — runs N times and reports avg execution time.</div>
+      <span class="feature-tag">v1.1.0</span>
+    </div>
   </div>
 </section>
 
@@ -1224,24 +1248,22 @@
    | |  \__ \  | |  | .` | | |
    |_|  |___/  |_|  |_|\_| |_|
 </span>
-  v1.0.0  <span class="cm">— The TSTNT Language</span>
+  v1.1.0  <span class="cm">— The TSTNT Language</span>
   <span class="cm">github.com/tstnt-lang</span>
 
 <span class="cm">$ tstnt repl</span>
-<span class="type">tstnt></span> <span class="fn">print</span>(<span class="str">"hello world"</span>)
-hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
+<span class="type">tstnt></span> <span class="fn">print</span>(<span class="str">"Hello, {name}!"</span>)
+Hello, !  <span class="cm">&lt;-- string interpolation!</span>
 <span class="type">tstnt></span>
+
+<span class="cm">$ tstnt check src/main.tstnt</span>
+<span class="fn">✓ src/main.tstnt — no syntax errors</span>
+
+<span class="cm">$ tstnt bench src/main.tstnt 100</span>
+<span class="fn">100 runs in 340ms total, 3ms avg</span>
 
 <span class="cm">$ tstnt pkg install logger</span>
 <span class="fn">✓ Installed: logger</span>
-
-<span class="cm">$ tstnt pkg search</span>
-<span class="fn">Packages (github.com/tstnt-lang/packages):</span>
-  colors       Terminal colors
-  logger       Colored logs
-  stats        mean, median, std_dev
-  fake-data    Generate test data
-  <span class="cm">... 99 more</span>
       </div>
     </div>
   </div>
@@ -1339,6 +1361,38 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
         <div class="code-dot red"></div>
         <div class="code-dot yellow"></div>
         <div class="code-dot green"></div>
+        <span class="code-filename">v1.1.0 — new syntax</span>
+      </div>
+      <div class="code-body" style="font-size:12px;">
+<span class="cm"># String interpolation</span>
+<span class="kw">let</span> name <span class="op">=</span> <span class="str">"Alice"</span>
+<span class="fn">print</span>(<span class="str">"Hello, {name}!"</span>)
+
+<span class="cm"># Multiline strings</span>
+<span class="kw">let</span> text <span class="op">=</span> <span class="str">"""
+  line one
+  line two
+"""</span>
+
+<span class="cm"># Enum with data</span>
+<span class="kw">enum</span> <span class="type">Shape</span> { Circle  Rect }
+<span class="kw">let</span> s <span class="op">=</span> <span class="type">Shape</span><span class="op">::</span>Circle(<span class="num">5.0</span>)
+
+<span class="cm"># Named args</span>
+<span class="fn">greet</span>(name<span class="op">:</span> <span class="str">"Alice"</span><span class="op">,</span> age<span class="op">:</span> <span class="num">25</span>)
+
+<span class="cm"># if let</span>
+<span class="kw">if let</span> x <span class="op">=</span> db.<span class="fn">get</span>(<span class="str">"db"</span><span class="op">,</span> <span class="str">"key"</span>) {
+  <span class="fn">print</span>(x)
+}
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dot red"></div>
+        <div class="code-dot yellow"></div>
+        <div class="code-dot green"></div>
         <span class="code-filename">tests & generics</span>
       </div>
       <div class="code-body" style="font-size:12px;">
@@ -1365,7 +1419,7 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
 <!-- Packages -->
 <section id="packages">
   <span class="section-tag reveal">// PACKAGES</span>
-  <h2 class="section-title reveal">100+ packages.<br>One command away.</h2>
+  <h2 class="section-title reveal">140+ packages.<br>One command away.</h2>
   <p class="section-sub reveal">All packages live on <a href="https://github.com/tstnt-lang/packages" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/tstnt-lang/packages</a></p>
 
   <div class="pkg-grid reveal">
@@ -1409,7 +1463,7 @@ hello world  <span class="cm">&lt;-- your first TSTNT program!</span>
     <li><a href="https://github.com/tstnt-lang/packages" target="_blank">Packages</a></li>
     <li><a href="docs.html">Docs</a></li>
   </ul>
-  <div class="footer-copy">v1.0.0 · MIT License</div>
+  <div class="footer-copy">v1.1.0 · MIT License</div>
 </footer>
 </div>
 

@@ -2,7 +2,7 @@
 set -e
 
 REPO="tstnt-lang/tstnt"
-VERSION="v1.0.5"
+VERSION="v1.1.0"
 BASE_URL="https://github.com/${REPO}/releases/download/${VERSION}"
 
 RED='\033[0;31m'

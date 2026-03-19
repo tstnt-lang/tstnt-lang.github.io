@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 
-$VERSION = "v1.0.5"
+$VERSION = "v1.1.0"
 $REPO = "tstnt-lang/tstnt"
 $BASE_URL = "https://github.com/$REPO/releases/download/$VERSION"
 
