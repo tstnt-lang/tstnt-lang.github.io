@@ -3,586 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSTNT Docs — v1.5.0</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=">
-<meta name="description" content="Complete documentation for TSTNT — v1.5.0. Variables, functions, structs, stdlib, packages and more.">
-<meta property="og:title" content="TSTNT Docs — v1.5.0">
-<meta property="og:description" content="Complete reference for TSTNT — variables, functions, structs, stdlib, packages.">
-<meta property="og:image" content="https://tstnt-lang.github.io/og-docs.png">
-<meta property="og:url" content="https://tstnt-lang.github.io/docs.html">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tstnt-lang.github.io/og-docs.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<title>TSTNT Docs &mdash; v1.5.0</title>
+<link rel="icon" type="image/svg+xml" data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=>
+<meta name="description" content="Complete documentation for the TSTNT programming language v1.5.0.">
+<meta property="og:title" content="TSTNT Docs &mdash; v1.5.0">
+<meta property="og:image" content="https://tstnt.lol/og-docs.png">
 <link rel="stylesheet" href="style.css">
 <style>
-.docs-layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; padding-top: 64px; }
-.sidebar {
-  position: sticky;
-  top: 64px;
-  height: calc(100vh - 64px);
-  overflow-y: auto;
-  padding: 32px 0;
-  border-right: 1px solid var(--border);
-  background: var(--bg);
-}
-.sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-.sidebar-section { margin-bottom: 8px; }
-.sidebar-heading { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 8px 24px; }
-.sidebar-link {
-  display: block;
-  padding: 7px 24px;
-  font-size: 14px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color .15s, background .15s;
-  border-left: 2px solid transparent;
-}
-.sidebar-link:hover { color: var(--text); background: rgba(255,255,255,.02); }
-.sidebar-link.active { color: var(--accent); border-left-color: var(--accent); background: rgba(127,255,178,.04); }
-.sidebar-version { display: inline-block; background: rgba(127,255,178,.1); color: var(--accent); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin: 8px 24px 16px; }
-.docs-content {
-  padding: 48px 64px;
-  max-width: 860px;
-}
-.docs-content h1 { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 12px; }
-.docs-content h2 { font-size: 28px; font-weight: 700; letter-spacing: -.5px; margin: 56px 0 16px; padding-top: 56px; border-top: 1px solid var(--border); }
-.docs-content h2:first-of-type { border-top: none; padding-top: 0; margin-top: 32px; }
-.docs-content h3 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; color: var(--text); }
-.docs-content p { font-size: 15px; line-height: 1.75; color: var(--muted); margin-bottom: 16px; }
-.docs-content p a { color: var(--accent); text-decoration: none; }
-.docs-content p a:hover { text-decoration: underline; }
-.docs-content pre {
-  background: var(--code-bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px 24px;
-  font-family: 'Space Mono', monospace;
-  font-size: 13px;
-  line-height: 1.7;
-  overflow-x: auto;
-  margin: 16px 0 24px;
-}
-.docs-content code {
-  font-family: 'Space Mono', monospace;
-  font-size: 12.5px;
-  color: var(--accent);
-  background: rgba(127,255,178,.08);
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-.docs-content pre code { background: none; padding: 0; font-size: 13px; color: inherit; }
-.tag { display: inline-block; background: rgba(127,255,178,.1); color: var(--accent); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-right: 8px; margin-bottom: 24px; letter-spacing: .5px; }
-.tag.blue { background: rgba(122,178,255,.1); color: var(--accent3); }
-.tag.red { background: rgba(255,107,138,.1); color: var(--accent2); }
-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
-th { text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
-td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.04); color: var(--text); }
-td code { font-size: 12px; }
-tr:hover td { background: rgba(255,255,255,.02); }
-.callout { background: rgba(127,255,178,.05); border: 1px solid rgba(127,255,178,.15); border-radius: 10px; padding: 16px 20px; margin: 16px 0 24px; font-size: 14px; color: var(--text); line-height: 1.6; }
-.callout.blue { background: rgba(122,178,255,.05); border-color: rgba(122,178,255,.15); }
-@media (max-width: 900px) {
-  .docs-layout { grid-template-columns: 1fr; }
-  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
-  .docs-content { padding: 32px 24px; }
-}
+.docs-layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; padding-top: 64px; }
+.docs-sidebar { position: sticky; top: 64px; height: calc(100vh - 64px); overflow-y: auto; border-right: 1px solid var(--border); padding: 32px 0; background: var(--surface); }
+.docs-sidebar a { display: block; padding: 6px 24px; font-size: 12px; color: var(--muted); text-decoration: none; transition: color .15s; }
+.docs-sidebar a:hover { color: var(--text); }
+.docs-sidebar a.active { color: var(--accent); }
+.sidebar-group { font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); padding: 20px 24px 6px; margin-top: 8px; }
+.docs-content { padding: 60px; max-width: 860px; }
+.docs-content h1 { font-family: "Unbounded", sans-serif; font-size: 32px; margin-bottom: 16px; }
+.docs-content h2 { font-family: "Unbounded", sans-serif; font-size: 20px; margin: 60px 0 20px; padding-top: 60px; border-top: 1px solid var(--border); }
+.docs-content h3 { font-size: 14px; font-weight: 700; margin: 32px 0 12px; color: var(--accent); }
+.docs-content p { font-size: 13px; color: var(--muted); line-height: 1.9; margin-bottom: 16px; }
+.docs-content pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin: 16px 0; overflow-x: auto; font-size: 12px; line-height: 1.8; }
+.docs-content code { background: var(--code-bg); border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; font-size: 12px; color: var(--accent); }
+.docs-content pre code { background: none; border: none; padding: 0; }
+.docs-content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+.docs-content th { text-align: left; padding: 10px 16px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: .08em; }
+.docs-content td { padding: 10px 16px; border: 1px solid var(--border); }
+.docs-content td:first-child code { color: var(--accent3); }
+.tag { display: inline-block; font-size: 10px; padding: 2px 8px; background: rgba(127,255,178,.08); border: 1px solid rgba(127,255,178,.15); border-radius: 20px; color: var(--accent); margin-left: 8px; vertical-align: middle; }
+.tag-new { background: rgba(107,159,255,.1); border-color: rgba(107,159,255,.2); color: var(--accent3); }
+@media(max-width:768px){ .docs-layout{grid-template-columns:1fr} .docs-sidebar{display:none} .docs-content{padding:24px} }
 </style>
 </head>
 <body>
 <div class="cursor"></div>
 <div class="cursor-ring"></div>
-
 <nav>
   <a href="/" class="nav-logo">
-    <img src="logo.png" alt="TSTNT">TST<span class="logo-accent">NT</span>
+    <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+      <polygon points="50,3 94,27 94,73 50,97 6,73 6,27" fill="#0a0a18" stroke="#7fffb2" stroke-width="1.5"/>
+      <rect x="24" y="28" width="52" height="9" rx="1" fill="#7fffb2"/>
+      <rect x="43" y="28" width="14" height="44" rx="1" fill="#7fffb2"/>
+      <rect x="62" y="57" width="11" height="11" rx="1" fill="#6b9fff"/>
+    </svg>
+    <span class="nav-logo-text">TSTNT</span>
+    <span class="nav-version">v1.5.0</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="#basics">Basics</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#v15">v1.5 New</a></li>
+    <li><a href="#syntax">Syntax</a></li>
     <li><a href="#stdlib">Stdlib</a></li>
     <li><a href="#packages">Packages</a></li>
-    <li><a href="https://github.com/tstnt-lang" target="_blank">GitHub</a></li>
-    <li><a href="/" class="nav-cta">Home</a></li>
+    <li><a href="https://github.com/tstnt-lang/tstnt" target="_blank" class="nav-cta">GitHub &rarr;</a></li>
   </ul>
 </nav>
 
 <div class="docs-layout">
-<nav class="sidebar">
-  <span class="sidebar-version">v1.5.0</span>
-  <div class="sidebar-section">
-    <div class="sidebar-heading">Getting Started</div>
-    <a href="#intro" class="sidebar-link active">Introduction</a>
-    <a href="#install" class="sidebar-link">Installation</a>
-    <a href="#v15" class="sidebar-link">What's New v1.5</a>
+  <div class="docs-sidebar">
+    <div class="sidebar-group">Getting Started</div>
+    <a href="#install">Install</a>
+    <a href="#quickstart">Quick Start</a>
+    <div class="sidebar-group">v1.5.0 New</div>
+    <a href="#v15">What's New</a>
+    <a href="#for-in">for..in Loops</a>
+    <a href="#const">const Variables</a>
+    <a href="#iter">iter stdlib</a>
+    <a href="#bytes">bytes stdlib</a>
+    <a href="#reflect">reflect stdlib</a>
+    <div class="sidebar-group">Language</div>
+    <a href="#syntax">Syntax</a>
+    <a href="#types">Types</a>
+    <a href="#functions">Functions</a>
+    <a href="#structs">Structs &amp; Impl</a>
+    <a href="#enums">Enums</a>
+    <a href="#match">Match</a>
+    <a href="#decorators">Decorators</a>
+    <a href="#error">Error Handling</a>
+    <div class="sidebar-group">Stdlib</div>
+    <a href="#stdlib">Overview</a>
+    <a href="#stdlib-math">math</a>
+    <a href="#stdlib-strings">strings</a>
+    <a href="#stdlib-arr">arr</a>
+    <a href="#stdlib-fs">fs / io</a>
+    <a href="#stdlib-net">net / tg</a>
+    <a href="#stdlib-sql">sql</a>
+    <div class="sidebar-group">Tools</div>
+    <a href="#cli">CLI Commands</a>
+    <a href="#repl">REPL</a>
+    <a href="#pkg">Package Manager</a>
+    <a href="#vm">VM &amp; JIT</a>
   </div>
-  <div class="sidebar-section">
-    <div class="sidebar-heading">Language</div>
-    <a href="#basics" class="sidebar-link">Variables & Types</a>
-    <a href="#functions" class="sidebar-link">Functions</a>
-    <a href="#control" class="sidebar-link">Control Flow</a>
-    <a href="#structs" class="sidebar-link">Structs & Impl</a>
-    <a href="#enums" class="sidebar-link">Enums</a>
-    <a href="#match" class="sidebar-link">Pattern Matching</a>
-    <a href="#lambdas" class="sidebar-link">Lambdas & Pipes</a>
-    <a href="#decorators" class="sidebar-link">Decorators</a>
-    <a href="#error" class="sidebar-link">Error Handling</a>
-    <a href="#async" class="sidebar-link">Async & Threads</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-heading">Builtins</div>
-    <a href="#builtins" class="sidebar-link">Builtin Functions</a>
-    <a href="#stdlib" class="sidebar-link">Standard Library</a>
-    <a href="#stdlib-new" class="sidebar-link">New in v1.5</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-heading">Tools</div>
-    <a href="#packages" class="sidebar-link">Package Manager</a>
-    <a href="#testing" class="sidebar-link">Testing</a>
-    <a href="#cli" class="sidebar-link">CLI Reference</a>
-    <a href="#lsp" class="sidebar-link">LSP</a>
-  </div>
-</nav>
 
-<div class="docs-content">
-  <span class="tag">v1.5.0</span><span class="tag blue">DOCS</span>
-  <h1>TSTNT Documentation</h1>
-  <p>Complete reference for the TSTNT programming language — v1.5.0.</p>
+  <div class="docs-content">
+    <div class="tag">v1.5.0</div><div class="tag">DOCS</div>
+    <h1 style="margin-top:16px">TSTNT Documentation</h1>
+    <p>Complete reference for the TSTNT programming language &mdash; v1.5.0.</p>
 
-  <h2 id="v15">v1.5.0 — What's New</h2>
-  <p>Version 1.5.0 is the biggest release yet, adding JIT compilation, new syntax, three new stdlib modules, and 12 new packages.</p>
-  <h3>New Syntax</h3>
-  <pre><span class="cm"># for..in loop</span>
-<span class="kw">for</span> item <span class="kw">in</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>] &#123;
-  <span class="fn">print</span>(item)
-&#125;
+    <h2 id="v15">v1.5.0 &mdash; What's New</h2>
+    <p>Version 1.5 brings a JIT compiler, new language syntax, and three new stdlib modules.</p>
+    <table>
+      <tr><th>Feature</th><th>Description</th></tr>
+      <tr><td><code>for..in</code></td><td>Clean loop syntax over arrays, strings, ranges</td></tr>
+      <tr><td><code>const</code></td><td>Immutable named constants</td></tr>
+      <tr><td><code>iter</code> stdlib</td><td>range, enumerate, zip, windows, product, step_by</td></tr>
+      <tr><td><code>bytes</code> stdlib</td><td>Binary data: from_str, to_hex, from_hex, xor</td></tr>
+      <tr><td><code>reflect</code> stdlib</td><td>Runtime introspection: type_of, fields, is_*</td></tr>
+      <tr><td>JIT compiler</td><td>ARM64 native code for integer-only hot functions</td></tr>
+      <tr><td>12 new packages</td><td>vec2d, fsm, neural, color3, lru, bitset, trie, promise, text-wrap, multimap, diff2, expr-eval</td></tr>
+      <tr><td>Version from Cargo</td><td>Version string now reads from Cargo.toml automatically</td></tr>
+      <tr><td>Indexed globals</td><td>Global variables use Vec index instead of HashMap lookup</td></tr>
+    </table>
 
-<span class="cm"># const variables</span>
-<span class="kw">const</span> PI <span class="op">=</span> <span class="num">3.14159</span>
-<span class="kw">const</span> APP_NAME<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"MyApp"</span>
+    <h2 id="for-in">for..in Loops <span class="tag tag-new">v1.5 NEW</span></h2>
+    <p>The <code>for</code> keyword provides clean iteration over any array or string.</p>
+    <pre><span class="t-kw">for</span> item <span class="t-kw">in</span> collection { }
 
-<span class="cm"># Default params</span>
-<span class="kw">do</span> <span class="fn">greet</span>(name<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"World"</span>) &#123;
-  <span class="fn">print</span>(<span class="str">"Hello, {name}!"</span>)
-&#125;</pre>
+<span class="t-cm"># Over array</span>
+<span class="t-kw">for</span> name <span class="t-kw">in</span> [<span class="t-str">"Alice"</span>, <span class="t-str">"Bob"</span>] {
+    <span class="t-fn">print</span>(name)
+}
 
-  <h3>New Stdlib Modules</h3>
-  <pre><span class="cm"># iter — iterator utilities</span>
-<span class="kw">use</span> <span class="str">"iter"</span>
-<span class="kw">let</span> pairs <span class="op">=</span> iter.<span class="fn">enumerate</span>([<span class="str">"a"</span>, <span class="str">"b"</span>, <span class="str">"c"</span>])
-<span class="kw">let</span> r <span class="op">=</span> iter.<span class="fn">range</span>(<span class="num">0</span>, <span class="num">10</span>, <span class="num">2</span>)  <span class="cm"># [0,2,4,6,8]</span>
-<span class="kw">let</span> w <span class="op">=</span> iter.<span class="fn">windows</span>(arr, <span class="num">3</span>)
+<span class="t-cm"># Over range</span>
+<span class="t-kw">for</span> i <span class="t-kw">in</span> iter.<span class="t-fn">range</span>(<span class="t-num">10</span>) {
+    <span class="t-fn">print</span>(i)
+}
 
-<span class="cm"># bytes — binary data</span>
-<span class="kw">use</span> <span class="str">"bytes"</span>
-<span class="kw">let</span> b <span class="op">=</span> bytes.<span class="fn">from_str</span>(<span class="str">"hello"</span>)
-<span class="kw">let</span> hex <span class="op">=</span> bytes.<span class="fn">to_hex</span>(b)   <span class="cm"># "68656c6c6f"</span>
+<span class="t-cm"># Over string characters</span>
+<span class="t-kw">for</span> ch <span class="t-kw">in</span> <span class="t-str">"hello"</span> {
+    <span class="t-fn">print</span>(ch)
+}</pre>
 
-<span class="cm"># reflect — runtime inspection</span>
-<span class="kw">use</span> <span class="str">"reflect"</span>
-<span class="fn">print</span>(reflect.<span class="fn">type_of</span>(<span class="num">42</span>))   <span class="cm"># "int"</span>
-<span class="fn">print</span>(reflect.<span class="fn">fields</span>(point)) <span class="cm"># ["x","y"]</span></pre>
+    <h2 id="const">const Variables <span class="tag tag-new">v1.5 NEW</span></h2>
+    <p>Constants are set once and never reassigned. Available everywhere in the current scope.</p>
+    <pre><span class="t-kw">const</span> MAX_SIZE = <span class="t-num">1000</span>
+<span class="t-kw">const</span> APP_NAME = <span class="t-str">"MyApp"</span>
+<span class="t-kw">const</span> PI = <span class="t-num">3.14159</span>
+<span class="t-kw">const</span> DEBUG = <span class="t-kw">false</span>
 
-  <h2 id="install">Installation</h2>
-  <pre><span class="cm"># Linux / macOS</span>
-git clone https://github.com/tstnt-lang/tstnt
-cd tstnt && cargo build --release
-cp target/release/tstnt ~/.local/bin/
+<span class="t-cm"># const with type annotation</span>
+<span class="t-kw">const</span> LIMIT: <span class="t-type">int</span> = <span class="t-num">100</span></pre>
 
-<span class="cm"># Android (Termux)</span>
+    <h2 id="iter">iter stdlib <span class="tag tag-new">v1.5 NEW</span></h2>
+    <p>Comprehensive iteration utilities.</p>
+    <table>
+      <tr><th>Function</th><th>Description</th></tr>
+      <tr><td><code>iter.range(end)</code></td><td>0..end</td></tr>
+      <tr><td><code>iter.range(start, end)</code></td><td>start..end</td></tr>
+      <tr><td><code>iter.range(start, end, step)</code></td><td>With custom step</td></tr>
+      <tr><td><code>iter.enumerate(array)</code></td><td>[[0,a], [1,b], ...]</td></tr>
+      <tr><td><code>iter.zip(a, b)</code></td><td>[[a0,b0], [a1,b1], ...]</td></tr>
+      <tr><td><code>iter.chain(a, b, ...)</code></td><td>Concatenate arrays</td></tr>
+      <tr><td><code>iter.take(array, n)</code></td><td>First n items</td></tr>
+      <tr><td><code>iter.skip(array, n)</code></td><td>Skip first n items</td></tr>
+      <tr><td><code>iter.step_by(array, n)</code></td><td>Every nth item</td></tr>
+      <tr><td><code>iter.windows(array, n)</code></td><td>Sliding windows of size n</td></tr>
+      <tr><td><code>iter.chunks(array, n)</code></td><td>Split into chunks of n</td></tr>
+      <tr><td><code>iter.product(a, b)</code></td><td>Cartesian product</td></tr>
+      <tr><td><code>iter.flatten(array)</code></td><td>Flatten nested arrays</td></tr>
+      <tr><td><code>iter.unique(array)</code></td><td>Remove duplicates</td></tr>
+      <tr><td><code>iter.sorted(array)</code></td><td>Sort copy</td></tr>
+      <tr><td><code>iter.reversed(array)</code></td><td>Reverse copy</td></tr>
+      <tr><td><code>iter.sum(array)</code></td><td>Sum of integers</td></tr>
+      <tr><td><code>iter.min(array)</code></td><td>Minimum value</td></tr>
+      <tr><td><code>iter.max(array)</code></td><td>Maximum value</td></tr>
+      <tr><td><code>iter.count(array)</code></td><td>Length</td></tr>
+      <tr><td><code>iter.all_equal(array)</code></td><td>All items equal?</td></tr>
+    </table>
+
+    <h2 id="bytes">bytes stdlib <span class="tag tag-new">v1.5 NEW</span></h2>
+    <table>
+      <tr><th>Function</th><th>Description</th></tr>
+      <tr><td><code>bytes.from_str(s)</code></td><td>String to byte array</td></tr>
+      <tr><td><code>bytes.to_str(arr)</code></td><td>Byte array to string</td></tr>
+      <tr><td><code>bytes.from_hex(s)</code></td><td>Hex string to bytes</td></tr>
+      <tr><td><code>bytes.to_hex(arr)</code></td><td>Bytes to hex string</td></tr>
+      <tr><td><code>bytes.len(arr)</code></td><td>Length</td></tr>
+      <tr><td><code>bytes.at(arr, i)</code></td><td>Byte at index</td></tr>
+      <tr><td><code>bytes.slice(arr, from, to)</code></td><td>Slice</td></tr>
+      <tr><td><code>bytes.concat(a, b)</code></td><td>Concatenate</td></tr>
+      <tr><td><code>bytes.repeat(arr, n)</code></td><td>Repeat n times</td></tr>
+      <tr><td><code>bytes.xor(a, b)</code></td><td>XOR two byte arrays</td></tr>
+    </table>
+
+    <h2 id="reflect">reflect stdlib <span class="tag tag-new">v1.5 NEW</span></h2>
+    <table>
+      <tr><th>Function</th><th>Description</th></tr>
+      <tr><td><code>reflect.type_of(v)</code></td><td>"int", "str", "bool", etc.</td></tr>
+      <tr><td><code>reflect.is_int(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.is_float(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.is_str(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.is_bool(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.is_array(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.is_null(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.is_struct(v)</code></td><td>Type check</td></tr>
+      <tr><td><code>reflect.fields(struct)</code></td><td>Field names as array</td></tr>
+      <tr><td><code>reflect.get_field(struct, name)</code></td><td>Get field by name</td></tr>
+      <tr><td><code>reflect.has_field(struct, name)</code></td><td>Field exists?</td></tr>
+      <tr><td><code>reflect.size_of(v)</code></td><td>Length/size</td></tr>
+      <tr><td><code>reflect.to_array(v)</code></td><td>Convert to array</td></tr>
+      <tr><td><code>reflect.to_tuple(v)</code></td><td>Convert to tuple</td></tr>
+    </table>
+
+    <h2 id="install">Install</h2>
+    <pre><span class="t-cm"># Termux / Android</span>
 pkg install rust git
 git clone https://github.com/tstnt-lang/tstnt
-cd tstnt && cargo build --release
+cd tstnt
+cargo build --release
 cp target/release/tstnt ~/bin/tstnt
 
-<span class="cm"># Verify</span>
+<span class="t-cm"># Verify</span>
 tstnt --version</pre>
 
-  <h2 id="basics">Variables & Types</h2>
-  <pre><span class="kw">let</span> name <span class="op">=</span> <span class="str">"Alice"</span>
-<span class="kw">let mut</span> count<span class="op">:</span> <span class="type">int</span> <span class="op">=</span> <span class="num">0</span>
-<span class="kw">const</span> MAX <span class="op">=</span> <span class="num">100</span>
+    <h2 id="quickstart">Quick Start</h2>
+    <pre><span class="t-cm"># hello.tstnt</span>
+<span class="t-kw">const</span> NAME = <span class="t-str">"World"</span>
+<span class="t-fn">print</span>(<span class="t-str">"Hello, ${NAME}!"</span>)</pre>
+    <pre>tstnt hello.tstnt
+<span class="t-fn">Hello, World!</span></pre>
 
-<span class="kw">let</span> pi<span class="op">:</span> <span class="type">float</span> <span class="op">=</span> <span class="num">3.14</span>
-<span class="kw">let</span> ok<span class="op">:</span> <span class="type">bool</span> <span class="op">=</span> <span class="type">true</span>
-<span class="kw">let</span> items<span class="op">:</span> <span class="type">array</span> <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
-<span class="kw">let</span> msg <span class="op">=</span> <span class="str">"Hello, {name}!"</span>  <span class="cm"># string interpolation</span>
+    <h2 id="syntax">Syntax Overview</h2>
+    <h3>Variables</h3>
+    <pre><span class="t-kw">let</span> x = <span class="t-num">42</span>              <span class="t-cm"># immutable</span>
+<span class="t-kw">let</span> <span class="t-kw">mut</span> y = <span class="t-num">0</span>          <span class="t-cm"># mutable</span>
+<span class="t-kw">const</span> PI = <span class="t-num">3.14159</span>      <span class="t-cm"># constant</span>
+<span class="t-kw">let</span> name: <span class="t-type">str</span> = <span class="t-str">"hi"</span>  <span class="t-cm"># with type</span></pre>
 
-<span class="cm"># Multiline string</span>
-<span class="kw">let</span> text <span class="op">=</span> <span class="str">"""
-  line one
-  line two
-"""</span>
+    <h3>Functions</h3>
+    <pre><span class="t-kw">do</span> <span class="t-fn">greet</span>(name: <span class="t-type">str</span>) {
+    <span class="t-fn">print</span>(<span class="t-str">"Hello, ${name}!"</span>)
+}
 
-<span class="cm"># Multiple assignment</span>
-<span class="kw">let</span> x, y <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>]</pre>
+<span class="t-kw">do</span> <span class="t-fn">add</span>(a: <span class="t-type">int</span>, b: <span class="t-type">int</span>) -&gt; <span class="t-type">int</span> {
+    <span class="t-kw">return</span> a + b
+}
 
-  <table>
-    <tr><th>Type</th><th>Example</th><th>Notes</th></tr>
-    <tr><td><code>int</code></td><td><code>42</code></td><td>64-bit signed integer</td></tr>
-    <tr><td><code>float</code></td><td><code>3.14</code></td><td>64-bit float</td></tr>
-    <tr><td><code>str</code></td><td><code>"hello"</code></td><td>UTF-8 string</td></tr>
-    <tr><td><code>bool</code></td><td><code>true</code></td><td>true / false</td></tr>
-    <tr><td><code>array</code></td><td><code>[1, 2, 3]</code></td><td>Dynamic array</td></tr>
-    <tr><td><code>null</code></td><td><code>null</code></td><td>Null value</td></tr>
-  </table>
+<span class="t-kw">async</span> <span class="t-kw">do</span> <span class="t-fn">fetch_data</span>(url: <span class="t-type">str</span>) { }</pre>
 
-  <h2 id="functions">Functions</h2>
-  <pre><span class="kw">do</span> <span class="fn">add</span>(a<span class="op">:</span> <span class="type">int</span>, b<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> &#123;
-  <span class="kw">return</span> a <span class="op">+</span> b
-&#125;
+    <h3>Control Flow</h3>
+    <pre><span class="t-cm"># if / else</span>
+<span class="t-kw">if</span> x &gt; <span class="t-num">10</span> {
+    <span class="t-fn">print</span>(<span class="t-str">"big"</span>)
+} <span class="t-kw">else</span> <span class="t-kw">if</span> x &gt; <span class="t-num">5</span> {
+    <span class="t-fn">print</span>(<span class="t-str">"medium"</span>)
+} <span class="t-kw">else</span> {
+    <span class="t-fn">print</span>(<span class="t-str">"small"</span>)
+}
 
-<span class="cm"># Default parameters (v1.5.0)</span>
-<span class="kw">do</span> <span class="fn">greet</span>(name<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"World"</span>) &#123;
-  <span class="fn">print</span>(<span class="str">"Hello, {name}!"</span>)
-&#125;
+<span class="t-cm"># for..in (v1.5)</span>
+<span class="t-kw">for</span> item <span class="t-kw">in</span> array { }
 
-<span class="cm"># Named arguments</span>
-<span class="fn">greet</span>(name<span class="op">:</span> <span class="str">"Alice"</span>)
+<span class="t-cm"># while</span>
+<span class="t-kw">while</span> cond { }
 
-<span class="cm"># Async function</span>
-<span class="kw">async do</span> <span class="fn">fetch</span>(url<span class="op">:</span> <span class="type">str</span>) &#123;
-  <span class="kw">let</span> res <span class="op">=</span> <span class="kw">await</span> net.<span class="fn">get</span>(url)
-  <span class="kw">return</span> res
-&#125;
+<span class="t-cm"># loop i in 0..n</span>
+<span class="t-kw">loop</span> i <span class="t-kw">in</span> <span class="t-num">0</span>..<span class="t-num">10</span> { }
 
-<span class="cm"># Generics (erased to any)</span>
-<span class="kw">do</span> <span class="fn">first</span>&lt;T&gt;(arr<span class="op">:</span> <span class="type">array</span>) <span class="op">-></span> T &#123;
-  <span class="kw">return</span> arr[<span class="num">0</span>]
-&#125;</pre>
+<span class="t-cm"># repeat n times</span>
+<span class="t-kw">repeat</span> <span class="t-num">5</span> { }</pre>
 
-  <h2 id="control">Control Flow</h2>
-  <pre><span class="cm"># if / else</span>
-<span class="kw">if</span> x <span class="op">></span> <span class="num">0</span> &#123;
-  <span class="fn">print</span>(<span class="str">"positive"</span>)
-&#125; <span class="kw">else if</span> x <span class="op">==</span> <span class="num">0</span> &#123;
-  <span class="fn">print</span>(<span class="str">"zero"</span>)
-&#125; <span class="kw">else</span> &#123;
-  <span class="fn">print</span>(<span class="str">"negative"</span>)
-&#125;
+    <h2 id="types">Types</h2>
+    <table>
+      <tr><th>Type</th><th>Example</th></tr>
+      <tr><td><code>int</code></td><td>42, -7, 0</td></tr>
+      <tr><td><code>float</code></td><td>3.14, -0.5</td></tr>
+      <tr><td><code>str</code></td><td>"hello", "line\n"</td></tr>
+      <tr><td><code>bool</code></td><td>true, false</td></tr>
+      <tr><td><code>array</code></td><td>[1, 2, 3]</td></tr>
+      <tr><td><code>tuple</code></td><td>(1, "a", true)</td></tr>
+      <tr><td><code>null</code></td><td>null</td></tr>
+      <tr><td>struct name</td><td>User { name: "Alice" }</td></tr>
+    </table>
 
-<span class="cm"># while</span>
-<span class="kw">let mut</span> i <span class="op">=</span> <span class="num">0</span>
-<span class="kw">while</span> i <span class="op">&lt;</span> <span class="num">10</span> &#123; i <span class="op">+=</span> <span class="num">1</span> &#125;
+    <h2 id="structs">Structs &amp; Impl</h2>
+    <pre><span class="t-kw">struct</span> <span class="t-type">Point</span> {
+    x: <span class="t-type">float</span>
+    y: <span class="t-type">float</span>
+}
 
-<span class="cm"># for..in (v1.5.0)</span>
-<span class="kw">for</span> item <span class="kw">in</span> items &#123; <span class="fn">print</span>(item) &#125;
+<span class="t-kw">impl</span> <span class="t-type">Point</span> {
+    <span class="t-kw">do</span> <span class="t-fn">dist</span>(self, other: <span class="t-type">Point</span>) -&gt; <span class="t-type">float</span> {
+        <span class="t-kw">let</span> dx = self.x - other.x
+        <span class="t-kw">let</span> dy = self.y - other.y
+        <span class="t-kw">return</span> math.<span class="t-fn">sqrt</span>(dx*dx + dy*dy)
+    }
+}
 
-<span class="cm"># loop (range)</span>
-<span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span><span class="op">..</span><span class="num">10</span> &#123; <span class="fn">print</span>(i) &#125;
+<span class="t-kw">let</span> p1 = <span class="t-type">Point</span> { x: <span class="t-num">0.0</span>, y: <span class="t-num">0.0</span> }
+<span class="t-kw">let</span> p2 = <span class="t-type">Point</span> { x: <span class="t-num">3.0</span>, y: <span class="t-num">4.0</span> }
+<span class="t-fn">print</span>(p1.<span class="t-fn">dist</span>(p2))  <span class="t-cm"># 5.0</span></pre>
 
-<span class="cm"># loop in (foreach)</span>
-<span class="kw">loop in</span> items &#123; <span class="fn">print</span>(item) &#125;
+    <h2 id="decorators">Decorators</h2>
+    <pre><span class="t-cm"># Memoize function results</span>
+@cache
+<span class="t-kw">do</span> <span class="t-fn">fib</span>(n: <span class="t-type">int</span>) -&gt; <span class="t-type">int</span> {
+    <span class="t-kw">if</span> n &lt;= <span class="t-num">1</span> { <span class="t-kw">return</span> n }
+    <span class="t-kw">return</span> <span class="t-fn">fib</span>(n-<span class="t-num">1</span>) + <span class="t-fn">fib</span>(n-<span class="t-num">2</span>)
+}
 
-<span class="cm"># repeat</span>
-<span class="kw">repeat</span> <span class="num">3</span> &#123; <span class="fn">print</span>(<span class="str">"hey"</span>) &#125;
+<span class="t-cm"># Time function execution</span>
+@timer
+<span class="t-kw">do</span> <span class="t-fn">slow_op</span>() { }
 
-<span class="cm"># ternary</span>
-<span class="kw">let</span> val <span class="op">=</span> x <span class="op">></span> <span class="num">0</span> <span class="op">?</span> <span class="str">"pos"</span> <span class="op">:</span> <span class="str">"neg"</span></pre>
+<span class="t-cm"># Mark as deprecated</span>
+@deprecated
+<span class="t-kw">do</span> <span class="t-fn">old_func</span>() { }</pre>
 
-  <h2 id="structs">Structs & Impl</h2>
-  <pre><span class="kw">struct</span> <span class="type">Point</span> &#123;
-  x<span class="op">:</span> <span class="type">float</span>
-  y<span class="op">:</span> <span class="type">float</span>
-&#125;
+    <h2 id="stdlib">Standard Library</h2>
+    <h3 id="stdlib-math">math</h3>
+    <pre>math.sqrt(x)   math.pow(x,y)  math.abs(x)
+math.floor(x)  math.ceil(x)   math.round(x)
+math.sin(x)    math.cos(x)    math.tan(x)
+math.log(x)    math.exp(x)    math.pi</pre>
 
-<span class="kw">impl</span> <span class="type">Point</span> &#123;
-  <span class="kw">do</span> <span class="fn">dist</span>(other<span class="op">:</span> <span class="type">Point</span>) <span class="op">-></span> <span class="type">float</span> &#123;
-    <span class="kw">let</span> dx <span class="op">=</span> self.x <span class="op">-</span> other.x
-    <span class="kw">let</span> dy <span class="op">=</span> self.y <span class="op">-</span> other.y
-    <span class="kw">return</span> math.<span class="fn">sqrt</span>(dx<span class="op">*</span>dx <span class="op">+</span> dy<span class="op">*</span>dy)
-  &#125;
-  <span class="kw">do</span> <span class="fn">str</span> &#123;
-    <span class="kw">return</span> <span class="str">"({self.x}, {self.y})"</span>
-  &#125;
-&#125;
+    <h3 id="stdlib-strings">strings</h3>
+    <pre>strings.split(s, sep)      strings.join(arr, sep)
+strings.trim(s)            strings.upper(s)
+strings.lower(s)           strings.replace(s, a, b)
+strings.contains(s, sub)   strings.starts_with(s, p)
+strings.ends_with(s, p)    strings.slice(s, from, to)
+strings.pad_left(s, n, c)  strings.pad_right(s, n, c)</pre>
 
-<span class="kw">let</span> p <span class="op">=</span> <span class="type">Point</span> &#123; x<span class="op">:</span> <span class="num">1.0</span>, y<span class="op">:</span> <span class="num">2.0</span> &#125;
-<span class="fn">print</span>(p.<span class="fn">str</span>())
+    <h3 id="stdlib-arr">arr</h3>
+    <pre>arr.push(a, v)    arr.pop(a)      arr.len(a)
+arr.sort(a)       arr.reverse(a)  arr.map(a, fn)
+arr.filter(a, fn) arr.find(a, fn) arr.reduce(a, fn, init)</pre>
 
-<span class="cm"># unit (struct with methods inline)</span>
-<span class="kw">unit</span> <span class="type">Counter</span> &#123;
-  value<span class="op">:</span> <span class="type">int</span>
-  <span class="kw">do</span> <span class="fn">inc</span> &#123; self.value <span class="op">+=</span> <span class="num">1</span> &#125;
-&#125;</pre>
+    <h3 id="stdlib-sql">sql</h3>
+    <pre>sql.open("db.sqlite")
+sql.exec(db, "CREATE TABLE ...")
+sql.query(db, "SELECT * FROM users")
+sql.close(db)</pre>
 
-  <h2 id="enums">Enums</h2>
-  <pre><span class="kw">enum</span> <span class="type">Color</span> &#123; Red, Green, Blue &#125;
+    <h2 id="cli">CLI Commands</h2>
+    <table>
+      <tr><th>Command</th><th>Description</th></tr>
+      <tr><td><code>tstnt file.tstnt</code></td><td>Run a file</td></tr>
+      <tr><td><code>tstnt repl</code></td><td>Start interactive REPL</td></tr>
+      <tr><td><code>tstnt check file.tstnt</code></td><td>Check syntax</td></tr>
+      <tr><td><code>tstnt test file.tstnt</code></td><td>Run tests</td></tr>
+      <tr><td><code>tstnt fmt file.tstnt</code></td><td>Format code</td></tr>
+      <tr><td><code>tstnt bench file.tstnt N</code></td><td>Benchmark N runs</td></tr>
+      <tr><td><code>tstnt build file.tstnt</code></td><td>Compile to .tst bytecode</td></tr>
+      <tr><td><code>tstnt transpile file.tstnt py</code></td><td>Transpile to Python/JS</td></tr>
+      <tr><td><code>tstnt watch file.tstnt</code></td><td>Watch and re-run on save</td></tr>
+      <tr><td><code>tstnt new myproject</code></td><td>Create new project</td></tr>
+      <tr><td><code>tstnt --version</code></td><td>Show version</td></tr>
+    </table>
 
-<span class="kw">let</span> c <span class="op">=</span> <span class="type">Color</span>::Red
-<span class="fn">print</span>(<span class="fn">type_of</span>(c))  <span class="cm"># "Color::Red"</span>
+    <h2 id="pkg">Package Manager</h2>
+    <pre>tstnt pkg install &lt;name&gt;    <span class="t-cm"># Install package</span>
+tstnt pkg uninstall &lt;name&gt;  <span class="t-cm"># Remove package</span>
+tstnt pkg list               <span class="t-cm"># List installed</span>
+tstnt pkg search [query]     <span class="t-cm"># Search 150+ packages</span></pre>
 
-<span class="cm"># Enum with data</span>
-<span class="kw">let</span> shape <span class="op">=</span> <span class="type">Shape</span>::Circle(<span class="num">5.0</span>)
-<span class="kw">match</span> shape &#123;
-  <span class="type">Shape</span>::Circle(r) <span class="op">-></span> <span class="fn">print</span>(<span class="str">"radius: {r}"</span>)
-  <span class="type">Shape</span>::Rect(w, h) <span class="op">-></span> <span class="fn">print</span>(<span class="str">"{w}x{h}"</span>)
-&#125;</pre>
+    <h2 id="vm">VM &amp; JIT</h2>
+    <p>TSTNT v1.5 includes a bytecode compiler and stack VM. Functions are automatically JIT-compiled to ARM64 native code after 50 calls if they operate only on integers.</p>
+    <pre><span class="t-cm"># This function will be JIT compiled on aarch64</span>
+<span class="t-kw">do</span> <span class="t-fn">add</span>(a: <span class="t-type">int</span>, b: <span class="t-type">int</span>) -&gt; <span class="t-type">int</span> {
+    <span class="t-kw">return</span> a + b
+}
 
-  <h2 id="match">Pattern Matching</h2>
-  <pre><span class="kw">match</span> value &#123;
-  <span class="num">1</span>       <span class="op">-></span> <span class="fn">print</span>(<span class="str">"one"</span>)
-  <span class="num">2</span><span class="op">..</span><span class="num">5</span>    <span class="op">-></span> <span class="fn">print</span>(<span class="str">"two to five"</span>)
-  x <span class="kw">if</span> x <span class="op">></span> <span class="num">10</span> <span class="op">-></span> <span class="fn">print</span>(<span class="str">"big: {x}"</span>)
-  _       <span class="op">-></span> <span class="fn">print</span>(<span class="str">"other"</span>)
-&#125;
+<span class="t-cm"># Benchmark output shows which backend is used</span>
+<span class="t-cm"># $ tstnt bench fib.tstnt 10</span>
+<span class="t-cm"># using VM + JIT</span></pre>
 
-<span class="cm"># if let</span>
-<span class="kw">if let</span> val <span class="op">=</span> maybe_value &#123;
-  <span class="fn">print</span>(<span class="str">"got: {val}"</span>)
-&#125;</pre>
-
-  <h2 id="lambdas">Lambdas & Pipes</h2>
-  <pre><span class="kw">let</span> double <span class="op">=</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>
-<span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>]
-<span class="kw">let</span> evens <span class="op">=</span> <span class="fn">filter</span>(nums, <span class="op">|</span>x<span class="op">|</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>)
-<span class="kw">let</span> doubled <span class="op">=</span> <span class="fn">map</span>(nums, <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>)
-<span class="kw">let</span> total <span class="op">=</span> <span class="fn">reduce</span>(nums, <span class="op">|</span>acc, x<span class="op">|</span> acc <span class="op">+</span> x, <span class="num">0</span>)
-
-<span class="cm"># Pipe operator</span>
-<span class="kw">let</span> result <span class="op">=</span> nums <span class="op">|></span> <span class="fn">filter</span>(<span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">2</span>) <span class="op">|></span> <span class="fn">map</span>(<span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">10</span>)</pre>
-
-  <h2 id="decorators">Decorators</h2>
-  <pre><span class="op">@</span>cache
-<span class="kw">do</span> <span class="fn">fib</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> &#123;
-  <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="num">1</span> &#123; <span class="kw">return</span> n &#125;
-  <span class="kw">return</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">1</span>) <span class="op">+</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">2</span>)
-&#125;
-
-<span class="op">@</span>timer
-<span class="kw">do</span> <span class="fn">slow_op</span>(n<span class="op">:</span> <span class="type">int</span>) &#123; <span class="cm"># prints elapsed ms</span>
-  <span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span><span class="op">..</span>n &#123; &#125;
-&#125;
-
-<span class="op">@</span>deprecated
-<span class="kw">do</span> <span class="fn">old_func</span>() &#123; <span class="cm"># prints warning on call</span>
-  <span class="fn">print</span>(<span class="str">"old"</span>)
-&#125;</pre>
-
-  <h2 id="error">Error Handling</h2>
-  <pre><span class="kw">try</span> &#123;
-  <span class="kw">let</span> n <span class="op">=</span> <span class="fn">int</span>(<span class="str">"not a number"</span>)
-  <span class="kw">throw</span> <span class="str">"custom error"</span>
-&#125; <span class="kw">catch</span> err &#123;
-  <span class="fn">print</span>(<span class="str">"caught: {err}"</span>)
-&#125;
-
-<span class="cm"># result package</span>
-<span class="kw">use</span> <span class="str">"result-pkg"</span>
-<span class="kw">let</span> r <span class="op">=</span> <span class="fn">ok</span>(<span class="num">42</span>)
-<span class="kw">let</span> e <span class="op">=</span> <span class="fn">err</span>(<span class="str">"oops"</span>)
-<span class="kw">if</span> <span class="fn">is_ok</span>(r) &#123; <span class="fn">print</span>(<span class="fn">unwrap</span>(r)) &#125;</pre>
-
-  <h2 id="async">Async & Threads</h2>
-  <pre><span class="cm"># Spawn a thread</span>
-<span class="fn">thread</span>(|| &#123;
-  <span class="fn">print</span>(<span class="str">"running in thread"</span>)
-&#125;)
-
-<span class="cm"># Async function</span>
-<span class="kw">async do</span> <span class="fn">main</span> &#123;
-  <span class="kw">let</span> data <span class="op">=</span> <span class="kw">await</span> net.<span class="fn">get</span>(<span class="str">"https://api.example.com"</span>)
-  <span class="fn">print</span>(data)
-&#125;</pre>
-
-  <h2 id="builtins">Builtin Functions</h2>
-  <table>
-    <tr><th>Function</th><th>Description</th></tr>
-    <tr><td><code>print(v)</code></td><td>Print to stdout</td></tr>
-    <tr><td><code>str(v)</code></td><td>Convert to string</td></tr>
-    <tr><td><code>int(v)</code></td><td>Convert to integer</td></tr>
-    <tr><td><code>float(v)</code></td><td>Convert to float</td></tr>
-    <tr><td><code>bool(v)</code></td><td>Convert to bool</td></tr>
-    <tr><td><code>len(v)</code></td><td>Length of array/string</td></tr>
-    <tr><td><code>type_of(v)</code></td><td>Type as string</td></tr>
-    <tr><td><code>range(s, e)</code></td><td>Array from s to e</td></tr>
-    <tr><td><code>map(arr, fn)</code></td><td>Map over array</td></tr>
-    <tr><td><code>filter(arr, fn)</code></td><td>Filter array</td></tr>
-    <tr><td><code>reduce(arr, fn, init)</code></td><td>Reduce array</td></tr>
-    <tr><td><code>find(arr, fn)</code></td><td>Find first match</td></tr>
-    <tr><td><code>every(arr, fn)</code></td><td>All match predicate</td></tr>
-    <tr><td><code>any(arr, fn)</code></td><td>Any match predicate</td></tr>
-    <tr><td><code>flat_map(arr, fn)</code></td><td>Map and flatten</td></tr>
-    <tr><td><code>take(arr, n)</code></td><td>First n elements</td></tr>
-    <tr><td><code>drop(arr, n)</code></td><td>Skip n elements</td></tr>
-    <tr><td><code>chunks(arr, n)</code></td><td>Split into chunks</td></tr>
-    <tr><td><code>concat(a, b)</code></td><td>Concatenate arrays</td></tr>
-    <tr><td><code>reverse(v)</code></td><td>Reverse array/string</td></tr>
-    <tr><td><code>sort(arr)</code></td><td>Sort array</td></tr>
-    <tr><td><code>unique(arr)</code></td><td>Remove duplicates</td></tr>
-    <tr><td><code>sum(arr)</code></td><td>Sum of array</td></tr>
-    <tr><td><code>max(arr)</code></td><td>Max of array</td></tr>
-    <tr><td><code>min(arr)</code></td><td>Min of array</td></tr>
-    <tr><td><code>abs(n)</code></td><td>Absolute value</td></tr>
-    <tr><td><code>clamp(v, lo, hi)</code></td><td>Clamp value</td></tr>
-    <tr><td><code>sprintf(tpl, ...)</code></td><td>Format string</td></tr>
-    <tr><td><code>assert(cond, msg)</code></td><td>Assert condition</td></tr>
-    <tr><td><code>assert_eq(a, b)</code></td><td>Assert equality</td></tr>
-    <tr><td><code>panic(msg)</code></td><td>Panic with message</td></tr>
-    <tr><td><code>index_of(arr, v)</code></td><td>Find index</td></tr>
-    <tr><td><code>slice(arr, f, t)</code></td><td>Slice array</td></tr>
-    <tr><td><code>repeat_str(s, n)</code></td><td>Repeat string</td></tr>
-    <tr><td><code>not_null(v)</code></td><td>Check not null</td></tr>
-    <tr><td><code>default(v, fb)</code></td><td>Fallback if null</td></tr>
-    <tr><td><code>coalesce(a, b, ...)</code></td><td>First non-null</td></tr>
-    <tr><td><code>tap(v)</code></td><td>Debug print, returns v</td></tr>
-  </table>
-
-  <h2 id="stdlib">Standard Library</h2>
-  <table>
-    <tr><th>Module</th><th>Description</th></tr>
-    <tr><td><code>io</code></td><td>File read/write</td></tr>
-    <tr><td><code>math</code></td><td>Math functions</td></tr>
-    <tr><td><code>strings</code></td><td>String manipulation</td></tr>
-    <tr><td><code>arr</code></td><td>Array methods</td></tr>
-    <tr><td><code>json</code></td><td>JSON encode/decode</td></tr>
-    <tr><td><code>time</code></td><td>Time and dates</td></tr>
-    <tr><td><code>env</code></td><td>Environment variables</td></tr>
-    <tr><td><code>fs</code></td><td>Filesystem</td></tr>
-    <tr><td><code>net</code></td><td>HTTP client</td></tr>
-    <tr><td><code>rand</code></td><td>Random numbers</td></tr>
-    <tr><td><code>crypto</code></td><td>Hashing</td></tr>
-    <tr><td><code>regex</code></td><td>Regular expressions</td></tr>
-    <tr><td><code>term</code></td><td>Terminal colors</td></tr>
-    <tr><td><code>sql</code></td><td>Flat-file SQL</td></tr>
-    <tr><td><code>tg</code></td><td>Telegram bot API</td></tr>
-    <tr><td><code>tui2</code></td><td>Terminal UI v2</td></tr>
-    <tr><td><code>server / http_server</code></td><td>HTTP server</td></tr>
-    <tr><td><code>ws / websocket</code></td><td>WebSocket server</td></tr>
-    <tr><td><code>result</code></td><td>Result type</td></tr>
-    <tr><td><code>fmt2</code></td><td>Formatting</td></tr>
-    <tr><td><code>hash</code></td><td>Hashmaps</td></tr>
-    <tr><td><code>csv</code></td><td>CSV parsing</td></tr>
-    <tr><td><code>toml</code></td><td>TOML parsing</td></tr>
-    <tr><td><code>xml</code></td><td>XML builder</td></tr>
-    <tr><td><code>html</code></td><td>HTML builder</td></tr>
-    <tr><td><code>color</code></td><td>ANSI colors</td></tr>
-    <tr><td><code>uuid</code></td><td>UUID generation</td></tr>
-    <tr><td><code>log</code></td><td>Logging</td></tr>
-    <tr><td><code>path</code></td><td>Path utilities</td></tr>
-    <tr><td><code>template</code></td><td>Template rendering</td></tr>
-  </table>
-
-  <h2 id="stdlib-new">New in v1.5.0: iter · bytes · reflect</h2>
-  <h3>iter module</h3>
-  <table>
-    <tr><th>Function</th><th>Description</th></tr>
-    <tr><td><code>iter.range(end)</code></td><td>0..end</td></tr>
-    <tr><td><code>iter.range(s, e)</code></td><td>s..e</td></tr>
-    <tr><td><code>iter.range(s, e, step)</code></td><td>s..e by step</td></tr>
-    <tr><td><code>iter.enumerate(arr)</code></td><td>[[i, v], ...]</td></tr>
-    <tr><td><code>iter.zip(a, b)</code></td><td>[[a0, b0], ...]</td></tr>
-    <tr><td><code>iter.chain(a, b)</code></td><td>Concatenate iterables</td></tr>
-    <tr><td><code>iter.take(arr, n)</code></td><td>First n</td></tr>
-    <tr><td><code>iter.skip(arr, n)</code></td><td>Skip n</td></tr>
-    <tr><td><code>iter.step_by(arr, n)</code></td><td>Every nth element</td></tr>
-    <tr><td><code>iter.chunks(arr, n)</code></td><td>Chunks of size n</td></tr>
-    <tr><td><code>iter.windows(arr, n)</code></td><td>Sliding windows</td></tr>
-    <tr><td><code>iter.product(a, b)</code></td><td>Cartesian product</td></tr>
-    <tr><td><code>iter.unique(arr)</code></td><td>Remove duplicates</td></tr>
-    <tr><td><code>iter.sorted(arr)</code></td><td>Sorted copy</td></tr>
-    <tr><td><code>iter.reversed(arr)</code></td><td>Reversed copy</td></tr>
-    <tr><td><code>iter.flatten(arr)</code></td><td>Flatten one level</td></tr>
-    <tr><td><code>iter.sum(arr)</code></td><td>Sum</td></tr>
-    <tr><td><code>iter.min(arr)</code></td><td>Minimum</td></tr>
-    <tr><td><code>iter.max(arr)</code></td><td>Maximum</td></tr>
-  </table>
-  <h3>bytes module</h3>
-  <table>
-    <tr><th>Function</th><th>Description</th></tr>
-    <tr><td><code>bytes.from_str(s)</code></td><td>String to byte array</td></tr>
-    <tr><td><code>bytes.to_str(b)</code></td><td>Bytes to string</td></tr>
-    <tr><td><code>bytes.from_hex(s)</code></td><td>Hex string to bytes</td></tr>
-    <tr><td><code>bytes.to_hex(b)</code></td><td>Bytes to hex string</td></tr>
-    <tr><td><code>bytes.len(b)</code></td><td>Length</td></tr>
-    <tr><td><code>bytes.at(b, i)</code></td><td>Byte at index</td></tr>
-    <tr><td><code>bytes.slice(b, f, t)</code></td><td>Slice bytes</td></tr>
-    <tr><td><code>bytes.concat(a, b)</code></td><td>Concatenate</td></tr>
-    <tr><td><code>bytes.xor(a, b)</code></td><td>XOR two byte arrays</td></tr>
-  </table>
-  <h3>reflect module</h3>
-  <table>
-    <tr><th>Function</th><th>Description</th></tr>
-    <tr><td><code>reflect.type_of(v)</code></td><td>Type name string</td></tr>
-    <tr><td><code>reflect.is_int(v)</code></td><td>Check if int</td></tr>
-    <tr><td><code>reflect.is_str(v)</code></td><td>Check if str</td></tr>
-    <tr><td><code>reflect.is_array(v)</code></td><td>Check if array</td></tr>
-    <tr><td><code>reflect.is_null(v)</code></td><td>Check if null</td></tr>
-    <tr><td><code>reflect.fields(s)</code></td><td>Struct field names</td></tr>
-    <tr><td><code>reflect.get_field(s, k)</code></td><td>Get field by name</td></tr>
-    <tr><td><code>reflect.has_field(s, k)</code></td><td>Check field exists</td></tr>
-    <tr><td><code>reflect.size_of(v)</code></td><td>Size/length of value</td></tr>
-    <tr><td><code>reflect.to_array(v)</code></td><td>Convert to array</td></tr>
-    <tr><td><code>reflect.to_tuple(v)</code></td><td>Convert to tuple</td></tr>
-  </table>
-
-  <h2 id="packages">Package Manager</h2>
-  <pre><span class="cm"># Install a package</span>
-tstnt pkg install logger
-
-<span class="cm"># Search packages</span>
-tstnt pkg search json
-
-<span class="cm"># List installed</span>
-tstnt pkg list
-
-<span class="cm"># Uninstall</span>
-tstnt pkg uninstall logger
-
-<span class="cm"># Use in code</span>
-<span class="kw">use</span> <span class="str">"logger"</span>
-logger.<span class="fn">info</span>(<span class="str">"Hello!"</span>)</pre>
-
-  <h2 id="testing">Testing</h2>
-  <pre><span class="kw">test</span> addition &#123;
-  <span class="fn">assert_eq</span>(<span class="num">1</span> <span class="op">+</span> <span class="num">1</span>, <span class="num">2</span>)
-  <span class="fn">assert_eq</span>(<span class="fn">str</span>(<span class="num">42</span>), <span class="str">"42"</span>)
-&#125;
-
-<span class="kw">test</span> strings &#123;
-  <span class="kw">let</span> s <span class="op">=</span> <span class="str">"hello"</span>
-  <span class="fn">assert_eq</span>(<span class="fn">len</span>(s), <span class="num">5</span>)
-  <span class="fn">assert</span>(strings.<span class="fn">contains</span>(s, <span class="str">"ell"</span>))
-&#125;</pre>
-  <pre>tstnt test myfile.tstnt</pre>
-
-  <h2 id="cli">CLI Reference</h2>
-  <table>
-    <tr><th>Command</th><th>Description</th></tr>
-    <tr><td><code>tstnt file.tstnt</code></td><td>Run a file</td></tr>
-    <tr><td><code>tstnt repl</code></td><td>Start interactive REPL</td></tr>
-    <tr><td><code>tstnt test file.tstnt</code></td><td>Run tests</td></tr>
-    <tr><td><code>tstnt check file.tstnt</code></td><td>Syntax check only</td></tr>
-    <tr><td><code>tstnt fmt file.tstnt</code></td><td>Format code</td></tr>
-    <tr><td><code>tstnt bench file.tstnt N</code></td><td>Benchmark N times</td></tr>
-    <tr><td><code>tstnt build file.tstnt</code></td><td>Compile to .tst bytecode</td></tr>
-    <tr><td><code>tstnt transpile file.tstnt py</code></td><td>Transpile to Python</td></tr>
-    <tr><td><code>tstnt transpile file.tstnt js</code></td><td>Transpile to JavaScript</td></tr>
-    <tr><td><code>tstnt watch file.tstnt</code></td><td>Watch and re-run on change</td></tr>
-    <tr><td><code>tstnt new myapp</code></td><td>Create new project</td></tr>
-    <tr><td><code>tstnt pkg install pkg</code></td><td>Install package</td></tr>
-    <tr><td><code>tstnt pkg search q</code></td><td>Search packages</td></tr>
-    <tr><td><code>tstnt --version</code></td><td>Show version</td></tr>
-    <tr><td><code>tstnt --debug file.tstnt</code></td><td>Debug mode</td></tr>
-  </table>
-
-  <h2 id="lsp">LSP</h2>
-  <p>TSTNT includes a Language Server (<code>tstnt-lsp</code>) for editor integration.</p>
-  <pre><span class="cm"># Neovim (init.lua)</span>
-vim.api.nvim_create_autocmd(&#123; "BufRead", "BufNewFile" &#125;, &#123;
-  pattern = "*.tstnt",
-  callback = function()
-    vim.lsp.start(&#123;
-      name = "tstnt-lsp",
-      cmd = &#123; "tstnt-lsp" &#125;,
-      root_dir = vim.fn.getcwd(),
-    &#125;)
-  end,
-&#125;)</pre>
-  <p>The LSP provides: autocomplete, hover documentation, go-to-definition, syntax errors.</p>
-</div>
+    <p>The VM uses indexed globals (Vec instead of HashMap) for O(1) variable access. Function calls avoid cloning AST thanks to Arc-backed chunks.</p>
+  </div>
 </div>
 
 <script src="main.js"></script>

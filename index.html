@@ -4,15 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TSTNT — Programming Language v1.5</title>
-<link rel="icon" type="image/svg+xml" data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=>
 <meta name="description" content="TSTNT v1.5 — a modern statically-typed scripting language built with Rust. Zero dependencies, 150+ packages, JIT compiler, Telegram API, SQL, TUI and more.">
 <meta property="og:title" content="TSTNT — Programming Language v1.5">
 <meta property="og:description" content="A modern scripting language built with Rust. Zero dependencies, 150+ packages, JIT compiler.">
-<meta property="og:image" content="https://tstnt-lang.github.io/og-index.png">
-<meta property="og:url" content="https://tstnt-lang.github.io">
+<meta property="og:image" content="https://tstnt.lol/og-index.png">
+<meta property="og:url" content="https://tstnt.lol">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tstnt-lang.github.io/og-index.png">
+<meta name="twitter:image" content="https://tstnt.lol/og-index.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>

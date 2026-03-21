@@ -1,13 +1,13 @@
 $ErrorActionPreference = "Stop"
 
-$VERSION = "v1.1.0"
+$VERSION = "v1.5.0"
 $REPO = "tstnt-lang/tstnt"
 $BASE_URL = "https://github.com/$REPO/releases/download/$VERSION"
 
 Write-Host ""
 Write-Host "  _____  ___  _____  _  _ _____ " -ForegroundColor Cyan
 Write-Host " |_   _|/ __||_   _|| \| |_   _|" -ForegroundColor Cyan
-Write-Host "   | |  \__ \  | |  | .` | | |  " -ForegroundColor Cyan
+Write-Host "   | |  \__ \  | |  | .`` | | |  " -ForegroundColor Cyan
 Write-Host "   |_|  |___/  |_|  |_|\_| |_|  " -ForegroundColor Cyan
 Write-Host ""
 Write-Host "TSTNT Installer " -ForegroundColor White -NoNewline
@@ -51,7 +51,7 @@ Write-Host ""
 Write-Host "  tstnt --version       check version" -ForegroundColor Cyan
 Write-Host "  tstnt repl            interactive shell" -ForegroundColor Cyan
 Write-Host "  tstnt new myproject   scaffold project" -ForegroundColor Cyan
-Write-Host "  tstnt pkg search      browse 140+ packages" -ForegroundColor Cyan
+Write-Host "  tstnt pkg search      browse 150+ packages" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "docs: https://tstnt-lang.github.io/docs.html" -ForegroundColor DarkGray
+Write-Host "docs: https://tstnt.lol/docs.html" -ForegroundColor DarkGray
 Write-Host ""

@@ -2,7 +2,7 @@
 set -e
 
 REPO="tstnt-lang/tstnt"
-VERSION="v1.1.0"
+VERSION="v1.5.0"
 BASE_URL="https://github.com/${REPO}/releases/download/${VERSION}"
 
 RED='\033[0;31m'
@@ -26,38 +26,51 @@ detect_platform() {
     ARCH=$(uname -m)
 
     if [ -d "/data/data/com.termux" ]; then
-        echo "android-aarch64"
-        return
+        case "${ARCH}" in
+            aarch64) echo "android-aarch64"; return ;;
+            armv7l)  echo "android-armv7"; return ;;
+            x86_64)  echo "android-x86_64"; return ;;
+            i686)    echo "android-x86"; return ;;
+        esac
+        echo "android-aarch64"; return
     fi
 
     case "${OS}" in
         Linux)
             case "${ARCH}" in
-                x86_64)  echo "linux-x86_64" ;;
-                aarch64) echo "linux-aarch64" ;;
-                *)       echo "unsupported" ;;
-            esac
-            ;;
+                x86_64)        echo "linux-x86_64" ;;
+                aarch64)       echo "linux-aarch64" ;;
+                armv7l|armv7) echo "linux-armv7" ;;
+                armv6l)        echo "linux-armv6" ;;
+                i686|i386)     echo "linux-x86" ;;
+                riscv64)       echo "linux-riscv64" ;;
+                *)             echo "unsupported" ;;
+            esac ;;
         Darwin)
             case "${ARCH}" in
-                x86_64)  echo "macos-x86_64" ;;
-                arm64)   echo "macos-aarch64" ;;
+                x86_64) echo "macos-x86_64" ;;
+                arm64)  echo "macos-aarch64" ;;
+                *)      echo "unsupported" ;;
+            esac ;;
+        MINGW*|MSYS*|CYGWIN*) echo "windows-x86_64" ;;
+        FreeBSD)
+            case "${ARCH}" in
+                x86_64)  echo "freebsd-x86_64" ;;
+                aarch64) echo "freebsd-aarch64" ;;
                 *)       echo "unsupported" ;;
-            esac
-            ;;
-        MINGW*|MSYS*|CYGWIN*)
-            echo "windows-x86_64"
-            ;;
-        *)
-            echo "unsupported"
-            ;;
+            esac ;;
+        *) echo "unsupported" ;;
     esac
 }
 
 PLATFORM=$(detect_platform)
 
 if [ "${PLATFORM}" = "unsupported" ]; then
-    echo "${RED}error${RESET}: unsupported platform"
+    echo "${RED}error${RESET}: unsupported platform (${OS}/${ARCH})"
+    echo "Supported: linux-x86_64, linux-aarch64, linux-armv7, linux-armv6, linux-x86,"
+    echo "           macos-x86_64, macos-aarch64, android-aarch64, android-armv7,"
+    echo "           windows-x86_64, freebsd-x86_64"
+    echo ""
     echo "Build from source: https://github.com/${REPO}"
     exit 1
 fi
@@ -73,14 +86,10 @@ fi
 DOWNLOAD_URL="${BASE_URL}/${BINARY_NAME}"
 
 detect_install_dir() {
-    if [ -d "/data/data/com.termux" ]; then
-        echo "$HOME/bin"
-    elif echo "${PLATFORM}" | grep -q "windows"; then
-        echo "$HOME/bin"
-    elif [ -w "/usr/local/bin" ]; then
-        echo "/usr/local/bin"
-    else
-        echo "$HOME/.local/bin"
+    if [ -d "/data/data/com.termux" ]; then echo "$HOME/bin"
+    elif echo "${PLATFORM}" | grep -q "windows"; then echo "$HOME/bin"
+    elif [ -w "/usr/local/bin" ]; then echo "/usr/local/bin"
+    else echo "$HOME/.local/bin"
     fi
 }
 
@@ -114,7 +123,6 @@ if ! echo "$PATH" | grep -q "${INSTALL_DIR}"; then
     elif [ -f "$HOME/.zshrc" ]; then SHELL_RC="$HOME/.zshrc"
     elif [ -f "$HOME/.profile" ]; then SHELL_RC="$HOME/.profile"
     fi
-
     if [ -n "${SHELL_RC}" ]; then
         echo "export PATH=\"\$PATH:${INSTALL_DIR}\"" >> "${SHELL_RC}"
         echo "${GREEN}✓${RESET} added to PATH in ${SHELL_RC}"
@@ -130,7 +138,7 @@ echo ""
 echo "  ${CYAN}tstnt --version${RESET}          check version"
 echo "  ${CYAN}tstnt repl${RESET}               interactive shell"
 echo "  ${CYAN}tstnt new myproject${RESET}      scaffold project"
-echo "  ${CYAN}tstnt pkg search${RESET}         browse 140+ packages"
+echo "  ${CYAN}tstnt pkg search${RESET}         browse 150+ packages"
 echo ""
-echo "${MUTED}docs: https://tstnt-lang.github.io/docs.html${RESET}"
+echo "${MUTED}docs: https://tstnt.lol/docs.html${RESET}"
 echo ""
