@@ -3,940 +3,588 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TSTNT Docs — v1.1.0</title>
+<title>TSTNT Docs — v1.5.0</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=">
-<meta name="description" content="Complete documentation for the TSTNT programming language — v1.1.0.">
-<meta property="og:title" content="TSTNT Docs — v1.1.0">
-<meta property="og:description" content="Complete reference for TSTNT — variables, functions, structs, stdlib, packages and more.">
+<meta name="description" content="Complete documentation for TSTNT — v1.5.0. Variables, functions, structs, stdlib, packages and more.">
+<meta property="og:title" content="TSTNT Docs — v1.5.0">
+<meta property="og:description" content="Complete reference for TSTNT — variables, functions, structs, stdlib, packages.">
 <meta property="og:image" content="https://tstnt-lang.github.io/og-docs.png">
 <meta property="og:url" content="https://tstnt-lang.github.io/docs.html">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TSTNT Docs">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tstnt-lang.github.io/og-docs.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  :root {
-    --bg: #0a0a0f; --surface: #111118; --border: #1e1e2e;
-    --accent: #7fffb2; --text: #e8e8f0; --muted: #666680; --code-bg: #0d0d15;
-  }
-  html, body { margin:0; padding:0; max-width:100%; overflow-x:hidden; }
-  *, *::before, *::after { box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; display:flex; min-height:100vh; }
-
-  body::after {
-    content:''; position:fixed; inset:0; pointer-events:none; z-index:9999;
-    background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);
-  }
-
-  .progress-bar {
-    position:fixed; top:0; left:0; height:2px; width:0%;
-    background:var(--accent); z-index:400;
-    box-shadow:0 0 10px rgba(127,255,178,0.7);
-    transition:width 0.1s linear;
-  }
-
-  /* Sidebar */
-  .sidebar {
-    width:260px; min-height:100vh; background:var(--surface);
-    border-right:1px solid var(--border);
-    position:fixed; left:0; top:0; overflow-y:auto;
-    display:flex; flex-direction:column; z-index:100;
-  }
-  .sidebar-top {
-    padding:18px 20px; border-bottom:1px solid var(--border);
-    position:sticky; top:0; background:var(--surface); z-index:10;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .sidebar-logo {
-    font-family:'Space Mono',monospace; color:var(--accent); font-size:14px;
-    font-weight:700; text-decoration:none; letter-spacing:0.06em;
-  }
-  .sidebar-version {
-    font-family:'Space Mono',monospace; font-size:10px; color:var(--muted);
-    border:1px solid var(--border); padding:2px 7px;
-  }
-  .search-wrap { padding:10px 12px; border-bottom:1px solid var(--border); }
-  .search-input {
-    width:100%; background:rgba(255,255,255,0.03); border:1px solid var(--border);
-    color:var(--text); font-family:'Space Mono',monospace; font-size:12px;
-    padding:8px 12px; outline:none; transition:border-color 0.2s, background 0.2s;
-  }
-  .search-input::placeholder { color:var(--muted); }
-  .search-input:focus { border-color:var(--accent); background:rgba(127,255,178,0.03); }
-  .search-results-list { border-bottom:1px solid var(--border); }
-  .search-result {
-    display:flex; align-items:center; gap:8px;
-    padding:7px 14px; font-size:12px; color:var(--muted);
-    text-decoration:none; border-left:2px solid transparent;
-    transition:all 0.15s; font-family:'Space Mono',monospace;
-  }
-  .search-result::before { content:'#'; color:var(--border); font-size:11px; flex-shrink:0; transition:color 0.15s; }
-  .search-result:hover { color:var(--accent); background:rgba(127,255,178,0.04); border-left-color:var(--accent); }
-  .search-result:hover::before { color:var(--accent); }
-  .search-result mark { background:rgba(127,255,178,0.2); color:var(--accent); padding:0 2px; font-style:normal; }
-
-  .sidebar-section {
-    padding:16px 16px 4px; font-size:9px; letter-spacing:0.3em;
-    color:var(--muted); font-family:'Space Mono',monospace;
-    text-transform:uppercase; opacity:0.5;
-  }
-  .sidebar a {
-    display:flex; align-items:center; gap:10px; padding:6px 16px 6px 14px;
-    font-size:13px; color:var(--muted); text-decoration:none;
-    border-left:2px solid transparent;
-    transition:color 0.15s, background 0.15s, border-color 0.15s, padding-left 0.2s;
-  }
-  .sidebar a::before {
-    content:''; width:3px; height:3px; border-radius:50%;
-    background:var(--border); flex-shrink:0;
-    transition:background 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .sidebar a:hover { color:var(--text); background:rgba(127,255,178,0.04); padding-left:20px; border-left-color:rgba(127,255,178,0.25); }
-  .sidebar a:hover::before { background:var(--muted); transform:scale(1.8); }
-  .sidebar a.active { color:var(--accent); border-left-color:var(--accent); background:rgba(127,255,178,0.05); font-weight:600; }
-  .sidebar a.active::before { background:var(--accent); transform:scale(1.8); box-shadow:0 0 6px rgba(127,255,178,0.6); }
-
-  /* Drawer */
-  .sidebar-drawer {
-    display:none; position:fixed; top:56px; left:0; bottom:0; width:290px;
-    background:var(--surface); z-index:150; overflow-y:auto;
-    border-right:1px solid var(--border);
-    transform:translateX(-100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
-  }
-  .sidebar-drawer.open { transform:translateX(0); }
-  .drawer-top {
-    padding:14px 20px; border-bottom:1px solid var(--border);
-    position:sticky; top:0; background:var(--surface); z-index:10;
-  }
-  .drawer-logo { font-family:'Space Mono',monospace; font-size:13px; font-weight:700; color:var(--muted); letter-spacing:0.08em; }
-  .drawer-logo span { color:var(--accent); }
-  .drawer-search-wrap { padding:10px 14px; border-bottom:1px solid var(--border); }
-  .sidebar-drawer .sidebar-section { padding:14px 20px 4px; font-size:9px; letter-spacing:0.3em; color:var(--muted); font-family:'Space Mono',monospace; opacity:0.5; }
-  .sidebar-drawer a {
-    display:flex; align-items:center; gap:10px;
-    padding:7px 20px; font-size:13px; color:var(--muted);
-    text-decoration:none; border-left:2px solid transparent; transition:all 0.15s;
-  }
-  .sidebar-drawer a::before { content:''; width:3px; height:3px; border-radius:50%; background:var(--border); flex-shrink:0; transition:background 0.2s, transform 0.2s, box-shadow 0.2s; }
-  .sidebar-drawer a:hover { color:var(--text); background:rgba(127,255,178,0.04); border-left-color:rgba(127,255,178,0.25); }
-  .sidebar-drawer a:hover::before { background:var(--muted); transform:scale(1.8); }
-  .sidebar-drawer a.active { color:var(--accent); border-left-color:var(--accent); background:rgba(127,255,178,0.05); font-weight:600; }
-  .sidebar-drawer a.active::before { background:var(--accent); transform:scale(1.8); box-shadow:0 0 6px rgba(127,255,178,0.6); }
-
-  /* Content */
-  .content { margin-left:260px; padding:60px 80px 80px; max-width:960px; flex:1; }
-  h1 { font-size:48px; font-weight:800; letter-spacing:-0.02em; margin-bottom:16px; line-height:1.1; }
-  h2 { font-size:28px; font-weight:700; margin:48px 0 16px; padding-top:48px; border-top:1px solid var(--border); }
-  h3 { font-size:18px; font-weight:700; margin:28px 0 10px; color:var(--accent); }
-  p { font-size:15px; color:var(--muted); line-height:1.8; margin-bottom:16px; }
-  code { font-family:'Space Mono',monospace; font-size:13px; background:rgba(127,255,178,0.06); color:var(--accent); padding:2px 8px; border:1px solid rgba(127,255,178,0.15); }
-  pre { background:var(--code-bg); border:1px solid var(--border); padding:24px; overflow-x:auto; font-family:'Space Mono',monospace; font-size:13px; line-height:1.8; white-space:pre; margin:0; }
-  pre .kw{color:#ff7f7f} pre .fn{color:#7fffb2} pre .type{color:#7fb2ff} pre .str{color:#ffcc7f} pre .cm{color:#44445a} pre .num{color:#ff9f7f} pre .op{color:#cc99ff}
-  table { width:100%; border-collapse:collapse; margin:20px 0; font-size:14px; }
-  th { text-align:left; padding:12px 16px; background:var(--surface); border:1px solid var(--border); font-weight:700; font-size:12px; letter-spacing:0.05em; }
-  td { padding:12px 16px; border:1px solid var(--border); color:var(--muted); }
-  td code { font-size:12px; }
-  .tag { display:inline-block; font-family:'Space Mono',monospace; font-size:11px; padding:3px 10px; background:rgba(127,255,178,0.08); color:var(--accent); margin-right:8px; }
-  .note { background:rgba(127,178,255,0.06); border-left:2px solid #7fb2ff; padding:16px 20px; margin:20px 0; font-size:14px; color:var(--text); }
-  .warn { background:rgba(255,200,127,0.06); border-left:2px solid #ffc87f; padding:16px 20px; margin:20px 0; font-size:14px; }
-
-  /* Pre copy wrap */
-  .pre-wrap { position:relative; margin:20px 0; }
-  .pre-wrap pre { margin:0; }
-  .pre-copy {
-    position:absolute; top:10px; right:10px;
-    background:rgba(127,255,178,0.08); border:1px solid rgba(127,255,178,0.2);
-    color:var(--muted); font-family:'Space Mono',monospace; font-size:10px;
-    padding:3px 9px; cursor:pointer; opacity:0; transition:all 0.2s;
-  }
-  .pre-wrap:hover .pre-copy { opacity:1; }
-  .pre-copy:hover { background:rgba(127,255,178,0.15); color:var(--accent); border-color:var(--accent); }
-  .pre-copy.copied { color:var(--accent); border-color:var(--accent); opacity:1; }
-
-  /* Mobile nav */
-  .mobile-nav {
-    display:none; position:fixed; top:0; left:0; right:0; height:56px;
-    background:rgba(10,10,15,0.98); backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--border); padding:0 20px;
-    align-items:center; justify-content:space-between; z-index:200;
-  }
-  .mobile-nav-logo { font-family:'Space Mono',monospace; color:var(--accent); font-size:15px; font-weight:700; text-decoration:none; }
-  .mobile-nav-btn { background:none; border:none; cursor:pointer; display:flex; flex-direction:column; gap:5px; padding:4px; }
-  .mobile-nav-btn span { display:block; width:22px; height:2px; background:var(--text); transition:transform 0.3s,opacity 0.3s; }
-  .mobile-nav-btn.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
-  .mobile-nav-btn.open span:nth-child(2) { opacity:0; }
-  .mobile-nav-btn.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-
-  .sidebar-overlay {
-    display:none; position:fixed; inset:0; top:56px;
-    background:rgba(0,0,0,0.6); z-index:140;
-    opacity:0; pointer-events:none; transition:opacity 0.3s;
-  }
-  .sidebar-overlay.open { opacity:1; pointer-events:all; }
-
-  @media(max-width:768px) {
-    .sidebar { display:none; }
-    .mobile-nav { display:flex; }
-    .sidebar-drawer { display:block; }
-    .sidebar-overlay { display:block; }
-    .content { margin-left:0; padding:76px 20px 40px; max-width:100%; }
-    h1 { font-size:clamp(22px,7vw,32px); word-break:break-word; }
-    h2 { font-size:clamp(18px,5vw,24px); padding-top:28px; margin:28px 0 12px; }
-    h3 { font-size:16px; }
-    p { font-size:14px; }
-    pre { font-size:12px; padding:16px; }
-    table { display:block; overflow-x:auto; white-space:nowrap; font-size:12px; }
-  }
-  @media(max-width:1100px) and (min-width:769px) {
-    .content { padding:60px 40px; }
-  }
+.docs-layout { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; padding-top: 64px; }
+.sidebar {
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  padding: 32px 0;
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-section { margin-bottom: 8px; }
+.sidebar-heading { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 8px 24px; }
+.sidebar-link {
+  display: block;
+  padding: 7px 24px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .15s, background .15s;
+  border-left: 2px solid transparent;
+}
+.sidebar-link:hover { color: var(--text); background: rgba(255,255,255,.02); }
+.sidebar-link.active { color: var(--accent); border-left-color: var(--accent); background: rgba(127,255,178,.04); }
+.sidebar-version { display: inline-block; background: rgba(127,255,178,.1); color: var(--accent); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin: 8px 24px 16px; }
+.docs-content {
+  padding: 48px 64px;
+  max-width: 860px;
+}
+.docs-content h1 { font-size: 42px; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 12px; }
+.docs-content h2 { font-size: 28px; font-weight: 700; letter-spacing: -.5px; margin: 56px 0 16px; padding-top: 56px; border-top: 1px solid var(--border); }
+.docs-content h2:first-of-type { border-top: none; padding-top: 0; margin-top: 32px; }
+.docs-content h3 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; color: var(--text); }
+.docs-content p { font-size: 15px; line-height: 1.75; color: var(--muted); margin-bottom: 16px; }
+.docs-content p a { color: var(--accent); text-decoration: none; }
+.docs-content p a:hover { text-decoration: underline; }
+.docs-content pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin: 16px 0 24px;
+}
+.docs-content code {
+  font-family: 'Space Mono', monospace;
+  font-size: 12.5px;
+  color: var(--accent);
+  background: rgba(127,255,178,.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.docs-content pre code { background: none; padding: 0; font-size: 13px; color: inherit; }
+.tag { display: inline-block; background: rgba(127,255,178,.1); color: var(--accent); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-right: 8px; margin-bottom: 24px; letter-spacing: .5px; }
+.tag.blue { background: rgba(122,178,255,.1); color: var(--accent3); }
+.tag.red { background: rgba(255,107,138,.1); color: var(--accent2); }
+table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+th { text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.04); color: var(--text); }
+td code { font-size: 12px; }
+tr:hover td { background: rgba(255,255,255,.02); }
+.callout { background: rgba(127,255,178,.05); border: 1px solid rgba(127,255,178,.15); border-radius: 10px; padding: 16px 20px; margin: 16px 0 24px; font-size: 14px; color: var(--text); line-height: 1.6; }
+.callout.blue { background: rgba(122,178,255,.05); border-color: rgba(122,178,255,.15); }
+@media (max-width: 900px) {
+  .docs-layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .docs-content { padding: 32px 24px; }
+}
 </style>
 </head>
 <body>
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
 
-<div class="progress-bar" id="progressBar"></div>
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="logo.png" alt="TSTNT">TST<span class="logo-accent">NT</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="#basics">Basics</a></li>
+    <li><a href="#stdlib">Stdlib</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="https://github.com/tstnt-lang" target="_blank">GitHub</a></li>
+    <li><a href="/" class="nav-cta">Home</a></li>
+  </ul>
+</nav>
 
-<div class="mobile-nav">
-  <a href="index.html" class="mobile-nav-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=" style="width:22px;height:22px;vertical-align:middle;margin-right:7px;">← TSTNT</a>
-  <button class="mobile-nav-btn" id="docsHamburger"><span></span><span></span><span></span></button>
-</div>
-
-<div class="sidebar-drawer" id="sidebarDrawer">
-  <div class="drawer-top">
-    <span class="drawer-logo">TSTNT <span>DOCS</span></span>
+<div class="docs-layout">
+<nav class="sidebar">
+  <span class="sidebar-version">v1.5.0</span>
+  <div class="sidebar-section">
+    <div class="sidebar-heading">Getting Started</div>
+    <a href="#intro" class="sidebar-link active">Introduction</a>
+    <a href="#install" class="sidebar-link">Installation</a>
+    <a href="#v15" class="sidebar-link">What's New v1.5</a>
   </div>
-  <div class="drawer-search-wrap">
-    <input class="search-input" id="drawerSearch" placeholder="🔍  Search docs..." autocomplete="off">
+  <div class="sidebar-section">
+    <div class="sidebar-heading">Language</div>
+    <a href="#basics" class="sidebar-link">Variables & Types</a>
+    <a href="#functions" class="sidebar-link">Functions</a>
+    <a href="#control" class="sidebar-link">Control Flow</a>
+    <a href="#structs" class="sidebar-link">Structs & Impl</a>
+    <a href="#enums" class="sidebar-link">Enums</a>
+    <a href="#match" class="sidebar-link">Pattern Matching</a>
+    <a href="#lambdas" class="sidebar-link">Lambdas & Pipes</a>
+    <a href="#decorators" class="sidebar-link">Decorators</a>
+    <a href="#error" class="sidebar-link">Error Handling</a>
+    <a href="#async" class="sidebar-link">Async & Threads</a>
   </div>
-  <div class="search-results-list" id="drawerResults" style="display:none;"></div>
-  <div id="drawerNav">
-  <div class="sidebar-section">GETTING STARTED</div>
-  <a href="#v10">v1.1.0 New</a>
-  <a href="#install" class="drawer-link">Installation</a>
-  <a href="#hello" class="drawer-link">Hello World</a>
-  <a href="#cli" class="drawer-link">CLI Reference</a>
-  <div class="sidebar-section">LANGUAGE</div>
-  <a href="#variables" class="drawer-link">Variables</a>
-  <a href="#functions" class="drawer-link">Functions</a>
-  <a href="#decorators" class="drawer-link">Decorators</a>
-  <a href="#structs" class="drawer-link">Structs &amp; Impl</a>
-  <a href="#control" class="drawer-link">Control Flow</a>
-  <a href="#match" class="drawer-link">Match</a>
-  <a href="#loops" class="drawer-link">Loops</a>
-  <a href="#lambdas" class="drawer-link">Lambdas</a>
-  <a href="#builtins" class="drawer-link">New Builtins</a>
-  <a href="#generics" class="drawer-link">Generics</a>
-  <a href="#optionals" class="drawer-link">Optional Chaining</a>
-  <a href="#errors" class="drawer-link">Try/Catch</a>
-  <a href="#tests" class="drawer-link">Tests</a>
-  <div class="sidebar-section">MODULES</div>
-  <a href="#stdlib" class="drawer-link">Standard Library</a>
-  <a href="#sql" class="drawer-link">SQL Module</a>
-  <a href="#server" class="drawer-link">HTTP Server</a>
-  <a href="#tui2" class="drawer-link">TUI2</a>
-  <a href="#result" class="drawer-link">Result Module</a>
-  <a href="#fmt2" class="drawer-link">Fmt2</a>
-  <a href="#tg" class="drawer-link">Telegram</a>
-  <a href="#db" class="drawer-link">Database</a>
-  <a href="#threads" class="drawer-link">Threads</a>
-  <div class="sidebar-section">PACKAGES</div>
-  <a href="#pkg" class="drawer-link">Package Manager</a>
-  <a href="#using-pkg" class="drawer-link">Using Packages</a>
-  <a href="#new-pkg" class="drawer-link">New Packages v1.0</a>
+  <div class="sidebar-section">
+    <div class="sidebar-heading">Builtins</div>
+    <a href="#builtins" class="sidebar-link">Builtin Functions</a>
+    <a href="#stdlib" class="sidebar-link">Standard Library</a>
+    <a href="#stdlib-new" class="sidebar-link">New in v1.5</a>
   </div>
-</div>
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<div class="sidebar">
-  <div class="sidebar-top">
-    <a href="index.html" class="sidebar-logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiMxYTFhMmUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGQwZDE1Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iZ2xvdyI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgcmVzdWx0PSJibHVyIi8+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZSBpbj0iYmx1ciIvPjxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyIvPjwvZmVNZXJnZT4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDMgOTQsMjcgOTQsNzMgNTAsOTcgNiw3MyA2LDI3IiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiM3ZmZmYjIiIHN0cm9rZS13aWR0aD0iMS41IiBmaWx0ZXI9InVybCgjZ2xvdykiLz4KICA8cG9seWdvbiBwb2ludHM9IjUwLDEwIDg3LDMxIDg3LDY5IDUwLDkwIDEzLDY5IDEzLDMxIiBmaWxsPSJub25lIiBzdHJva2U9IiM3ZmZmYjI1MCIgc3Ryb2tlLXdpZHRoPSIwLjgiLz4KICA8cmVjdCB4PSIyNCIgeT0iMjgiIHdpZHRoPSI1MiIgaGVpZ2h0PSI5IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjQzIiB5PSIyOCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjQ0IiByeD0iMSIgZmlsbD0iIzdmZmZiMiIvPgogIDxyZWN0IHg9IjYyIiB5PSI1NyIgd2lkdGg9IjExIiBoZWlnaHQ9IjExIiByeD0iMSIgZmlsbD0iIzdmYjJmZiIvPgo8L3N2Zz4=" style="width:22px;height:22px;vertical-align:middle;margin-right:7px;">← TSTNT</a>
-    <span class="sidebar-version">v1.1.0</span>
+  <div class="sidebar-section">
+    <div class="sidebar-heading">Tools</div>
+    <a href="#packages" class="sidebar-link">Package Manager</a>
+    <a href="#testing" class="sidebar-link">Testing</a>
+    <a href="#cli" class="sidebar-link">CLI Reference</a>
+    <a href="#lsp" class="sidebar-link">LSP</a>
   </div>
-  <div class="search-wrap">
-    <input class="search-input" id="sidebarSearch" placeholder="Search docs..." autocomplete="off">
-  </div>
-  <div class="search-results-list" id="searchResults" style="display:none;"></div>
-  <div id="sidebarNav">
-    <div class="sidebar-section">GETTING STARTED</div>
-    <a href="#v10">v1.1.0 New</a>
-    <a href="#install" class="active">Installation</a>
-    <a href="#hello">Hello World</a>
-    <a href="#cli">CLI Reference</a>
-    <div class="sidebar-section">LANGUAGE</div>
-    <a href="#variables">Variables</a>
-    <a href="#functions">Functions</a>
-    <a href="#decorators">Decorators</a>
-    <a href="#structs">Structs &amp; Impl</a>
-    <a href="#control">Control Flow</a>
-    <a href="#match">Match</a>
-    <a href="#loops">Loops</a>
-    <a href="#lambdas">Lambdas</a>
-    <a href="#builtins">New Builtins</a>
-    <a href="#generics">Generics</a>
-    <a href="#optionals">Optional Chaining</a>
-    <a href="#errors">Try/Catch</a>
-    <a href="#tests">Tests</a>
-    <div class="sidebar-section">MODULES</div>
-    <a href="#stdlib">Standard Library</a>
-    <a href="#sql">SQL Module</a>
-    <a href="#server">HTTP Server</a>
-    <a href="#tui2">TUI2</a>
-    <a href="#result">Result Module</a>
-    <a href="#fmt2">Fmt2</a>
-    <a href="#tg">Telegram</a>
-    <a href="#db">Database</a>
-    <a href="#threads">Threads</a>
-    <div class="sidebar-section">PACKAGES</div>
-    <a href="#pkg">Package Manager</a>
-    <a href="#using-pkg">Using Packages</a>
-    <a href="#new-pkg">New Packages v1.0</a>
-    <a href="#v11-stdlib">New Stdlib v1.1</a>
-  </div>
-</div>
+</nav>
 
-<div class="content">
-  <div class="tag">v1.1.0</div><div class="tag">DOCS</div>
-  <h1>Documentation</h1>
-  <p>Complete reference for the TSTNT programming language — v1.1.0.</p>
+<div class="docs-content">
+  <span class="tag">v1.5.0</span><span class="tag blue">DOCS</span>
+  <h1>TSTNT Documentation</h1>
+  <p>Complete reference for the TSTNT programming language — v1.5.0.</p>
 
-  <h2 id="v10">v1.1.0 — What's New</h2>
-  <p>Version 1.0 brings real decorator logic, new stdlib modules, 20+ new packages, and many new builtin functions.</p>
+  <h2 id="v15">v1.5.0 — What's New</h2>
+  <p>Version 1.5.0 is the biggest release yet, adding JIT compilation, new syntax, three new stdlib modules, and 12 new packages.</p>
+  <h3>New Syntax</h3>
+  <pre><span class="cm"># for..in loop</span>
+<span class="kw">for</span> item <span class="kw">in</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>] &#123;
+  <span class="fn">print</span>(item)
+&#125;
 
-  <h3>@cache — real memoization</h3>
-  <pre><span class="kw">@cache</span>
-<span class="kw">do</span> <span class="fn">fib</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> {
-  <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="num">1</span> { <span class="kw">return</span> n }
-  <span class="kw">return</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">1</span>) <span class="op">+</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">2</span>)
-}
-<span class="cm"># fib(40) called once — subsequent calls use cache</span></pre>
+<span class="cm"># const variables</span>
+<span class="kw">const</span> PI <span class="op">=</span> <span class="num">3.14159</span>
+<span class="kw">const</span> APP_NAME<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"MyApp"</span>
 
-  <h3>@timer — real timing</h3>
-  <pre><span class="kw">@timer</span>
-<span class="kw">do</span> <span class="fn">slow_work</span>() {
-  thread.<span class="fn">sleep</span>(<span class="num">200</span>)
-}
-<span class="fn">slow_work</span>()
-<span class="cm"># @timer: slow_work() took 201ms</span></pre>
+<span class="cm"># Default params</span>
+<span class="kw">do</span> <span class="fn">greet</span>(name<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"World"</span>) &#123;
+  <span class="fn">print</span>(<span class="str">"Hello, {name}!"</span>)
+&#125;</pre>
 
-  <h3>@deprecated — warning on call</h3>
-  <pre><span class="kw">@deprecated</span>
-<span class="kw">do</span> <span class="fn">old_api</span>() { }
-<span class="fn">old_api</span>()
-<span class="cm"># warning: 'old_api' is deprecated</span></pre>
+  <h3>New Stdlib Modules</h3>
+  <pre><span class="cm"># iter — iterator utilities</span>
+<span class="kw">use</span> <span class="str">"iter"</span>
+<span class="kw">let</span> pairs <span class="op">=</span> iter.<span class="fn">enumerate</span>([<span class="str">"a"</span>, <span class="str">"b"</span>, <span class="str">"c"</span>])
+<span class="kw">let</span> r <span class="op">=</span> iter.<span class="fn">range</span>(<span class="num">0</span>, <span class="num">10</span>, <span class="num">2</span>)  <span class="cm"># [0,2,4,6,8]</span>
+<span class="kw">let</span> w <span class="op">=</span> iter.<span class="fn">windows</span>(arr, <span class="num">3</span>)
 
-  <h3>New stdlib modules</h3>
-  <div class="note">
-    <strong>sql</strong> — flat-file relational tables &nbsp;·&nbsp;
-    <strong>server</strong> — HTTP server &nbsp;·&nbsp;
-    <strong>tui2</strong> — full TUI framework &nbsp;·&nbsp;
-    <strong>result</strong> — Result/Option types &nbsp;·&nbsp;
-    <strong>fmt2</strong> — formatting utilities
-  </div>
+<span class="cm"># bytes — binary data</span>
+<span class="kw">use</span> <span class="str">"bytes"</span>
+<span class="kw">let</span> b <span class="op">=</span> bytes.<span class="fn">from_str</span>(<span class="str">"hello"</span>)
+<span class="kw">let</span> hex <span class="op">=</span> bytes.<span class="fn">to_hex</span>(b)   <span class="cm"># "68656c6c6f"</span>
 
-  <h3>New builtin functions</h3>
-  <pre><span class="fn">find</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">3</span>)          <span class="cm"># first match or null</span>
-<span class="fn">every</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">0</span>)         <span class="cm"># true if all match</span>
-<span class="fn">any</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">==</span> <span class="num">0</span>)          <span class="cm"># true if any match</span>
-<span class="fn">flat_map</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> [x<span class="op">,</span> x<span class="op">*</span><span class="num">2</span>])   <span class="cm"># map + flatten</span>
-<span class="fn">count_where</span>(arr<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">2</span>)   <span class="cm"># count matching</span>
-<span class="fn">take</span>(arr<span class="op">,</span> <span class="num">3</span>)                    <span class="cm"># first 3 elements</span>
-<span class="fn">drop</span>(arr<span class="op">,</span> <span class="num">2</span>)                    <span class="cm"># skip first 2</span>
-<span class="fn">chunks</span>(arr<span class="op">,</span> <span class="num">3</span>)                  <span class="cm"># split into chunks of 3</span>
-<span class="fn">concat</span>(a<span class="op">,</span> b<span class="op">,</span> c)                 <span class="cm"># merge arrays</span>
-<span class="fn">index_of</span>(arr<span class="op">,</span> val)              <span class="cm"># -1 if not found</span>
-<span class="fn">slice</span>(arr<span class="op">,</span> <span class="num">1</span><span class="op">,</span> <span class="num">4</span>)                 <span class="cm"># arr[1..4]</span>
-<span class="fn">sprintf</span>(<span class="str">"Hello {}"</span><span class="op">,</span> name)        <span class="cm"># template fill</span></pre>
+<span class="cm"># reflect — runtime inspection</span>
+<span class="kw">use</span> <span class="str">"reflect"</span>
+<span class="fn">print</span>(reflect.<span class="fn">type_of</span>(<span class="num">42</span>))   <span class="cm"># "int"</span>
+<span class="fn">print</span>(reflect.<span class="fn">fields</span>(point)) <span class="cm"># ["x","y"]</span></pre>
 
   <h2 id="install">Installation</h2>
-  <h3>Termux (Android)</h3>
-  <pre>pkg install rust git
+  <pre><span class="cm"># Linux / macOS</span>
 git clone https://github.com/tstnt-lang/tstnt
-cd tstnt
-cargo build --release
+cd tstnt && cargo build --release
+cp target/release/tstnt ~/.local/bin/
+
+<span class="cm"># Android (Termux)</span>
+pkg install rust git
+git clone https://github.com/tstnt-lang/tstnt
+cd tstnt && cargo build --release
 cp target/release/tstnt ~/bin/tstnt
-echo 'export PATH=$PATH:~/bin' >> ~/.bashrc</pre>
 
-  <h3>Linux / macOS</h3>
-  <pre>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-git clone https://github.com/tstnt-lang/tstnt
-cd tstnt &amp;&amp; cargo build --release
-sudo cp target/release/tstnt /usr/local/bin/</pre>
+<span class="cm"># Verify</span>
+tstnt --version</pre>
 
-  <h2 id="hello">Hello World</h2>
-  <pre><span class="kw">do</span> <span class="fn">main</span> {
-  <span class="fn">print</span>(<span class="str">"hello world"</span>)
-}</pre>
-  <pre>tstnt hello.tstnt</pre>
+  <h2 id="basics">Variables & Types</h2>
+  <pre><span class="kw">let</span> name <span class="op">=</span> <span class="str">"Alice"</span>
+<span class="kw">let mut</span> count<span class="op">:</span> <span class="type">int</span> <span class="op">=</span> <span class="num">0</span>
+<span class="kw">const</span> MAX <span class="op">=</span> <span class="num">100</span>
+
+<span class="kw">let</span> pi<span class="op">:</span> <span class="type">float</span> <span class="op">=</span> <span class="num">3.14</span>
+<span class="kw">let</span> ok<span class="op">:</span> <span class="type">bool</span> <span class="op">=</span> <span class="type">true</span>
+<span class="kw">let</span> items<span class="op">:</span> <span class="type">array</span> <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+<span class="kw">let</span> msg <span class="op">=</span> <span class="str">"Hello, {name}!"</span>  <span class="cm"># string interpolation</span>
+
+<span class="cm"># Multiline string</span>
+<span class="kw">let</span> text <span class="op">=</span> <span class="str">"""
+  line one
+  line two
+"""</span>
+
+<span class="cm"># Multiple assignment</span>
+<span class="kw">let</span> x, y <span class="op">=</span> [<span class="num">10</span>, <span class="num">20</span>]</pre>
+
+  <table>
+    <tr><th>Type</th><th>Example</th><th>Notes</th></tr>
+    <tr><td><code>int</code></td><td><code>42</code></td><td>64-bit signed integer</td></tr>
+    <tr><td><code>float</code></td><td><code>3.14</code></td><td>64-bit float</td></tr>
+    <tr><td><code>str</code></td><td><code>"hello"</code></td><td>UTF-8 string</td></tr>
+    <tr><td><code>bool</code></td><td><code>true</code></td><td>true / false</td></tr>
+    <tr><td><code>array</code></td><td><code>[1, 2, 3]</code></td><td>Dynamic array</td></tr>
+    <tr><td><code>null</code></td><td><code>null</code></td><td>Null value</td></tr>
+  </table>
+
+  <h2 id="functions">Functions</h2>
+  <pre><span class="kw">do</span> <span class="fn">add</span>(a<span class="op">:</span> <span class="type">int</span>, b<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> &#123;
+  <span class="kw">return</span> a <span class="op">+</span> b
+&#125;
+
+<span class="cm"># Default parameters (v1.5.0)</span>
+<span class="kw">do</span> <span class="fn">greet</span>(name<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"World"</span>) &#123;
+  <span class="fn">print</span>(<span class="str">"Hello, {name}!"</span>)
+&#125;
+
+<span class="cm"># Named arguments</span>
+<span class="fn">greet</span>(name<span class="op">:</span> <span class="str">"Alice"</span>)
+
+<span class="cm"># Async function</span>
+<span class="kw">async do</span> <span class="fn">fetch</span>(url<span class="op">:</span> <span class="type">str</span>) &#123;
+  <span class="kw">let</span> res <span class="op">=</span> <span class="kw">await</span> net.<span class="fn">get</span>(url)
+  <span class="kw">return</span> res
+&#125;
+
+<span class="cm"># Generics (erased to any)</span>
+<span class="kw">do</span> <span class="fn">first</span>&lt;T&gt;(arr<span class="op">:</span> <span class="type">array</span>) <span class="op">-></span> T &#123;
+  <span class="kw">return</span> arr[<span class="num">0</span>]
+&#125;</pre>
+
+  <h2 id="control">Control Flow</h2>
+  <pre><span class="cm"># if / else</span>
+<span class="kw">if</span> x <span class="op">></span> <span class="num">0</span> &#123;
+  <span class="fn">print</span>(<span class="str">"positive"</span>)
+&#125; <span class="kw">else if</span> x <span class="op">==</span> <span class="num">0</span> &#123;
+  <span class="fn">print</span>(<span class="str">"zero"</span>)
+&#125; <span class="kw">else</span> &#123;
+  <span class="fn">print</span>(<span class="str">"negative"</span>)
+&#125;
+
+<span class="cm"># while</span>
+<span class="kw">let mut</span> i <span class="op">=</span> <span class="num">0</span>
+<span class="kw">while</span> i <span class="op">&lt;</span> <span class="num">10</span> &#123; i <span class="op">+=</span> <span class="num">1</span> &#125;
+
+<span class="cm"># for..in (v1.5.0)</span>
+<span class="kw">for</span> item <span class="kw">in</span> items &#123; <span class="fn">print</span>(item) &#125;
+
+<span class="cm"># loop (range)</span>
+<span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span><span class="op">..</span><span class="num">10</span> &#123; <span class="fn">print</span>(i) &#125;
+
+<span class="cm"># loop in (foreach)</span>
+<span class="kw">loop in</span> items &#123; <span class="fn">print</span>(item) &#125;
+
+<span class="cm"># repeat</span>
+<span class="kw">repeat</span> <span class="num">3</span> &#123; <span class="fn">print</span>(<span class="str">"hey"</span>) &#125;
+
+<span class="cm"># ternary</span>
+<span class="kw">let</span> val <span class="op">=</span> x <span class="op">></span> <span class="num">0</span> <span class="op">?</span> <span class="str">"pos"</span> <span class="op">:</span> <span class="str">"neg"</span></pre>
+
+  <h2 id="structs">Structs & Impl</h2>
+  <pre><span class="kw">struct</span> <span class="type">Point</span> &#123;
+  x<span class="op">:</span> <span class="type">float</span>
+  y<span class="op">:</span> <span class="type">float</span>
+&#125;
+
+<span class="kw">impl</span> <span class="type">Point</span> &#123;
+  <span class="kw">do</span> <span class="fn">dist</span>(other<span class="op">:</span> <span class="type">Point</span>) <span class="op">-></span> <span class="type">float</span> &#123;
+    <span class="kw">let</span> dx <span class="op">=</span> self.x <span class="op">-</span> other.x
+    <span class="kw">let</span> dy <span class="op">=</span> self.y <span class="op">-</span> other.y
+    <span class="kw">return</span> math.<span class="fn">sqrt</span>(dx<span class="op">*</span>dx <span class="op">+</span> dy<span class="op">*</span>dy)
+  &#125;
+  <span class="kw">do</span> <span class="fn">str</span> &#123;
+    <span class="kw">return</span> <span class="str">"({self.x}, {self.y})"</span>
+  &#125;
+&#125;
+
+<span class="kw">let</span> p <span class="op">=</span> <span class="type">Point</span> &#123; x<span class="op">:</span> <span class="num">1.0</span>, y<span class="op">:</span> <span class="num">2.0</span> &#125;
+<span class="fn">print</span>(p.<span class="fn">str</span>())
+
+<span class="cm"># unit (struct with methods inline)</span>
+<span class="kw">unit</span> <span class="type">Counter</span> &#123;
+  value<span class="op">:</span> <span class="type">int</span>
+  <span class="kw">do</span> <span class="fn">inc</span> &#123; self.value <span class="op">+=</span> <span class="num">1</span> &#125;
+&#125;</pre>
+
+  <h2 id="enums">Enums</h2>
+  <pre><span class="kw">enum</span> <span class="type">Color</span> &#123; Red, Green, Blue &#125;
+
+<span class="kw">let</span> c <span class="op">=</span> <span class="type">Color</span>::Red
+<span class="fn">print</span>(<span class="fn">type_of</span>(c))  <span class="cm"># "Color::Red"</span>
+
+<span class="cm"># Enum with data</span>
+<span class="kw">let</span> shape <span class="op">=</span> <span class="type">Shape</span>::Circle(<span class="num">5.0</span>)
+<span class="kw">match</span> shape &#123;
+  <span class="type">Shape</span>::Circle(r) <span class="op">-></span> <span class="fn">print</span>(<span class="str">"radius: {r}"</span>)
+  <span class="type">Shape</span>::Rect(w, h) <span class="op">-></span> <span class="fn">print</span>(<span class="str">"{w}x{h}"</span>)
+&#125;</pre>
+
+  <h2 id="match">Pattern Matching</h2>
+  <pre><span class="kw">match</span> value &#123;
+  <span class="num">1</span>       <span class="op">-></span> <span class="fn">print</span>(<span class="str">"one"</span>)
+  <span class="num">2</span><span class="op">..</span><span class="num">5</span>    <span class="op">-></span> <span class="fn">print</span>(<span class="str">"two to five"</span>)
+  x <span class="kw">if</span> x <span class="op">></span> <span class="num">10</span> <span class="op">-></span> <span class="fn">print</span>(<span class="str">"big: {x}"</span>)
+  _       <span class="op">-></span> <span class="fn">print</span>(<span class="str">"other"</span>)
+&#125;
+
+<span class="cm"># if let</span>
+<span class="kw">if let</span> val <span class="op">=</span> maybe_value &#123;
+  <span class="fn">print</span>(<span class="str">"got: {val}"</span>)
+&#125;</pre>
+
+  <h2 id="lambdas">Lambdas & Pipes</h2>
+  <pre><span class="kw">let</span> double <span class="op">=</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>
+<span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>]
+<span class="kw">let</span> evens <span class="op">=</span> <span class="fn">filter</span>(nums, <span class="op">|</span>x<span class="op">|</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>)
+<span class="kw">let</span> doubled <span class="op">=</span> <span class="fn">map</span>(nums, <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>)
+<span class="kw">let</span> total <span class="op">=</span> <span class="fn">reduce</span>(nums, <span class="op">|</span>acc, x<span class="op">|</span> acc <span class="op">+</span> x, <span class="num">0</span>)
+
+<span class="cm"># Pipe operator</span>
+<span class="kw">let</span> result <span class="op">=</span> nums <span class="op">|></span> <span class="fn">filter</span>(<span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">2</span>) <span class="op">|></span> <span class="fn">map</span>(<span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">10</span>)</pre>
+
+  <h2 id="decorators">Decorators</h2>
+  <pre><span class="op">@</span>cache
+<span class="kw">do</span> <span class="fn">fib</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> &#123;
+  <span class="kw">if</span> n <span class="op">&lt;=</span> <span class="num">1</span> &#123; <span class="kw">return</span> n &#125;
+  <span class="kw">return</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">1</span>) <span class="op">+</span> <span class="fn">fib</span>(n<span class="op">-</span><span class="num">2</span>)
+&#125;
+
+<span class="op">@</span>timer
+<span class="kw">do</span> <span class="fn">slow_op</span>(n<span class="op">:</span> <span class="type">int</span>) &#123; <span class="cm"># prints elapsed ms</span>
+  <span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span><span class="op">..</span>n &#123; &#125;
+&#125;
+
+<span class="op">@</span>deprecated
+<span class="kw">do</span> <span class="fn">old_func</span>() &#123; <span class="cm"># prints warning on call</span>
+  <span class="fn">print</span>(<span class="str">"old"</span>)
+&#125;</pre>
+
+  <h2 id="error">Error Handling</h2>
+  <pre><span class="kw">try</span> &#123;
+  <span class="kw">let</span> n <span class="op">=</span> <span class="fn">int</span>(<span class="str">"not a number"</span>)
+  <span class="kw">throw</span> <span class="str">"custom error"</span>
+&#125; <span class="kw">catch</span> err &#123;
+  <span class="fn">print</span>(<span class="str">"caught: {err}"</span>)
+&#125;
+
+<span class="cm"># result package</span>
+<span class="kw">use</span> <span class="str">"result-pkg"</span>
+<span class="kw">let</span> r <span class="op">=</span> <span class="fn">ok</span>(<span class="num">42</span>)
+<span class="kw">let</span> e <span class="op">=</span> <span class="fn">err</span>(<span class="str">"oops"</span>)
+<span class="kw">if</span> <span class="fn">is_ok</span>(r) &#123; <span class="fn">print</span>(<span class="fn">unwrap</span>(r)) &#125;</pre>
+
+  <h2 id="async">Async & Threads</h2>
+  <pre><span class="cm"># Spawn a thread</span>
+<span class="fn">thread</span>(|| &#123;
+  <span class="fn">print</span>(<span class="str">"running in thread"</span>)
+&#125;)
+
+<span class="cm"># Async function</span>
+<span class="kw">async do</span> <span class="fn">main</span> &#123;
+  <span class="kw">let</span> data <span class="op">=</span> <span class="kw">await</span> net.<span class="fn">get</span>(<span class="str">"https://api.example.com"</span>)
+  <span class="fn">print</span>(data)
+&#125;</pre>
+
+  <h2 id="builtins">Builtin Functions</h2>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td><code>print(v)</code></td><td>Print to stdout</td></tr>
+    <tr><td><code>str(v)</code></td><td>Convert to string</td></tr>
+    <tr><td><code>int(v)</code></td><td>Convert to integer</td></tr>
+    <tr><td><code>float(v)</code></td><td>Convert to float</td></tr>
+    <tr><td><code>bool(v)</code></td><td>Convert to bool</td></tr>
+    <tr><td><code>len(v)</code></td><td>Length of array/string</td></tr>
+    <tr><td><code>type_of(v)</code></td><td>Type as string</td></tr>
+    <tr><td><code>range(s, e)</code></td><td>Array from s to e</td></tr>
+    <tr><td><code>map(arr, fn)</code></td><td>Map over array</td></tr>
+    <tr><td><code>filter(arr, fn)</code></td><td>Filter array</td></tr>
+    <tr><td><code>reduce(arr, fn, init)</code></td><td>Reduce array</td></tr>
+    <tr><td><code>find(arr, fn)</code></td><td>Find first match</td></tr>
+    <tr><td><code>every(arr, fn)</code></td><td>All match predicate</td></tr>
+    <tr><td><code>any(arr, fn)</code></td><td>Any match predicate</td></tr>
+    <tr><td><code>flat_map(arr, fn)</code></td><td>Map and flatten</td></tr>
+    <tr><td><code>take(arr, n)</code></td><td>First n elements</td></tr>
+    <tr><td><code>drop(arr, n)</code></td><td>Skip n elements</td></tr>
+    <tr><td><code>chunks(arr, n)</code></td><td>Split into chunks</td></tr>
+    <tr><td><code>concat(a, b)</code></td><td>Concatenate arrays</td></tr>
+    <tr><td><code>reverse(v)</code></td><td>Reverse array/string</td></tr>
+    <tr><td><code>sort(arr)</code></td><td>Sort array</td></tr>
+    <tr><td><code>unique(arr)</code></td><td>Remove duplicates</td></tr>
+    <tr><td><code>sum(arr)</code></td><td>Sum of array</td></tr>
+    <tr><td><code>max(arr)</code></td><td>Max of array</td></tr>
+    <tr><td><code>min(arr)</code></td><td>Min of array</td></tr>
+    <tr><td><code>abs(n)</code></td><td>Absolute value</td></tr>
+    <tr><td><code>clamp(v, lo, hi)</code></td><td>Clamp value</td></tr>
+    <tr><td><code>sprintf(tpl, ...)</code></td><td>Format string</td></tr>
+    <tr><td><code>assert(cond, msg)</code></td><td>Assert condition</td></tr>
+    <tr><td><code>assert_eq(a, b)</code></td><td>Assert equality</td></tr>
+    <tr><td><code>panic(msg)</code></td><td>Panic with message</td></tr>
+    <tr><td><code>index_of(arr, v)</code></td><td>Find index</td></tr>
+    <tr><td><code>slice(arr, f, t)</code></td><td>Slice array</td></tr>
+    <tr><td><code>repeat_str(s, n)</code></td><td>Repeat string</td></tr>
+    <tr><td><code>not_null(v)</code></td><td>Check not null</td></tr>
+    <tr><td><code>default(v, fb)</code></td><td>Fallback if null</td></tr>
+    <tr><td><code>coalesce(a, b, ...)</code></td><td>First non-null</td></tr>
+    <tr><td><code>tap(v)</code></td><td>Debug print, returns v</td></tr>
+  </table>
+
+  <h2 id="stdlib">Standard Library</h2>
+  <table>
+    <tr><th>Module</th><th>Description</th></tr>
+    <tr><td><code>io</code></td><td>File read/write</td></tr>
+    <tr><td><code>math</code></td><td>Math functions</td></tr>
+    <tr><td><code>strings</code></td><td>String manipulation</td></tr>
+    <tr><td><code>arr</code></td><td>Array methods</td></tr>
+    <tr><td><code>json</code></td><td>JSON encode/decode</td></tr>
+    <tr><td><code>time</code></td><td>Time and dates</td></tr>
+    <tr><td><code>env</code></td><td>Environment variables</td></tr>
+    <tr><td><code>fs</code></td><td>Filesystem</td></tr>
+    <tr><td><code>net</code></td><td>HTTP client</td></tr>
+    <tr><td><code>rand</code></td><td>Random numbers</td></tr>
+    <tr><td><code>crypto</code></td><td>Hashing</td></tr>
+    <tr><td><code>regex</code></td><td>Regular expressions</td></tr>
+    <tr><td><code>term</code></td><td>Terminal colors</td></tr>
+    <tr><td><code>sql</code></td><td>Flat-file SQL</td></tr>
+    <tr><td><code>tg</code></td><td>Telegram bot API</td></tr>
+    <tr><td><code>tui2</code></td><td>Terminal UI v2</td></tr>
+    <tr><td><code>server / http_server</code></td><td>HTTP server</td></tr>
+    <tr><td><code>ws / websocket</code></td><td>WebSocket server</td></tr>
+    <tr><td><code>result</code></td><td>Result type</td></tr>
+    <tr><td><code>fmt2</code></td><td>Formatting</td></tr>
+    <tr><td><code>hash</code></td><td>Hashmaps</td></tr>
+    <tr><td><code>csv</code></td><td>CSV parsing</td></tr>
+    <tr><td><code>toml</code></td><td>TOML parsing</td></tr>
+    <tr><td><code>xml</code></td><td>XML builder</td></tr>
+    <tr><td><code>html</code></td><td>HTML builder</td></tr>
+    <tr><td><code>color</code></td><td>ANSI colors</td></tr>
+    <tr><td><code>uuid</code></td><td>UUID generation</td></tr>
+    <tr><td><code>log</code></td><td>Logging</td></tr>
+    <tr><td><code>path</code></td><td>Path utilities</td></tr>
+    <tr><td><code>template</code></td><td>Template rendering</td></tr>
+  </table>
+
+  <h2 id="stdlib-new">New in v1.5.0: iter · bytes · reflect</h2>
+  <h3>iter module</h3>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td><code>iter.range(end)</code></td><td>0..end</td></tr>
+    <tr><td><code>iter.range(s, e)</code></td><td>s..e</td></tr>
+    <tr><td><code>iter.range(s, e, step)</code></td><td>s..e by step</td></tr>
+    <tr><td><code>iter.enumerate(arr)</code></td><td>[[i, v], ...]</td></tr>
+    <tr><td><code>iter.zip(a, b)</code></td><td>[[a0, b0], ...]</td></tr>
+    <tr><td><code>iter.chain(a, b)</code></td><td>Concatenate iterables</td></tr>
+    <tr><td><code>iter.take(arr, n)</code></td><td>First n</td></tr>
+    <tr><td><code>iter.skip(arr, n)</code></td><td>Skip n</td></tr>
+    <tr><td><code>iter.step_by(arr, n)</code></td><td>Every nth element</td></tr>
+    <tr><td><code>iter.chunks(arr, n)</code></td><td>Chunks of size n</td></tr>
+    <tr><td><code>iter.windows(arr, n)</code></td><td>Sliding windows</td></tr>
+    <tr><td><code>iter.product(a, b)</code></td><td>Cartesian product</td></tr>
+    <tr><td><code>iter.unique(arr)</code></td><td>Remove duplicates</td></tr>
+    <tr><td><code>iter.sorted(arr)</code></td><td>Sorted copy</td></tr>
+    <tr><td><code>iter.reversed(arr)</code></td><td>Reversed copy</td></tr>
+    <tr><td><code>iter.flatten(arr)</code></td><td>Flatten one level</td></tr>
+    <tr><td><code>iter.sum(arr)</code></td><td>Sum</td></tr>
+    <tr><td><code>iter.min(arr)</code></td><td>Minimum</td></tr>
+    <tr><td><code>iter.max(arr)</code></td><td>Maximum</td></tr>
+  </table>
+  <h3>bytes module</h3>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td><code>bytes.from_str(s)</code></td><td>String to byte array</td></tr>
+    <tr><td><code>bytes.to_str(b)</code></td><td>Bytes to string</td></tr>
+    <tr><td><code>bytes.from_hex(s)</code></td><td>Hex string to bytes</td></tr>
+    <tr><td><code>bytes.to_hex(b)</code></td><td>Bytes to hex string</td></tr>
+    <tr><td><code>bytes.len(b)</code></td><td>Length</td></tr>
+    <tr><td><code>bytes.at(b, i)</code></td><td>Byte at index</td></tr>
+    <tr><td><code>bytes.slice(b, f, t)</code></td><td>Slice bytes</td></tr>
+    <tr><td><code>bytes.concat(a, b)</code></td><td>Concatenate</td></tr>
+    <tr><td><code>bytes.xor(a, b)</code></td><td>XOR two byte arrays</td></tr>
+  </table>
+  <h3>reflect module</h3>
+  <table>
+    <tr><th>Function</th><th>Description</th></tr>
+    <tr><td><code>reflect.type_of(v)</code></td><td>Type name string</td></tr>
+    <tr><td><code>reflect.is_int(v)</code></td><td>Check if int</td></tr>
+    <tr><td><code>reflect.is_str(v)</code></td><td>Check if str</td></tr>
+    <tr><td><code>reflect.is_array(v)</code></td><td>Check if array</td></tr>
+    <tr><td><code>reflect.is_null(v)</code></td><td>Check if null</td></tr>
+    <tr><td><code>reflect.fields(s)</code></td><td>Struct field names</td></tr>
+    <tr><td><code>reflect.get_field(s, k)</code></td><td>Get field by name</td></tr>
+    <tr><td><code>reflect.has_field(s, k)</code></td><td>Check field exists</td></tr>
+    <tr><td><code>reflect.size_of(v)</code></td><td>Size/length of value</td></tr>
+    <tr><td><code>reflect.to_array(v)</code></td><td>Convert to array</td></tr>
+    <tr><td><code>reflect.to_tuple(v)</code></td><td>Convert to tuple</td></tr>
+  </table>
+
+  <h2 id="packages">Package Manager</h2>
+  <pre><span class="cm"># Install a package</span>
+tstnt pkg install logger
+
+<span class="cm"># Search packages</span>
+tstnt pkg search json
+
+<span class="cm"># List installed</span>
+tstnt pkg list
+
+<span class="cm"># Uninstall</span>
+tstnt pkg uninstall logger
+
+<span class="cm"># Use in code</span>
+<span class="kw">use</span> <span class="str">"logger"</span>
+logger.<span class="fn">info</span>(<span class="str">"Hello!"</span>)</pre>
+
+  <h2 id="testing">Testing</h2>
+  <pre><span class="kw">test</span> addition &#123;
+  <span class="fn">assert_eq</span>(<span class="num">1</span> <span class="op">+</span> <span class="num">1</span>, <span class="num">2</span>)
+  <span class="fn">assert_eq</span>(<span class="fn">str</span>(<span class="num">42</span>), <span class="str">"42"</span>)
+&#125;
+
+<span class="kw">test</span> strings &#123;
+  <span class="kw">let</span> s <span class="op">=</span> <span class="str">"hello"</span>
+  <span class="fn">assert_eq</span>(<span class="fn">len</span>(s), <span class="num">5</span>)
+  <span class="fn">assert</span>(strings.<span class="fn">contains</span>(s, <span class="str">"ell"</span>))
+&#125;</pre>
+  <pre>tstnt test myfile.tstnt</pre>
 
   <h2 id="cli">CLI Reference</h2>
   <table>
     <tr><th>Command</th><th>Description</th></tr>
-    <tr><td><code>tstnt &lt;file&gt;</code></td><td>Run a .tstnt file</td></tr>
-    <tr><td><code>tstnt repl</code></td><td>Interactive shell</td></tr>
-    <tr><td><code>tstnt new &lt;name&gt;</code></td><td>Scaffold new project</td></tr>
-    <tr><td><code>tstnt test &lt;file&gt;</code></td><td>Run test blocks</td></tr>
-    <tr><td><code>tstnt check &lt;file&gt;</code></td><td>Check syntax without running</td></tr>
-    <tr><td><code>tstnt bench &lt;file&gt; [n]</code></td><td>Benchmark — run n times, show avg</td></tr>
-    <tr><td><code>tstnt watch &lt;file&gt;</code></td><td>Auto-restart on file change</td></tr>
-    <tr><td><code>tstnt build &lt;file&gt;</code></td><td>Compile to .tst bytecode</td></tr>
-    <tr><td><code>tstnt run &lt;file.tst&gt;</code></td><td>Run bytecode</td></tr>
-    <tr><td><code>tstnt transpile &lt;f&gt; py</code></td><td>Transpile to Python</td></tr>
-    <tr><td><code>tstnt transpile &lt;f&gt; js</code></td><td>Transpile to JavaScript</td></tr>
-    <tr><td><code>tstnt fmt &lt;file&gt;</code></td><td>Format code</td></tr>
-    <tr><td><code>tstnt pkg install &lt;n&gt;</code></td><td>Install package</td></tr>
-    <tr><td><code>tstnt pkg search [q]</code></td><td>Browse 140+ packages</td></tr>
-    <tr><td><code>tstnt --version</code></td><td>Show version + ASCII art</td></tr>
-    <tr><td><code>tstnt --secret</code></td><td>🐉</td></tr>
+    <tr><td><code>tstnt file.tstnt</code></td><td>Run a file</td></tr>
+    <tr><td><code>tstnt repl</code></td><td>Start interactive REPL</td></tr>
+    <tr><td><code>tstnt test file.tstnt</code></td><td>Run tests</td></tr>
+    <tr><td><code>tstnt check file.tstnt</code></td><td>Syntax check only</td></tr>
+    <tr><td><code>tstnt fmt file.tstnt</code></td><td>Format code</td></tr>
+    <tr><td><code>tstnt bench file.tstnt N</code></td><td>Benchmark N times</td></tr>
+    <tr><td><code>tstnt build file.tstnt</code></td><td>Compile to .tst bytecode</td></tr>
+    <tr><td><code>tstnt transpile file.tstnt py</code></td><td>Transpile to Python</td></tr>
+    <tr><td><code>tstnt transpile file.tstnt js</code></td><td>Transpile to JavaScript</td></tr>
+    <tr><td><code>tstnt watch file.tstnt</code></td><td>Watch and re-run on change</td></tr>
+    <tr><td><code>tstnt new myapp</code></td><td>Create new project</td></tr>
+    <tr><td><code>tstnt pkg install pkg</code></td><td>Install package</td></tr>
+    <tr><td><code>tstnt pkg search q</code></td><td>Search packages</td></tr>
+    <tr><td><code>tstnt --version</code></td><td>Show version</td></tr>
+    <tr><td><code>tstnt --debug file.tstnt</code></td><td>Debug mode</td></tr>
   </table>
 
-  <h2 id="variables">Variables</h2>
-  <pre><span class="cm"># Immutable (default)</span>
-<span class="kw">let</span> x<span class="op">:</span> <span class="type">int</span> <span class="op">=</span> <span class="num">10</span>
-<span class="kw">let</span> name<span class="op">:</span> <span class="type">str</span> <span class="op">=</span> <span class="str">"Alice"</span>
-<span class="kw">let</span> flag<span class="op">:</span> <span class="type">bool</span> <span class="op">=</span> <span class="kw">true</span>
-
-<span class="cm"># Mutable</span>
-<span class="kw">let mut</span> count<span class="op">:</span> <span class="type">int</span> <span class="op">=</span> <span class="num">0</span>
-count <span class="op">+=</span> <span class="num">1</span>
-count <span class="op">-=</span> <span class="num">1</span>
-count <span class="op">*=</span> <span class="num">2</span>
-
-<span class="cm"># Multi-assign</span>
-<span class="kw">let</span> (a<span class="op">,</span> b) <span class="op">=</span> (<span class="num">1</span><span class="op">,</span> <span class="num">2</span>)
-
-<span class="cm"># Spread</span>
-<span class="kw">let</span> merged <span class="op">=</span> [<span class="num">0</span><span class="op">,</span> <span class="op">...</span>arr<span class="op">,</span> <span class="num">99</span>]</pre>
-
-  <table>
-    <tr><th>Type</th><th>Example</th></tr>
-    <tr><td><code>int</code></td><td><code>42</code></td></tr>
-    <tr><td><code>float</code></td><td><code>3.14</code></td></tr>
-    <tr><td><code>str</code></td><td><code>"hello"</code></td></tr>
-    <tr><td><code>bool</code></td><td><code>true</code> / <code>false</code></td></tr>
-    <tr><td><code>[int]</code></td><td><code>[1, 2, 3]</code></td></tr>
-    <tr><td><code>null</code></td><td><code>null</code></td></tr>
-    <tr><td><code>any</code></td><td>any value</td></tr>
-  </table>
-
-  <h2 id="functions">Functions</h2>
-  <pre><span class="kw">do</span> <span class="fn">greet</span>(name<span class="op">:</span> <span class="type">str</span>) <span class="op">-></span> <span class="type">str</span> {
-  <span class="kw">return</span> <span class="str">"Hello, "</span> <span class="op">+</span> name
-}
-
-<span class="cm"># No return type</span>
-<span class="kw">do</span> <span class="fn">log</span>(msg<span class="op">:</span> <span class="type">str</span>) {
-  <span class="fn">print</span>(msg)
-}
-
-<span class="cm"># Async</span>
-<span class="kw">async do</span> <span class="fn">fetch</span>(url<span class="op">:</span> <span class="type">str</span>) <span class="op">-></span> <span class="type">str</span> {
-  <span class="kw">return</span> <span class="kw">await</span> net.<span class="fn">get</span>(url)
-}</pre>
-
-  <h2 id="decorators">Decorators</h2>
-  <p>Decorators modify function behaviour. TSTNT v1.0 has three built-in decorators with real logic.</p>
-  <pre><span class="cm"># @cache — memoize by argument values</span>
-<span class="kw">@cache</span>
-<span class="kw">do</span> <span class="fn">expensive</span>(n<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> {
-  thread.<span class="fn">sleep</span>(<span class="num">100</span>)
-  <span class="kw">return</span> n <span class="op">*</span> n
-}
-<span class="fn">expensive</span>(<span class="num">5</span>)  <span class="cm"># computes, stores in cache</span>
-<span class="fn">expensive</span>(<span class="num">5</span>)  <span class="cm"># returns from cache instantly</span>
-
-<span class="cm"># @timer — prints elapsed time after call</span>
-<span class="kw">@timer</span>
-<span class="kw">do</span> <span class="fn">render</span>() {
-  <span class="cm"># ...</span>
-}
-<span class="fn">render</span>()  <span class="cm"># @timer: render() took 12ms</span>
-
-<span class="cm"># @deprecated — prints warning on call</span>
-<span class="kw">@deprecated</span>
-<span class="kw">do</span> <span class="fn">legacy_parse</span>(s<span class="op">:</span> <span class="type">str</span>) { }
-<span class="fn">legacy_parse</span>(<span class="str">"x"</span>)  <span class="cm"># warning: 'legacy_parse' is deprecated</span></pre>
-
-  <h2 id="structs">Structs &amp; Impl</h2>
-  <pre><span class="kw">struct</span> <span class="type">User</span> {
-  name<span class="op">:</span> <span class="type">str</span>
-  age<span class="op">:</span> <span class="type">int</span>
-}
-
-<span class="kw">impl</span> <span class="type">User</span> {
-  <span class="kw">do</span> <span class="fn">greet</span> <span class="op">-></span> <span class="type">str</span> {
-    <span class="kw">return</span> <span class="str">"Hi, I am "</span> <span class="op">+</span> self.name
-  }
-  <span class="kw">do</span> <span class="fn">is_adult</span> <span class="op">-></span> <span class="type">bool</span> {
-    <span class="kw">return</span> self.age <span class="op">>=</span> <span class="num">18</span>
-  }
-}
-
-<span class="kw">let</span> u <span class="op">=</span> <span class="type">User</span> { name<span class="op">:</span> <span class="str">"Alex"</span><span class="op">,</span> age<span class="op">:</span> <span class="num">25</span> }
-<span class="fn">print</span>(u.<span class="fn">greet</span>())</pre>
-
-  <h2 id="control">Control Flow</h2>
-  <pre><span class="kw">if</span> x <span class="op">></span> <span class="num">10</span> {
-  <span class="fn">print</span>(<span class="str">"big"</span>)
-} <span class="kw">else</span> {
-  <span class="fn">print</span>(<span class="str">"small"</span>)
-}
-
-<span class="cm"># ternary</span>
-<span class="kw">let</span> status <span class="op">=</span> age <span class="op">>=</span> <span class="num">18</span> <span class="op">?</span> <span class="str">"adult"</span> <span class="op">:</span> <span class="str">"minor"</span>
-
-<span class="kw">while</span> count <span class="op">&lt;</span> <span class="num">10</span> { count <span class="op">+=</span> <span class="num">1</span> }
-
-<span class="kw">repeat</span> <span class="num">5</span> { <span class="fn">print</span>(<span class="str">"hi"</span>) }</pre>
-
-  <h2 id="match">Match</h2>
-  <pre><span class="kw">match</span> score {
-  <span class="num">100</span>       <span class="op">-></span> <span class="fn">print</span>(<span class="str">"perfect"</span>)
-  <span class="num">80</span>..<span class="num">99</span>    <span class="op">-></span> <span class="fn">print</span>(<span class="str">"great"</span>)
-  <span class="num">60</span>..<span class="num">79</span>    <span class="op">-></span> <span class="fn">print</span>(<span class="str">"ok"</span>)
-  _         <span class="op">-></span> <span class="fn">print</span>(<span class="str">"fail"</span>)
-}
-
-<span class="cm"># Match with guard</span>
-<span class="kw">match</span> n {
-  x <span class="kw">if</span> x <span class="op">&lt;</span> <span class="num">0</span> <span class="op">-></span> <span class="fn">print</span>(<span class="str">"negative"</span>)
-  x <span class="kw">if</span> x <span class="op">></span> <span class="num">0</span> <span class="op">-></span> <span class="fn">print</span>(<span class="str">"positive"</span>)
-  _ <span class="op">-></span> <span class="fn">print</span>(<span class="str">"zero"</span>)
-}</pre>
-
-  <h2 id="loops">Loops</h2>
-  <pre><span class="cm"># Range</span>
-<span class="kw">loop</span> i <span class="kw">in</span> <span class="num">0</span>..<span class="num">10</span> { <span class="fn">print</span>(i) }
-
-<span class="cm"># Array</span>
-<span class="kw">loop</span> item <span class="kw">in</span> fruits { <span class="fn">print</span>(item) }
-
-<span class="cm"># Enumerate</span>
-<span class="kw">loop</span> i<span class="op">,</span> item <span class="kw">in</span> fruits {
-  <span class="fn">print</span>(<span class="fn">str</span>(i) <span class="op">+</span> <span class="str">": "</span> <span class="op">+</span> item)
-}
-
-<span class="cm"># break / continue</span>
-<span class="kw">loop</span> x <span class="kw">in</span> arr {
-  <span class="kw">if</span> x <span class="op">==</span> <span class="num">0</span> { <span class="kw">continue</span> }
-  <span class="kw">if</span> x <span class="op">></span> <span class="num">10</span> { <span class="kw">break</span> }
-}</pre>
-
-  <h2 id="lambdas">Lambdas &amp; Functional</h2>
-  <pre><span class="kw">let</span> double <span class="op">=</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>
-
-<span class="kw">let</span> nums <span class="op">=</span> [<span class="num">1</span><span class="op">,</span><span class="num">2</span><span class="op">,</span><span class="num">3</span><span class="op">,</span><span class="num">4</span><span class="op">,</span><span class="num">5</span>]
-<span class="kw">let</span> doubled  <span class="op">=</span> <span class="fn">map</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">*</span> <span class="num">2</span>)
-<span class="kw">let</span> evens    <span class="op">=</span> <span class="fn">filter</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">%</span> <span class="num">2</span> <span class="op">==</span> <span class="num">0</span>)
-<span class="kw">let</span> total    <span class="op">=</span> <span class="fn">reduce</span>(nums<span class="op">,</span> <span class="op">|</span>acc x<span class="op">|</span> acc <span class="op">+</span> x<span class="op">,</span> <span class="num">0</span>)
-<span class="kw">let</span> first    <span class="op">=</span> <span class="fn">find</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">3</span>)
-<span class="kw">let</span> ok       <span class="op">=</span> <span class="fn">every</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">></span> <span class="num">0</span>)
-<span class="kw">let</span> has_zero <span class="op">=</span> <span class="fn">any</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> x <span class="op">==</span> <span class="num">0</span>)
-<span class="kw">let</span> pairs    <span class="op">=</span> <span class="fn">flat_map</span>(nums<span class="op">,</span> <span class="op">|</span>x<span class="op">|</span> [x<span class="op">,</span> x<span class="op">*</span><span class="num">2</span>])
-
-<span class="cm"># Pipe operator</span>
-<span class="kw">let</span> result <span class="op">=</span> value <span class="op">|</span> double <span class="op">|</span> str</pre>
-
-  <h2 id="builtins">New Builtin Functions (v1.0)</h2>
-  <table>
-    <tr><th>Function</th><th>Description</th></tr>
-    <tr><td><code>find(arr, lambda)</code></td><td>First element matching predicate, or null</td></tr>
-    <tr><td><code>every(arr, lambda)</code></td><td>True if all elements match</td></tr>
-    <tr><td><code>any(arr, lambda)</code></td><td>True if at least one matches</td></tr>
-    <tr><td><code>flat_map(arr, lambda)</code></td><td>Map then flatten one level</td></tr>
-    <tr><td><code>count_where(arr, lambda)</code></td><td>Count elements matching predicate</td></tr>
-    <tr><td><code>take(arr, n)</code></td><td>First n elements</td></tr>
-    <tr><td><code>drop(arr, n)</code></td><td>Skip first n elements</td></tr>
-    <tr><td><code>chunks(arr, size)</code></td><td>Split array into chunks</td></tr>
-    <tr><td><code>concat(a, b, ...)</code></td><td>Merge multiple arrays</td></tr>
-    <tr><td><code>reverse(arr)</code></td><td>Reverse array or string</td></tr>
-    <tr><td><code>index_of(arr, val)</code></td><td>Index of value, -1 if not found</td></tr>
-    <tr><td><code>slice(arr, from, to)</code></td><td>Sub-array or sub-string</td></tr>
-    <tr><td><code>sprintf(tmpl, ...)</code></td><td>Fill template with values</td></tr>
-  </table>
-
-  <h2 id="generics">Generics</h2>
-  <pre><span class="kw">do</span> <span class="fn">max_val</span>&lt;<span class="type">T</span>&gt;(a<span class="op">:</span> <span class="type">T</span><span class="op">,</span> b<span class="op">:</span> <span class="type">T</span>) <span class="op">-></span> <span class="type">T</span> {
-  <span class="kw">return</span> a <span class="op">></span> b <span class="op">?</span> a <span class="op">:</span> b
-}
-<span class="fn">print</span>(<span class="fn">max_val</span>(<span class="num">3</span><span class="op">,</span> <span class="num">7</span>))        <span class="cm"># 7</span>
-<span class="fn">print</span>(<span class="fn">max_val</span>(<span class="str">"a"</span><span class="op">,</span> <span class="str">"b"</span>))  <span class="cm"># b</span></pre>
-
-  <h2 id="optionals">Optional Chaining</h2>
-  <pre><span class="cm"># Returns null instead of crashing</span>
-<span class="kw">let</span> name <span class="op">=</span> user<span class="op">?.</span>profile<span class="op">?.</span>name
-<span class="kw">let</span> result <span class="op">=</span> obj<span class="op">?.</span><span class="fn">method</span>()</pre>
-
-  <h2 id="errors">Try / Catch / Throw</h2>
-  <pre><span class="kw">try</span> {
-  <span class="kw">throw</span> <span class="str">"something went wrong"</span>
-} <span class="kw">catch</span> e {
-  <span class="fn">print</span>(<span class="str">"Caught: "</span> <span class="op">+</span> e)
-}</pre>
-
-  <h2 id="tests">Tests</h2>
-  <pre><span class="kw">do</span> <span class="fn">add</span>(a<span class="op">:</span> <span class="type">int</span><span class="op">,</span> b<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">int</span> { <span class="kw">return</span> a <span class="op">+</span> b }
-
-<span class="kw">test</span> <span class="fn">addition</span> {
-  <span class="fn">assert_eq</span>(<span class="fn">add</span>(<span class="num">1</span><span class="op">,</span> <span class="num">2</span>)<span class="op">,</span> <span class="num">3</span>)
-  <span class="fn">assert_ne</span>(<span class="fn">add</span>(<span class="num">1</span><span class="op">,</span> <span class="num">1</span>)<span class="op">,</span> <span class="num">3</span>)
-  <span class="fn">assert</span>(<span class="fn">add</span>(<span class="num">5</span><span class="op">,</span> <span class="num">5</span>) <span class="op">></span> <span class="num">9</span>)
-}</pre>
-  <pre>tstnt test myfile.tstnt
-<span class="cm"># ✓ addition
-# 1/1 passed</span></pre>
-
-  <h2 id="stdlib">Standard Library</h2>
-  <table>
-    <tr><th>Module</th><th>Functions</th></tr>
-    <tr><td><code>io</code></td><td>print, input, read_file, write_file</td></tr>
-    <tr><td><code>math</code></td><td>sqrt, pow, abs, floor, ceil, min, max, round, sign, trunc, sum, avg</td></tr>
-    <tr><td><code>math2</code></td><td>sin, cos, tan, atan2, log, log2, log10, exp, pi, tau, hypot, round</td></tr>
-    <tr><td><code>math3</code></td><td>factorial, fib, gcd, lcm, is_prime, clamp, lerp, map_range</td></tr>
-    <tr><td><code>strings</code></td><td>len, split, join, trim, upper, lower, contains, replace, repeat, reverse, pad_left, pad_right, title, snake, camel, count, index_of, slice</td></tr>
-    <tr><td><code>arr</code></td><td>push, pop, first, last, reverse, contains, sort, join, slice, flatten, index_of, unique, count</td></tr>
-    <tr><td><code>arr2</code></td><td>zip, flatten, chunk, take, drop, count, index_of, rotate, dedupe</td></tr>
-    <tr><td><code>str2</code></td><td>chars, bytes, is_alpha, is_digit, reverse, count, index_of, slice</td></tr>
-    <tr><td><code>json</code></td><td>parse, stringify</td></tr>
-    <tr><td><code>json2</code></td><td>pretty, merge, get_path</td></tr>
-    <tr><td><code>fs</code></td><td>read, write, append, exists, delete, mkdir, ls, size, is_dir, is_file</td></tr>
-    <tr><td><code>time</code></td><td>now, sleep</td></tr>
-    <tr><td><code>env</code></td><td>get, set, args</td></tr>
-    <tr><td><code>crypto</code></td><td>sha256, md5, base64_encode, base64_decode, hex_encode, xor</td></tr>
-    <tr><td><code>rand</code></td><td>int, float, bool, choice, shuffle, seed</td></tr>
-    <tr><td><code>sys</code></td><td>os, arch, cwd, home, hostname</td></tr>
-    <tr><td><code>db</code></td><td>open, set, get, has, delete, keys, count, incr, all, clear</td></tr>
-    <tr><td><code>term</code></td><td>red, green, yellow, blue, magenta, cyan, bold, dim, italic, underline, strikethrough, bg_*, strip, width, height</td></tr>
-    <tr><td><code>color</code></td><td>red, green, yellow, blue, bold, bg_red, bg_green, strip</td></tr>
-    <tr><td><code>color2</code></td><td>rgb, bg, hex_to_rgb, mix, gradient_text, ocean, fire</td></tr>
-    <tr><td><code>tg</code></td><td>token, send, send_keyboard, send_inline, get_updates, delete_webhook</td></tr>
-    <tr><td><code>thread</code></td><td>sleep, cpu_count, mutex_new, mutex_get, mutex_set</td></tr>
-    <tr><td><code>game</code></td><td>set, get, has, del, roll, roll_adv, chance, clamp, lerp, inv_add, inv_list, map_new, map_get, map_set</td></tr>
-    <tr><td><code>pickle</code></td><td>save, load, exists, list, delete</td></tr>
-    <tr><td><code>hashmap</code></td><td>new, set, get, has, delete, keys, merge</td></tr>
-    <tr><td><code>set</code></td><td>from, add, remove, has, union, intersect, difference</td></tr>
-    <tr><td><code>sql</code></td><td>open, create_table, insert, select, where, update, delete_where, count, drop, tables</td></tr>
-    <tr><td><code>server</code></td><td>route, route_post, listen, json_response</td></tr>
-    <tr><td><code>tui2</code></td><td>clear, box, progress_bar, table, menu, confirm, alert, input, rule, spinner_frame</td></tr>
-    <tr><td><code>result</code></td><td>ok, err, some, none, unwrap, unwrap_or, is_ok, is_err, is_some, is_none, get_err</td></tr>
-    <tr><td><code>fmt2</code></td><td>format, pad_left, pad_right, pad_center, truncate, number, thousands, bytes, duration, plural, table</td></tr>
-    <tr><td><code>io2</code></td><td>print_table, print_json, progress, clear, bell</td></tr>
-    <tr><td><code>net</code></td><td>http.get, http.post, tcp.connect</td></tr>
-    <tr><td><code>net2</code></td><td>get, post, download, ping</td></tr>
-    <tr><td><code>regex</code></td><td>match, replace, find_all</td></tr>
-    <tr><td><code>uuid</code></td><td>v4, nil</td></tr>
-    <tr><td><code>hash</code></td><td>fnv32, fnv64, crc32</td></tr>
-    <tr><td><code>bench</code></td><td>now_ms, elapsed</td></tr>
-    <tr><td><code>csv</code></td><td>parse, stringify</td></tr>
-    <tr><td><code>xml</code></td><td>tag, attr_tag, escape, wrap</td></tr>
-    <tr><td><code>html</code></td><td>tag, p, h1-h3, a, img, ul, table, page</td></tr>
-    <tr><td><code>ini</code></td><td>parse, get, stringify</td></tr>
-    <tr><td><code>toml</code></td><td>parse, get, get_bool, get_int</td></tr>
-    <tr><td><code>bit</code></td><td>and, or, xor, shl, shr, count_ones</td></tr>
-    <tr><td><code>qr</code></td><td>ascii, url</td></tr>
-    <tr><td><code>base</code></td><td>to_bin, to_hex, to_oct, from_base</td></tr>
-    <tr><td><code>dns</code></td><td>resolve, mx, txt</td></tr>
-    <tr><td><code>smtp</code></td><td>send</td></tr>
-    <tr><td><code>pack</code></td><td>encode, decode</td></tr>
-    <tr><td><code>zip2</code></td><td>compress, decompress</td></tr>
-    <tr><td><code>ws</code></td><td>listen, send, frame — WebSocket server/client</td></tr>
-    <tr><td><code>template</code></td><td>render, fill, render_list, html_escape, strip_html</td></tr>
-    <tr><td><code>zip3</code></td><td>create, list, extract, size — zip archives</td></tr>
-    <tr><td><code>img</code></td><td>ascii_box, frame, big_text, progress_block, spinner, hline</td></tr>
-  </table>
-
-  <h2 id="sql">SQL Module</h2>
-  <p>Flat-file relational tables. No SQLite required. Works on Termux.</p>
-  <pre><span class="kw">use</span> sql
-
-<span class="kw">let</span> conn <span class="op">=</span> sql.<span class="fn">open</span>(<span class="str">"myapp"</span>)
-sql.<span class="fn">create_table</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> [<span class="str">"id"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"age"</span>])
-
-sql.<span class="fn">insert</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> [<span class="str">"1"</span><span class="op">,</span> <span class="str">"Alice"</span><span class="op">,</span> <span class="str">"25"</span>])
-sql.<span class="fn">insert</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> [<span class="str">"2"</span><span class="op">,</span> <span class="str">"Bob"</span><span class="op">,</span> <span class="str">"30"</span>])
-
-<span class="kw">let</span> all <span class="op">=</span> sql.<span class="fn">select</span>(conn<span class="op">,</span> <span class="str">"users"</span>)
-<span class="kw">let</span> alice <span class="op">=</span> sql.<span class="fn">where</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Alice"</span>)
-
-sql.<span class="fn">update</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Alice"</span><span class="op">,</span> <span class="str">"age"</span><span class="op">,</span> <span class="str">"26"</span>)
-sql.<span class="fn">delete_where</span>(conn<span class="op">,</span> <span class="str">"users"</span><span class="op">,</span> <span class="str">"name"</span><span class="op">,</span> <span class="str">"Bob"</span>)
-<span class="fn">print</span>(sql.<span class="fn">count</span>(conn<span class="op">,</span> <span class="str">"users"</span>))</pre>
-
-  <h2 id="server">HTTP Server</h2>
-  <pre><span class="kw">use</span> server
-
-server.<span class="fn">route</span>(<span class="str">"/"</span><span class="op">,</span> <span class="str">"&lt;h1&gt;Hello from TSTNT!&lt;/h1&gt;"</span>)
-server.<span class="fn">route</span>(<span class="str">"/api/hello"</span><span class="op">,</span> <span class="str">"{\"msg\": \"hello\"}"</span>)
-server.<span class="fn">route_post</span>(<span class="str">"/api/data"</span><span class="op">,</span> <span class="str">"{\"ok\": true}"</span>)
-
-server.<span class="fn">listen</span>(<span class="num">8080</span>)
-<span class="cm"># server listening on http://localhost:8080</span></pre>
-
-  <h2 id="tui2">TUI2 — Terminal UI</h2>
-  <pre><span class="kw">use</span> tui2
-
-tui2.<span class="fn">clear</span>()
-tui2.<span class="fn">box</span>(<span class="num">1</span><span class="op">,</span> <span class="num">1</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="num">5</span><span class="op">,</span> <span class="str">"My App"</span>)
-tui2.<span class="fn">print_at</span>(<span class="num">3</span><span class="op">,</span> <span class="num">4</span><span class="op">,</span> <span class="str">"Hello world!"</span>)
-
-tui2.<span class="fn">progress_bar</span>(<span class="num">60</span><span class="op">,</span> <span class="num">100</span><span class="op">,</span> <span class="num">40</span><span class="op">,</span> <span class="str">"Loading"</span>)
-
-tui2.<span class="fn">table</span>(
-  [<span class="str">"Name"</span><span class="op">,</span> <span class="str">"Age"</span><span class="op">,</span> <span class="str">"City"</span>]<span class="op">,</span>
-  [[<span class="str">"Alice"</span><span class="op">,</span> <span class="str">"25"</span><span class="op">,</span> <span class="str">"Moscow"</span>]<span class="op">,</span> [<span class="str">"Bob"</span><span class="op">,</span> <span class="str">"30"</span><span class="op">,</span> <span class="str">"Berlin"</span>]]
-)
-
-<span class="kw">let</span> choice <span class="op">=</span> tui2.<span class="fn">menu</span>([<span class="str">"Start"</span><span class="op">,</span> <span class="str">"Settings"</span><span class="op">,</span> <span class="str">"Quit"</span>]<span class="op">,</span> <span class="str">"Main Menu"</span>)
-<span class="kw">let</span> ok <span class="op">=</span> tui2.<span class="fn">confirm</span>(<span class="str">"Are you sure?"</span>)
-
-tui2.<span class="fn">alert</span>(<span class="str">"Done!"</span><span class="op">,</span> <span class="str">"success"</span>)
-tui2.<span class="fn">alert</span>(<span class="str">"Oops"</span><span class="op">,</span> <span class="str">"error"</span>)
-tui2.<span class="fn">alert</span>(<span class="str">"Note"</span><span class="op">,</span> <span class="str">"info"</span>)</pre>
-
-  <h2 id="result">Result Module</h2>
-  <pre><span class="kw">use</span> result
-
-<span class="kw">do</span> <span class="fn">divide</span>(a<span class="op">:</span> <span class="type">int</span><span class="op">,</span> b<span class="op">:</span> <span class="type">int</span>) <span class="op">-></span> <span class="type">any</span> {
-  <span class="kw">if</span> b <span class="op">==</span> <span class="num">0</span> { <span class="kw">return</span> result.<span class="fn">err</span>(<span class="str">"division by zero"</span>) }
-  <span class="kw">return</span> result.<span class="fn">ok</span>(a <span class="op">/</span> b)
-}
-
-<span class="kw">let</span> r <span class="op">=</span> <span class="fn">divide</span>(<span class="num">10</span><span class="op">,</span> <span class="num">2</span>)
-<span class="kw">if</span> result.<span class="fn">is_ok</span>(r) {
-  <span class="fn">print</span>(result.<span class="fn">unwrap</span>(r))
-} <span class="kw">else</span> {
-  <span class="fn">print</span>(<span class="str">"Error: "</span> <span class="op">+</span> result.<span class="fn">get_err</span>(r))
-}
-
-<span class="kw">let</span> val <span class="op">=</span> result.<span class="fn">unwrap_or</span>(<span class="fn">divide</span>(<span class="num">1</span><span class="op">,</span> <span class="num">0</span>)<span class="op">,</span> <span class="num">0</span>)  <span class="cm"># 0</span>
-
-<span class="cm"># Option</span>
-<span class="kw">let</span> opt <span class="op">=</span> result.<span class="fn">some</span>(<span class="num">42</span>)
-<span class="kw">let</span> empty <span class="op">=</span> result.<span class="fn">none</span>()</pre>
-
-  <h2 id="fmt2">Fmt2 — Formatting</h2>
-  <pre><span class="kw">use</span> fmt2
-
-fmt2.<span class="fn">thousands</span>(<span class="num">1234567</span>)       <span class="cm"># "1,234,567"</span>
-fmt2.<span class="fn">bytes</span>(<span class="num">1536000</span>)           <span class="cm"># "1.5 MB"</span>
-fmt2.<span class="fn">duration</span>(<span class="num">90000</span>)          <span class="cm"># "1m 30s"</span>
-fmt2.<span class="fn">number</span>(<span class="num">3.14159</span><span class="op">,</span> <span class="num">2</span>)        <span class="cm"># "3.14"</span>
-fmt2.<span class="fn">plural</span>(<span class="num">3</span><span class="op">,</span> <span class="str">"item"</span><span class="op">,</span> <span class="str">"items"</span>) <span class="cm"># "3 items"</span>
-fmt2.<span class="fn">truncate</span>(<span class="str">"long text"</span><span class="op">,</span> <span class="num">6</span>)  <span class="cm"># "lon..."</span>
-fmt2.<span class="fn">pad_left</span>(<span class="str">"42"</span><span class="op">,</span> <span class="num">6</span>)          <span class="cm"># "    42"</span>
-fmt2.<span class="fn">pad_center</span>(<span class="str">"hi"</span><span class="op">,</span> <span class="num">8</span>)        <span class="cm"># "   hi   "</span></pre>
-
-  <h2 id="tg">Telegram Module</h2>
-  <pre><span class="kw">use</span> tg
-<span class="kw">use</span> thread
-
-<span class="kw">do</span> <span class="fn">main</span> {
-  tg.<span class="fn">token</span>(<span class="str">"YOUR_BOT_TOKEN"</span>)
-  tg.<span class="fn">delete_webhook</span>()
-
-  <span class="kw">let mut</span> offset <span class="op">=</span> <span class="num">0</span>
-  <span class="kw">while</span> <span class="kw">true</span> {
-    <span class="kw">let</span> updates <span class="op">=</span> tg.<span class="fn">get_updates</span>(offset)
-    <span class="kw">loop</span> upd <span class="kw">in</span> updates {
-      offset <span class="op">=</span> upd.update_id <span class="op">+</span> <span class="num">1</span>
-      <span class="kw">if</span> upd.text <span class="op">==</span> <span class="str">"/start"</span> {
-        tg.<span class="fn">send_keyboard</span>(upd.chat_id<span class="op">,</span> <span class="str">"Hello!"</span><span class="op">,</span>
-          [[<span class="str">"Option A"</span><span class="op">,</span> <span class="str">"Option B"</span>]])
-      }
-    }
-    thread.<span class="fn">sleep</span>(<span class="num">500</span>)
-  }
-}</pre>
-
-  <h2 id="db">Database Module</h2>
-  <pre>db.<span class="fn">open</span>(<span class="str">"myapp"</span>)
-db.<span class="fn">set</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1"</span><span class="op">,</span> <span class="str">"Alice"</span>)
-<span class="kw">let</span> name <span class="op">=</span> db.<span class="fn">get</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"user:1"</span>)
-db.<span class="fn">incr</span>(<span class="str">"myapp"</span><span class="op">,</span> <span class="str">"visits"</span>)
-<span class="fn">print</span>(db.<span class="fn">count</span>(<span class="str">"myapp"</span>))</pre>
-
-  <h2 id="threads">Threads</h2>
-  <pre>thread.<span class="fn">spawn</span>(<span class="op">||</span> {
-  thread.<span class="fn">sleep</span>(<span class="num">1000</span>)
-  <span class="fn">print</span>(<span class="str">"background done"</span>)
-})
-
-thread.<span class="fn">mutex_new</span>(<span class="str">"counter"</span><span class="op">,</span> <span class="num">0</span>)
-thread.<span class="fn">mutex_set</span>(<span class="str">"counter"</span><span class="op">,</span> <span class="num">42</span>)
-<span class="kw">let</span> val <span class="op">=</span> thread.<span class="fn">mutex_get</span>(<span class="str">"counter"</span>)</pre>
-
-  <h2 id="pkg">Package Manager</h2>
-  <pre>tstnt pkg install logger
-tstnt pkg install tui-pro
-tstnt pkg install sql-orm
-tstnt pkg uninstall logger
-tstnt pkg list
-tstnt pkg search geo</pre>
-
-  <h2 id="using-pkg">Using Packages</h2>
-  <pre><span class="kw">use</span> <span class="str">"logger"</span>
-<span class="kw">use</span> <span class="str">"tui-pro"</span>
-<span class="kw">use</span> <span class="str">"./utils.tstnt"</span>
-
-<span class="kw">do</span> <span class="fn">main</span> {
-  logger.<span class="fn">info</span>(<span class="str">"App started"</span>)
-  tui_pro.<span class="fn">header</span>(<span class="str">"My App v1.0"</span>)
-}</pre>
-
-  <h2 id="new-pkg">New Packages in v1.0</h2>
-  <table>
-    <tr><th>Package</th><th>Description</th></tr>
-    <tr><td><code>sql-orm</code></td><td>ORM on top of sql: connect, save, find_all, find_by, find_one, update, remove, count</td></tr>
-    <tr><td><code>http-server</code></td><td>route, route_post, json_route, static_page, listen</td></tr>
-    <tr><td><code>result-pkg</code></td><td>ok, err, some, none, unwrap, unwrap_or, try_parse_int, try_parse_float</td></tr>
-    <tr><td><code>tui-pro</code></td><td>header, success, error, warn, info, table, menu, confirm, rule, print_kv, print_list</td></tr>
-    <tr><td><code>fmt-utils</code></td><td>format, pad_left, center, truncate, thousands, bytes, duration, percent, currency</td></tr>
-    <tr><td><code>semver</code></td><td>parse, compare, is_greater, bump_major, bump_minor, bump_patch, satisfies</td></tr>
-    <tr><td><code>algorithms</code></td><td>binary_search, bubble_sort, fibonacci, primes_up_to, two_sum, max_subarray</td></tr>
-    <tr><td><code>geo</code></td><td>haversine, distance_km, distance_miles, bearing, midpoint, km_to_miles</td></tr>
-    <tr><td><code>pathfinding</code></td><td>bfs, flood_fill, manhattan, neighbors, print_grid</td></tr>
-    <tr><td><code>cron</code></td><td>every_seconds, every_minutes, every_hours, daily, is_due, mark_done, status</td></tr>
-    <tr><td><code>slugify</code></td><td>slugify, to_filename, to_id, truncate_slug</td></tr>
-    <tr><td><code>dotenv-pkg</code></td><td>load, load_default, get, require, get_int, get_bool</td></tr>
-    <tr><td><code>cli-parser</code></td><td>parse, has_flag, get_opt, positional, help, require</td></tr>
-    <tr><td><code>event-emitter</code></td><td>on, off, emit, has, events, once, clear_all</td></tr>
-    <tr><td><code>task-runner</code></td><td>task, run, list, run_all, run_seq</td></tr>
-    <tr><td><code>colors-256</code></td><td>fg, bg, gradient, rainbow, print_palette, pastel_*, orange, teal, gold</td></tr>
-    <tr><td><code>i18n-extra</code></td><td>set_lang, add, add_many, t, t_with, has, langs, plural_rule</td></tr>
-  </table>
-
-  <div style="height:80px;"></div>
+  <h2 id="lsp">LSP</h2>
+  <p>TSTNT includes a Language Server (<code>tstnt-lsp</code>) for editor integration.</p>
+  <pre><span class="cm"># Neovim (init.lua)</span>
+vim.api.nvim_create_autocmd(&#123; "BufRead", "BufNewFile" &#125;, &#123;
+  pattern = "*.tstnt",
+  callback = function()
+    vim.lsp.start(&#123;
+      name = "tstnt-lsp",
+      cmd = &#123; "tstnt-lsp" &#125;,
+      root_dir = vim.fn.getcwd(),
+    &#125;)
+  end,
+&#125;)</pre>
+  <p>The LSP provides: autocomplete, hover documentation, go-to-definition, syntax errors.</p>
+</div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-// Progress bar
-const progressBar = document.getElementById('progressBar');
-window.addEventListener('scroll', () => {
-  const h = document.documentElement;
-  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-  progressBar.style.width = pct + '%';
-});
-
-// Copy helpers
-function copyText(text, btn) {
-  const succeed = () => {
-    btn.textContent = 'COPIED ✓';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
-  };
-  if (navigator.clipboard && location.protocol !== 'content:') {
-    navigator.clipboard.writeText(text).then(succeed).catch(() => fallbackCopy(text, succeed));
-  } else { fallbackCopy(text, succeed); }
-}
-function fallbackCopy(text, cb) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
-  document.body.appendChild(ta);
-  ta.focus(); ta.select();
-  try { document.execCommand('copy'); cb(); } catch(e) {}
-  document.body.removeChild(ta);
-}
-
-// Copy buttons on pre blocks
-document.querySelectorAll('pre').forEach(pre => {
-  const wrap = document.createElement('div');
-  wrap.className = 'pre-wrap';
-  pre.parentNode.insertBefore(wrap, pre);
-  wrap.appendChild(pre);
-  const btn = document.createElement('button');
-  btn.className = 'pre-copy';
-  btn.textContent = 'COPY';
-  wrap.appendChild(btn);
-  btn.addEventListener('click', () => copyText(pre.innerText, btn));
-});
-
-// Search — collect headings AFTER DOM is ready
-const headings = [...document.querySelectorAll('h2[id], h3[id]')].map(h => ({ id: h.id, text: h.textContent.trim() }));
-
-const searchInput = document.getElementById('sidebarSearch');
-const searchResults = document.getElementById('searchResults');
-const sidebarNav = document.getElementById('sidebarNav');
-const drawerSearch = document.getElementById('drawerSearch');
-const drawerResults = document.getElementById('drawerResults');
-const drawerNav = document.getElementById('drawerNav');
-
-function buildSearch(q, resultEl, navEl) {
-  if (!q) { resultEl.style.display = 'none'; navEl.style.display = 'block'; return; }
-  const matches = headings.filter(h => h.text.toLowerCase().includes(q));
-  navEl.style.display = 'none';
-  resultEl.style.display = 'block';
-  if (!matches.length) {
-    resultEl.innerHTML = '<div style="padding:10px 14px;font-size:11px;color:var(--muted);font-family:Space Mono,monospace;">No results</div>';
-    return;
-  }
-  resultEl.innerHTML = matches.map(h => {
-    const hi = h.text.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')})`, 'gi'), '<mark>$1</mark>');
-    return `<a class="search-result" href="#${h.id}">${hi}</a>`;
-  }).join('');
-  resultEl.querySelectorAll('.search-result').forEach(a => {
-    a.addEventListener('click', () => {
-      if (searchInput) searchInput.value = '';
-      if (drawerSearch) drawerSearch.value = '';
-      resultEl.style.display = 'none';
-      navEl.style.display = 'block';
-    });
-  });
-}
-
-if (searchInput) searchInput.addEventListener('input', () => buildSearch(searchInput.value.trim().toLowerCase(), searchResults, sidebarNav));
-if (drawerSearch) drawerSearch.addEventListener('input', () => buildSearch(drawerSearch.value.trim().toLowerCase(), drawerResults, drawerNav));
-
-// Mobile drawer
-const docsHamburger = document.getElementById('docsHamburger');
-const sidebarDrawer = document.getElementById('sidebarDrawer');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
-
-function toggleDrawer(open) {
-  docsHamburger.classList.toggle('open', open);
-  sidebarDrawer.classList.toggle('open', open);
-  sidebarOverlay.classList.toggle('open', open);
-}
-
-docsHamburger.addEventListener('click', () => toggleDrawer(!sidebarDrawer.classList.contains('open')));
-sidebarOverlay.addEventListener('click', () => toggleDrawer(false));
-document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', () => {
-  toggleDrawer(false);
-}));
-
-// Smooth scroll with offset
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if (!target) return;
-    e.preventDefault();
-    toggleDrawer(false);
-    const offset = window.innerWidth <= 768 ? 66 : 20;
-    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
-  });
-});
-
-// Active sidebar link
-const sections = document.querySelectorAll('h2[id], h3[id]');
-const links = document.querySelectorAll('.sidebar a[href^="#"], .sidebar-drawer a[href^="#"]');
-function updateActive() {
-  const scrollY = window.scrollY;
-  const docH = document.documentElement.scrollHeight;
-  let current = '';
-  if (scrollY + window.innerHeight >= docH - 10) {
-    current = sections[sections.length - 1].id;
-  } else {
-    sections.forEach(s => { if (scrollY >= s.offsetTop - 120) current = s.id; });
-  }
-  links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
-}
-window.addEventListener('scroll', updateActive);
-updateActive();
-
-}); // DOMContentLoaded
-</script>
+<script src="main.js"></script>
 </body>
 </html>
