@@ -979,6 +979,14 @@
     .platforms-grid { grid-template-columns:1fr 1fr; }
     .changelog-list { padding-left:8px; }
   }
+
+  /* ── Stdlib grid ─────────────────────────────────────────── */
+  .stdlib-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin-top:40px; }
+  .stdlib-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius,8px); padding:20px; transition:border-color .2s, transform .2s; }
+  .stdlib-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+  .stdlib-name { font-family:'Space Mono',monospace; font-size:15px; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  .stdlib-funcs { font-size:11px; color:var(--muted); line-height:1.7; }
+  @media(max-width:600px) { .stdlib-grid { grid-template-columns:1fr; } }
 </style>
 <body>
 
@@ -994,6 +1002,7 @@
     <li><a href="#install">Install</a></li>
     <li><a href="#syntax">Syntax</a></li>
     <li><a href="#packages">Packages</a></li>
+    <li><a href="#stdlib">Stdlib</a></li>
     <li><a href="#changelog">Changelog</a></li>
     <li><a href="docs.html">Docs</a></li>
   </ul>
@@ -1021,7 +1030,7 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <div class="hero-eyebrow">v1.5.0 — Built on Android with Rust</div>
+  <div class="hero-eyebrow"><span id="heroVer">v1.5.0</span> — Built on Android with Rust</div>
 
   <h1 class="hero-title" id="heroTitle" data-text="TSTNT">TST<span>NT</span></h1>
 
@@ -1455,7 +1464,7 @@ Hello, !  <span class="cm">&lt;-- string interpolation!</span>
 <!-- Packages -->
 <section id="packages">
   <span class="section-tag reveal">// PACKAGES</span>
-  <h2 class="section-title reveal"><span id="pkgCount">150+</span> packages.<br>One command away.</h2>
+  <h2 class="section-title reveal"><span id="pkgCount">289+</span> packages.<br>One command away.</h2>
   <p class="section-sub reveal">All packages live on <a href="https://github.com/tstnt-lang/packages" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/tstnt-lang/packages</a></p>
 
   <div class="pkg-grid reveal">
@@ -1487,9 +1496,18 @@ Hello, !  <span class="cm">&lt;-- string interpolation!</span>
     <div class="pkg-card"><div class="pkg-name">fsm</div><div class="pkg-desc">Finite state machine: add, trigger, can</div></div>
     <div class="pkg-card"><div class="pkg-name">lru</div><div class="pkg-desc">LRU cache with capacity limit</div></div>
     <div class="pkg-card"><div class="pkg-name">text-wrap</div><div class="pkg-desc">wrap, truncate, pad, center, indent</div></div>
+    <div class="pkg-card"><div class="pkg-name">http-utils</div><div class="pkg-desc">get, post_json, download, with_auth</div></div>
+    <div class="pkg-card"><div class="pkg-name">rest-client</div><div class="pkg-desc">Base URL client, headers, auth, JSON</div></div>
+    <div class="pkg-card"><div class="pkg-name">regex-utils</div><div class="pkg-desc">match, extract, sub, is_email, strip_html</div></div>
+    <div class="pkg-card"><div class="pkg-name">crypto-suite</div><div class="pkg-desc">sha256, hmac, xor_encrypt, token, password</div></div>
+    <div class="pkg-card"><div class="pkg-name">pdf-gen</div><div class="pkg-desc">simple_report, invoice — real PDF output</div></div>
+    <div class="pkg-card"><div class="pkg-name">db-utils</div><div class="pkg-desc">open, seed, find_all, find_where, count</div></div>
+    <div class="pkg-card"><div class="pkg-name">audio-gen</div><div class="pkg-desc">tone, chord, save_wav, note_freq, metronome</div></div>
+    <div class="pkg-card"><div class="pkg-name">time-utils</div><div class="pkg-desc">now, today, ago, in_days, stopwatch, sleep</div></div>
+    <div class="pkg-card"><div class="pkg-name">os-utils</div><div class="pkg-desc">run, env, platform, which, pipe, home</div></div>
     <div class="pkg-card" style="border-color:var(--accent); display:flex; align-items:center; justify-content:center;">
       <div style="text-align:center;">
-        <div class="pkg-name" id="pkgMoreCount">+ 129 more</div>
+        <div class="pkg-name" id="pkgMoreCount">+ 267 more</div>
         <div class="pkg-desc"><a href="https://github.com/tstnt-lang/packages" target="_blank" style="color:var(--accent);text-decoration:none;">Browse all →</a></div>
       </div>
     </div>
@@ -1571,7 +1589,8 @@ Hello, !  <span class="cm">&lt;-- string interpolation!</span>
         <li>ARM64 JIT compiler for pure-int functions</li>
         <li>New syntax: <code>for x in arr</code>, <code>const</code> declarations</li>
         <li>New stdlib: <code>iter</code>, <code>bytes</code>, <code>reflect</code></li>
-        <li>12 new packages: vec2d, neural, color3, fsm, lru, trie, bitset, diff2, text-wrap, promise, multimap, expr-eval</li>
+        <li>289 packages (+138 new) — http-utils, rest-client, audio-gen, pdf-gen, db-utils, regex-utils…</li>
+        <li>16 new stdlib modules: http, regex, image, audio, pdf, sqlite, ws, crypto, json, time, math, strings, os, fs, path</li>
         <li>Site moved to <code>tstnt.lol</code></li>
       </ul>
     </div>
@@ -1677,6 +1696,78 @@ Hello, !  <span class="cm">&lt;-- string interpolation!</span>
   </div>
 </section>
 
+
+<section id="stdlib">
+  <span class="section-tag reveal">// STDLIB</span>
+  <h2 class="section-title reveal">16 native modules.<br>Zero dependencies.</h2>
+  <p class="section-sub reveal">Every module written in Rust — no external crates. Ships in the binary.</p>
+  <div class="stdlib-grid reveal">
+    <div class="stdlib-card">
+      <div class="stdlib-name">http</div>
+      <div class="stdlib-funcs">get · post · put · delete · patch · head · build_url</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">regex</div>
+      <div class="stdlib-funcs">test · find · find_all · replace_all · split · count · escape</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">image</div>
+      <div class="stdlib-funcs">new · resize · crop · blur · grayscale · invert · blend · to_ascii</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">audio</div>
+      <div class="stdlib-funcs">sine · square · mix · concat · fade_in · normalize · save_wav</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">pdf</div>
+      <div class="stdlib-funcs">new · add_text · add_page · save · to_bytes</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">sqlite</div>
+      <div class="stdlib-funcs">open · create_table · insert · select_all · select_where · update · delete_where</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">ws</div>
+      <div class="stdlib-funcs">connect · send · recv · ping · close</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">crypto</div>
+      <div class="stdlib-funcs">sha256 · md5 · hmac_sha256 · base64 · xor_encrypt · hash_password</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">json</div>
+      <div class="stdlib-funcs">parse · stringify · pretty · get · set · merge · keys</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">time</div>
+      <div class="stdlib-funcs">now · format · parse_date · add_days · day_name · stopwatch</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">math</div>
+      <div class="stdlib-funcs">sin · cos · sqrt · pow · log · random · factorial · gcd · lerp</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">strings</div>
+      <div class="stdlib-funcs">split · join · trim · wrap · truncate · pad · format · lines</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">os</div>
+      <div class="stdlib-funcs">exec · env · platform · arch · cwd · which · pid · exit</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">fs</div>
+      <div class="stdlib-funcs">read · write · append · ls · walk · glob · cp · mv · rm</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">path</div>
+      <div class="stdlib-funcs">join · basename · dirname · extension · normalize · glob</div>
+    </div>
+    <div class="stdlib-card">
+      <div class="stdlib-name">sql</div>
+      <div class="stdlib-funcs">query · execute · transaction · fetch_one · fetch_all</div>
+    </div>
+  </div>
+</section>
 
 <!-- Footer -->
 <div style="border-top:1px solid var(--border); position:relative; z-index:1;">
@@ -2112,7 +2203,9 @@ replInput.addEventListener('keydown', e => {
       const ver = rel.tag_name;
       document.querySelectorAll('[id="footerVer"]').forEach(el => el.textContent = ver);
       const eyebrow = document.querySelector('.hero-eyebrow');
-      if (eyebrow) eyebrow.textContent = ver + ' — Built on Android with Rust';
+      const heroVer = document.getElementById('heroVer');
+      if (heroVer) heroVer.textContent = ver;
+      if (eyebrow) eyebrow.querySelector && eyebrow.querySelector('#heroVer') ? null : null;
     }
     if (Array.isArray(pkgs)) {
       const count = pkgs.filter(f => f.type === 'dir').length;
